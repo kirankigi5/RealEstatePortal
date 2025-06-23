@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { useTheme } from "../contexts/theme-context";
+import { useLanguage } from "../contexts/language-context";
 import balajiImage from "@assets/balaji_1750707641456.png";
 import anjaniImage from "@assets/anjani_1750707641455.jpg";
 import lakshmiImage from "@assets/lakshmi_1750707641456.jpg";
@@ -43,12 +44,14 @@ const galleryImages = [
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const { theme } = useTheme();
+  const { t } = useLanguage();
 
   return (
-    <section id="gallery" className="py-20 dark-theme-bg">
+    <section id="gallery" className={`py-20 ${theme === 'dark' ? 'dark-theme-bg' : 'bg-gray-50 dark:bg-gray-900'}`}>
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white" data-aos="fade-up">
-          Project <span className="text-amber-500">Gallery</span>
+        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-800 dark:text-white'}`} data-aos="fade-up">
+          {t('gallery.title')} <span className="text-amber-500">{t('gallery.highlight')}</span>
         </h2>
         <p className="text-center text-gray-300 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
           Explore our stunning collection of architectural renders and project imagery showcasing the beauty and elegance of Sankar Hill County.

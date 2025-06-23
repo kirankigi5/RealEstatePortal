@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
 import { Eye, Home, Ruler, MapPin, Phone, MessageCircle, Star, Award, X } from "lucide-react";
 import { useTheme } from "../contexts/theme-context";
+import { useLanguage } from "../contexts/language-context";
 
 import balajiImage from "@assets/balaji_1750707641456.png";
 import anjaniImage from "@assets/anjani_1750707641455.jpg";
@@ -82,12 +83,14 @@ const projects = [
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const { theme } = useTheme();
+  const { t } = useLanguage();
 
   return (
-    <section id="projects" className="py-20 dark-theme-bg">
+    <section id="projects" className={`py-20 ${theme === 'dark' ? 'dark-theme-bg' : 'bg-gray-100 dark:bg-gray-900'}`}>
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white" data-aos="fade-up">
-          Our <span className="text-amber-500">Projects</span>
+        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-800 dark:text-white'}`} data-aos="fade-up">
+          {t('projects.title')} <span className="text-amber-500">{t('projects.highlight')}</span>
         </h2>
         <p className="text-center text-gray-300 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
           Discover our range of thoughtfully designed residential spaces, each crafted to provide the perfect blend of comfort and luxury.
@@ -139,7 +142,7 @@ export default function Projects() {
                       onClick={() => setSelectedProject(project)}
                     >
                       <Eye className="w-5 h-5" />
-                      <span>View Details</span>
+                      <span>{t('projects.viewDetails')}</span>
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="max-w-6xl max-h-[95vh] overflow-y-auto">

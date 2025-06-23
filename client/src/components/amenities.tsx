@@ -13,6 +13,7 @@ import {
   Battery 
 } from "lucide-react";
 import { useTheme } from "../contexts/theme-context";
+import { useLanguage } from "../contexts/language-context";
 
 const amenities = [
   { icon: Building, name: "Club House", description: "Community center for social gatherings", color: "bg-sky-500" },

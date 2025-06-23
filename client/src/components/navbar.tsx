@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Home, Building2, MapPin, Phone, Sun, Moon } from "lucide-react";
+import { Menu, X, Home, Building2, MapPin, Phone, Sun, Moon, Languages } from "lucide-react";
 import { useTheme } from "../contexts/theme-context";
+import { useLanguage } from "../contexts/language-context";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,39 +57,51 @@ export default function Navbar() {
               className="flex items-center space-x-2 text-gray-300 hover:text-amber-500 transition-all duration-300 font-semibold hover:scale-105"
             >
               <Building2 className="w-4 h-4" />
-              <span>Projects</span>
+              <span>{t('nav.projects')}</span>
             </button>
             <button 
               onClick={() => scrollToSection('amenities')} 
               className="flex items-center space-x-2 text-gray-300 hover:text-amber-500 transition-all duration-300 font-semibold hover:scale-105"
             >
               <Home className="w-4 h-4" />
-              <span>Amenities</span>
+              <span>{t('nav.amenities')}</span>
             </button>
             <button 
               onClick={() => scrollToSection('gallery')} 
               className="flex items-center space-x-2 text-gray-300 hover:text-amber-500 transition-all duration-300 font-semibold hover:scale-105"
             >
               <MapPin className="w-4 h-4" />
-              <span>Gallery</span>
+              <span>{t('nav.gallery')}</span>
             </button>
             <button 
               onClick={() => scrollToSection('contact')} 
               className="flex items-center space-x-2 text-gray-300 hover:text-amber-500 transition-all duration-300 font-semibold hover:scale-105"
             >
               <Phone className="w-4 h-4" />
-              <span>Contact</span>
+              <span>{t('nav.contact')}</span>
             </button>
           </div>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
+            {/* Language Toggle Button */}
+            <button
+              onClick={toggleLanguage}
+              className="text-gray-300 hover:text-amber-500 transition-colors duration-300 p-2 rounded-lg hover:bg-white/10 flex items-center space-x-1"
+              aria-label="Toggle language"
+            >
+              <Languages size={18} className="md:hidden" />
+              <Languages size={20} className="hidden md:block" />
+              <span className="text-xs md:text-sm font-medium">{language.toUpperCase()}</span>
+            </button>
+            
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
               className="text-gray-300 hover:text-amber-500 transition-colors duration-300 p-2 rounded-lg hover:bg-white/10"
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              {theme === 'dark' ? <Sun size={18} className="md:hidden" /> : <Moon size={18} className="md:hidden" />}
+              {theme === 'dark' ? <Sun size={20} className="hidden md:block" /> : <Moon size={20} className="hidden md:block" />}
             </button>
             
             {/* Mobile Menu Button */}

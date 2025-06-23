@@ -7,9 +7,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+import { useTheme } from "../contexts/theme-context";
+import { useLanguage } from "../contexts/language-context";
 
 export default function Contact() {
   const { toast } = useToast();
+  const { theme } = useTheme();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -55,9 +59,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className={`py-20 ${theme === 'dark' ? 'dark-theme-bg' : 'bg-white dark:bg-gray-900'}`}>
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800" data-aos="fade-up">
+        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-800 dark:text-white'}`} data-aos="fade-up">
           Get in <span className="text-green-600">Touch</span>
         </h2>
         <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">

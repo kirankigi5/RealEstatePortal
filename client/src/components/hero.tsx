@@ -1,8 +1,10 @@
 import { ChevronDown, Star, Award, Shield } from "lucide-react";
 import { useTheme } from "../contexts/theme-context";
+import { useLanguage } from "../contexts/language-context";
 
 export default function Hero() {
   const { theme } = useTheme();
+  const { t } = useLanguage();
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -20,17 +22,17 @@ export default function Hero() {
       
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20 md:pt-0" data-aos="fade-up" data-aos-duration="1000">
         <div className="flex justify-center items-center mb-4">
-          <span className="text-white font-semibold text-base md:text-lg">Premium Luxury Living</span>
+          <span className="text-white font-semibold text-base md:text-lg">{t('hero.subtitle')}</span>
         </div>
         
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-wide">
-          Sankar Hill County
+          {t('hero.title')}
         </h1>
         
         <div className="flex items-center justify-center space-x-4 mb-6">
           <div className="h-px bg-white/50 w-16"></div>
           <p className="text-xl md:text-3xl text-white font-light italic">
-            A Premium Gated Township by Dwaraka Developers
+            {t('hero.description')}
           </p>
           <div className="h-px bg-white/50 w-16"></div>
         </div>

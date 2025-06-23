@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { Building, Sun, Shield, X } from "lucide-react";
+import { useLanguage } from "../contexts/language-context";
 import layoutImage from "@assets/layout-full_1750707641457.png";
 
 export default function MasterLayout() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <section className="py-20 bg-slate-800">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white" data-aos="fade-up">
-          Master <span className="text-amber-500">Layout</span>
+          {t('layout.title')} <span className="text-amber-500">{t('layout.highlight')}</span>
         </h2>
         
         <div className="max-w-lg mx-auto" data-aos="zoom-in">
@@ -52,7 +54,7 @@ export default function MasterLayout() {
             <div className="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-4">
               <Building className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-3">Residential Blocks</h3>
+            <h3 className="text-xl font-semibold text-white mb-3">{t('layout.residential')}</h3>
             <p className="text-gray-300">
               Thoughtfully designed residential blocks with optimal spacing and privacy
             </p>
@@ -62,7 +64,7 @@ export default function MasterLayout() {
             <div className="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-4">
               <Sun className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-3">Open Spaces</h3>
+            <h3 className="text-xl font-semibold text-white mb-3">{t('layout.openSpaces')}</h3>
             <p className="text-gray-300">
               Abundant green spaces and recreational areas for a healthy lifestyle
             </p>
@@ -72,7 +74,7 @@ export default function MasterLayout() {
             <div className="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-4">
               <Shield className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-3">Security & Safety</h3>
+            <h3 className="text-xl font-semibold text-white mb-3">{t('layout.security')}</h3>
             <p className="text-gray-300">
               24/7 security with gated community features for complete peace of mind
             </p>
