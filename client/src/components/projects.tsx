@@ -83,12 +83,12 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   return (
-    <section id="projects" className="py-20 bg-gray-50">
+    <section id="projects" className="py-20 dark-theme-bg">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800" data-aos="fade-up">
-          Our <span className="text-sky-500">Projects</span>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white" data-aos="fade-up">
+          Our <span className="text-amber-500">Projects</span>
         </h2>
-        <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        <p className="text-center text-gray-300 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
           Discover our range of thoughtfully designed residential spaces, each crafted to provide the perfect blend of comfort and luxury.
         </p>
         
@@ -96,7 +96,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div 
               key={project.name}
-              className="bg-white rounded-3xl premium-shadow overflow-hidden card-hover" 
+              className="dark-card-bg rounded-3xl premium-shadow overflow-hidden card-hover" 
               data-aos="fade-up" 
               data-aos-delay={100 * (index + 1)}
             >
@@ -118,26 +118,26 @@ export default function Projects() {
               
               <div className="p-6">
                 <div className="flex items-center space-x-2 mb-3">
-                  <Award className="w-5 h-5 text-blue-600" />
-                  <h3 className="text-xl font-bold text-gray-800">{project.name}</h3>
+                  <Award className="w-5 h-5 text-amber-500" />
+                  <h3 className="text-xl font-bold text-white">{project.name}</h3>
                 </div>
                 
                 <div className="flex items-center space-x-2 mb-2">
-                  <Home className="w-4 h-4 text-emerald-600" />
-                  <p className={`${project.typeColor} font-semibold`}>{project.type}</p>
+                  <Home className="w-4 h-4 text-amber-400" />
+                  <p className="text-amber-400 font-semibold">{project.type}</p>
                 </div>
                 
                 <div className="flex items-center space-x-2 mb-4">
-                  <Ruler className="w-4 h-4 text-amber-600" />
-                  <p className="text-gray-500 text-sm">Area: {project.area}</p>
+                  <Ruler className="w-4 h-4 text-amber-300" />
+                  <p className="text-gray-400 text-sm">Area: {project.area}</p>
                 </div>
                 
-                <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
+                <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
                 
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button 
-                      className={`w-full bg-gradient-to-r ${project.gradient} text-white py-4 rounded-xl font-bold hover:scale-105 transition-all duration-300 border-0 premium-shadow flex items-center justify-center space-x-2`}
+                      className="w-full gold-gradient text-white py-4 rounded-xl font-bold hover:scale-105 transition-all duration-300 border-0 premium-shadow flex items-center justify-center space-x-2"
                       onClick={() => setSelectedProject(project)}
                     >
                       <Eye className="w-5 h-5" />
@@ -194,7 +194,7 @@ export default function Projects() {
                       )}
                       
                       {/* Contact Information */}
-                      <div className="premium-gradient p-8 rounded-2xl text-white">
+                      <div className="gold-gradient p-8 rounded-2xl text-white">
                         <div className="flex items-center space-x-3 mb-4">
                           <Award className="w-6 h-6" />
                           <h4 className="text-xl font-bold">Interested in this project?</h4>
@@ -203,7 +203,7 @@ export default function Projects() {
                         <div className="grid sm:grid-cols-2 gap-4">
                           <a 
                             href="tel:+919492684972" 
-                            className="bg-white text-blue-600 px-6 py-4 rounded-xl font-bold text-center hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 premium-shadow"
+                            className="bg-white text-amber-600 px-6 py-4 rounded-xl font-bold text-center hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 premium-shadow"
                           >
                             <Phone className="w-5 h-5" />
                             <span>Call: +91 9492684972</span>

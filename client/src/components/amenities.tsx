@@ -30,12 +30,12 @@ const amenities = [
 
 export default function Amenities() {
   return (
-    <section id="amenities" className="py-20 bg-white">
+    <section id="amenities" className="py-20 bg-slate-800">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800" data-aos="fade-up">
-          Premium <span className="text-green-600">Amenities</span>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white" data-aos="fade-up">
+          World-Class <span className="text-amber-500">Amenities</span>
         </h2>
-        <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        <p className="text-center text-gray-300 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
           Experience a lifestyle that combines comfort, convenience, and luxury with our comprehensive range of world-class amenities.
         </p>
         
@@ -45,16 +45,16 @@ export default function Amenities() {
             return (
               <div 
                 key={amenity.name}
-                className={`text-center p-8 bg-white rounded-3xl premium-shadow card-hover float-animation`} 
+                className="text-center p-8 dark-card-bg rounded-3xl premium-shadow card-hover float-animation" 
                 data-aos="fade-up" 
                 data-aos-delay={100 * (index + 1)}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className={`w-20 h-20 ${amenity.color} rounded-2xl flex items-center justify-center mx-auto mb-6 premium-shadow`}>
+                <div className="w-20 h-20 gold-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 premium-shadow">
                   <IconComponent className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">{amenity.name}</h3>
-                <p className="text-gray-600 leading-relaxed">{amenity.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{amenity.name}</h3>
+                <p className="text-gray-300 leading-relaxed">{amenity.description}</p>
               </div>
             );
           })}

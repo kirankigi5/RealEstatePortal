@@ -2,9 +2,9 @@ import { Trophy, Users, Building, Shield } from "lucide-react";
 
 export default function Experience() {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-emerald-50">
+    <section className="py-20 bg-slate-800">
       <div className="container mx-auto px-4 text-center" data-aos="fade-up">
-        <div className="premium-gradient text-white rounded-3xl py-16 px-8 max-w-4xl mx-auto premium-shadow">
+        <div className="dark-premium-gradient text-white rounded-3xl py-16 px-8 max-w-4xl mx-auto premium-shadow border border-amber-500/20">
           <div className="flex justify-center mb-6">
             <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
               <Trophy className="w-8 h-8 text-white" />

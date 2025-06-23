@@ -24,15 +24,16 @@
   --ring: hsl(20, 14.3%, 4.1%);
   --radius: 0.5rem;
   
-  /* Premium real estate theme colors */
-  --sky-custom: hsl(210, 100%, 56%);
-  --forest: hsl(158, 64%, 52%);
-  --gold: hsl(43, 89%, 58%);
-  --platinum: hsl(240, 6%, 90%);
+  /* Premium dark theme colors */
+  --primary-gold: hsl(43, 89%, 58%);
+  --accent-gold: hsl(45, 100%, 65%);
+  --deep-charcoal: hsl(220, 13%, 10%);
   --charcoal: hsl(220, 13%, 18%);
-  --emerald: hsl(160, 84%, 39%);
-  --sapphire: hsl(217, 91%, 60%);
+  --slate-dark: hsl(215, 25%, 15%);
+  --slate-medium: hsl(215, 16%, 25%);
+  --platinum: hsl(240, 6%, 90%);
   --bronze: hsl(30, 67%, 45%);
+  --copper: hsl(20, 85%, 55%);
 }
 
 .dark {
@@ -76,30 +77,34 @@
 @layer components {
   .hero-gradient {
     background: linear-gradient(135deg, 
-      rgba(59, 130, 246, 0.95), 
-      rgba(16, 185, 129, 0.9), 
-      rgba(245, 158, 11, 0.85)
+      rgba(30, 41, 59, 0.95), 
+      rgba(51, 65, 85, 0.9), 
+      rgba(71, 85, 105, 0.85)
     );
   }
   
   .premium-gradient {
-    background: linear-gradient(135deg, #1e40af, #059669, #d97706);
+    background: linear-gradient(135deg, #1e293b, #334155, #d97706);
+  }
+  
+  .dark-premium-gradient {
+    background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
   }
   
   .gold-gradient {
     background: linear-gradient(135deg, #d97706, #f59e0b, #fbbf24);
   }
   
-  .sapphire-gradient {
-    background: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
+  .copper-gradient {
+    background: linear-gradient(135deg, #ea580c, #dc2626, #b91c1c);
   }
   
-  .emerald-gradient {
-    background: linear-gradient(135deg, #047857, #059669, #10b981);
+  .bronze-gradient {
+    background: linear-gradient(135deg, #a16207, #d97706, #ea580c);
   }
   
-  .platinum-gradient {
-    background: linear-gradient(135deg, #f8fafc, #e2e8f0, #cbd5e1);
+  .charcoal-gradient {
+    background: linear-gradient(135deg, #0f172a, #1e293b, #374151);
   }
   
   .whatsapp-pulse {
@@ -151,9 +156,19 @@
   }
   
   .premium-text {
-    background: linear-gradient(135deg, #1e40af, #059669);
+    background: linear-gradient(135deg, #f59e0b, #d97706);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  
+  .dark-theme-bg {
+    background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+  }
+  
+  .dark-card-bg {
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(245, 158, 11, 0.1);
   }
 }

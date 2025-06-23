@@ -14,15 +14,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center">
-      {/* Background image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
-        }}
-      />
-      <div className="absolute inset-0 hero-gradient" />
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden dark-theme-bg">
       
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
         <div className="flex justify-center items-center space-x-2 mb-4">
@@ -50,14 +42,14 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
           <button 
             onClick={() => scrollToSection('contact')}
-            className="premium-gradient text-white px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all duration-300 premium-shadow flex items-center space-x-2"
+            className="gold-gradient text-white px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all duration-300 premium-shadow flex items-center space-x-2"
           >
             <Award className="w-5 h-5" />
             <span>Get in Touch</span>
           </button>
           <button 
             onClick={() => scrollToSection('projects')}
-            className="glass-effect text-white px-10 py-4 rounded-full font-semibold text-lg hover:scale-105 transition-all duration-300 flex items-center space-x-2"
+            className="dark-card-bg text-white px-10 py-4 rounded-full font-semibold text-lg hover:scale-105 transition-all duration-300 flex items-center space-x-2"
           >
             <Shield className="w-5 h-5" />
             <span>View Projects</span>
