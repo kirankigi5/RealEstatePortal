@@ -1,4 +1,4 @@
-import whatsappIcon from "@assets/whatsapp-icon_1750710742263.png";
+import whatsappIcon from "@assets/image_1750714508810.png";
 
 export default function WhatsAppButton() {
   return (
