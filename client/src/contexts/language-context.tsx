@@ -76,6 +76,21 @@ const translations = {
     'contact.interest': 'Interest',
     'contact.message': 'Message',
     'contact.send': 'Send Message',
+    'contact.description': 'Ready to make Sankar Hill County your new home? Contact our expert team for site visits, detailed information, and exclusive offers.',
+    'contact.officeHours': 'Office Hours',
+    'contact.mondayToSunday': 'Monday - Sunday',
+    'contact.timing': '9:00 AM - 7:00 PM',
+    'contact.viewOnMaps': 'View on Google Maps',
+    'contact.sendMessage': 'Send us a Message',
+    'contact.fullName': 'Full Name',
+    'contact.yourName': 'Your Name',
+    'contact.phoneNumber': 'Phone Number',
+    'contact.yourNumber': '+91 Your Number',
+    'contact.emailAddress': 'Email Address',
+    'contact.emailPlaceholder': 'your.email@example.com',
+    'contact.interestedIn': 'Interested In',
+    'contact.selectProject': 'Select Project Type',
+    'contact.messagePlaceholder': 'Tell us about your requirements...',
     
     // Master Layout
     'layout.title': 'Master',
@@ -85,7 +100,21 @@ const translations = {
     'layout.security': 'Security & Safety',
     
     // Common
-    'common.close': 'Close'
+    'common.close': 'Close',
+    
+    // Footer
+    'footer.quickLinks': 'Quick Links',
+    'footer.contactInfo': 'Contact Info',
+    'footer.copyright': '© 2025 Sankar Hill County. All rights reserved.',
+    'footer.developed': 'Developed with excellence by Dwaraka Developers',
+    'footer.description': 'Creating premium living spaces that blend luxury, comfort, and nature. Your dream home awaits at Sankar Hill County - where excellence meets elegance.',
+    
+    // Hero Stats
+    'hero.yearsExperience': 'Years Experience',
+    'hero.happyFamilies': 'Happy Families',
+    'hero.dtcpApproved': 'DTCP Approved',
+    'hero.getInTouch': 'Get in Touch',
+    'hero.viewProjects': 'View Projects'
   },
   te: {
     // Header/Navigation
@@ -154,6 +183,21 @@ const translations = {
     'contact.interest': 'ఆసక్తి',
     'contact.message': 'సందేశం',
     'contact.send': 'సందేశం పంపండి',
+    'contact.description': 'శంకర్ హిల్ కౌంటీని మీ కొత్త ఇల్లుగా మార్చుకోవాలనుకుంటున్నారా? సైట్ విజిట్లు, వివరమైన సమాచారం మరియు ప్రత్యేక ఆఫర్ల కోసం మా నిపుణుల బృందాన్ని సంప్రదించండి.',
+    'contact.officeHours': 'కార్యాలయ సమయం',
+    'contact.mondayToSunday': 'సోమవారం - ఆదివారం',
+    'contact.timing': 'ఉదయం 9:00 - సాయంత్రం 7:00',
+    'contact.viewOnMaps': 'గూగుల్ మ్యాప్స్‌లో చూడండి',
+    'contact.sendMessage': 'మాకు సందేశం పంపండి',
+    'contact.fullName': 'పూర్తి పేరు',
+    'contact.yourName': 'మీ పేరు',
+    'contact.phoneNumber': 'ఫోన్ నంబర్',
+    'contact.yourNumber': '+91 మీ నంబర్',
+    'contact.emailAddress': 'ఇమెయిల్ చిరునామా',
+    'contact.emailPlaceholder': 'your.email@example.com',
+    'contact.interestedIn': 'ఆసక్తి ఉన్న ప్రాజెక్ట్',
+    'contact.selectProject': 'ప్రాజెక్ట్ రకం ఎంచుకోండి',
+    'contact.messagePlaceholder': 'మీ అవసరాల గురించి మాకు చెప్పండి...',
     
     // Master Layout
     'layout.title': 'మాస్టర్',
@@ -163,7 +207,21 @@ const translations = {
     'layout.security': 'భద్రత మరియు సురక్షితత్వం',
     
     // Common
-    'common.close': 'మూసివేయండి'
+    'common.close': 'మూసివేయండి',
+    
+    // Footer
+    'footer.quickLinks': 'త్వరిత లింకులు',
+    'footer.contactInfo': 'సంప్రదింపు వివరాలు',
+    'footer.copyright': '© 2025 శంకర్ హిల్ కౌంటీ. అన్ని హక్కులు కలిగి ఉంది.',
+    'footer.developed': 'ద్వారకా డెవలపర్స్ చేత అద్భుతంగా అభివృద్ధి చేయబడింది',
+    'footer.description': 'లగ్జరీ, సౌకర్యం మరియు ప్రకృతిని మిళితం చేసే ప్రీమియం జీవన స్థలాలను సృష్టించడం. మీ కలల ఇల్లు శంకర్ హిల్ కౌంటీలో మిమ్మల్ని వేచి ఉంది - ఇక్కడ శ్రేష్ఠత మరియు మనోహరత కలుస్తాయి.',
+    
+    // Hero Stats
+    'hero.yearsExperience': 'సంవత్సరాల అనుభవం',
+    'hero.happyFamilies': 'సంతోషకరమైన కుటుంబాలు',
+    'hero.dtcpApproved': 'DTCP ఆమోదం',
+    'hero.getInTouch': 'సంప్రదించండి',
+    'hero.viewProjects': 'ప్రాజెక్టులను చూడండి'
   }
 };
 

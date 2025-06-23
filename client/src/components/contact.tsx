@@ -13,7 +13,7 @@ import { useLanguage } from "../contexts/language-context";
 export default function Contact() {
   const { toast } = useToast();
   const { theme } = useTheme();
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -62,10 +62,10 @@ export default function Contact() {
     <section id="contact" className={`py-20 ${theme === 'dark' ? 'dark-theme-bg' : 'bg-white dark:bg-gray-900'}`}>
       <div className="container mx-auto px-4">
         <h2 className={`text-4xl md:text-5xl font-bold text-center mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-800 dark:text-white'}`} data-aos="fade-up">
-          Get in <span className="text-green-600">Touch</span>
+          {t('contact.title')} <span className="text-amber-500">{t('contact.highlight')}</span>
         </h2>
-        <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-          Ready to make Sankar Hill County your new home? Contact our expert team for site visits, detailed information, and exclusive offers.
+        <p className={`text-center mb-16 max-w-2xl mx-auto ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600 dark:text-gray-300'}`} data-aos="fade-up" data-aos-delay="100">
+          {t('contact.description')}
         </p>
         
         <div className="grid lg:grid-cols-2 gap-16">
