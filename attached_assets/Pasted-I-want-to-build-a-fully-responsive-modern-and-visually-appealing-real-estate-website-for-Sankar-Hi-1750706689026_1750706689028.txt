@@ -1,0 +1,77 @@
+I want to build a fully responsive, modern, and visually appealing real estate website for Sankar Hill County, a premium gated township developed by Dwaraka Developers in Vinukonda.
+
+Build it using Tailwind CSS, smooth scroll transitions (AOS.js), grid layout, and modern UI components. The goal is to make the site elegant, trustworthy, and easy to navigate for potential buyers and investors.
+
+🌐 Website Structure:
+Navbar with logo and links: Projects, Amenities, Gallery, Contact
+
+Hero Section with large background image, tagline:
+Sankar Hill County – A Premium Gated Township by Dwaraka Developers
+Include a call-to-action button: “Get in Touch”
+
+Experience Section with stat: 20+ Years of Experience
+
+About Section:
+
+Sankar Hill County is a prestigious DTCP-approved gated community located in Ramalingeswara Nagar, NTR Colony, Vinukonda. Developed by Dwaraka Developers, the township features luxury apartments, open plots, landscaped parks, and a wide range of premium lifestyle amenities to elevate your standard of living.
+
+Master Layout Plan Section:
+Embed an image with Tailwind grid & hover effect
+
+Projects Section (Cards / Grid Format):
+
+Balaji Residency – 2 BHK Apartments
+
+Anjani Nivas – 3 BHK Apartments
+
+Lakshmi Nilayam – 2 & 3 BHK Apartments
+
+Gokulam – 2 & 3 BHK Apartments
+
+Sripada Enclave – 3 BHK Premium Flats
+
+Sankar Nilayam – 3 BHK Spacious Flats
+
+Amenities Section:
+Stylish icons and text in 2-column or grid layout
+Include: Club House, Children’s Park, Function Hall, Gym, Guest Rooms, Swimming Pool, Mini Theater, Yoga Zone, Solar Lights, Water Plant, Security, etc.
+
+Gallery Section:
+Display image grid (use placeholder paths like /images/gokulam.jpg)
+
+Contact Section:
+Show contact details:
+
+📍 Ramalingeswara Nagar, Sankar Hill County, NTR Colony, Vinukonda - 522 647
+📞 +91 9492684972, +91 8919894236
+Include a styled contact form with inputs: name, phone, email, message
+
+Sticky WhatsApp Button on bottom right
+
+Footer with copyright:
+© 2025 Sankar Hill County. All rights reserved. Developed by Dwaraka Developers
+
+🧱 Tech Specs:
+Use Tailwind CSS via CDN (<script src="https://cdn.tailwindcss.com"></script>)
+
+Add AOS.js for scroll animation
+
+Use Heroicons for icons or FontAwesome (CDN)
+
+Use Google Fonts like 'Poppins' or 'Inter'
+
+Responsive for mobile, tablet, and desktop
+
+Minimal JS unless required for toggles or animation
+
+Smooth hover/transition effects on buttons, cards, etc.
+
+🎨 Design Style:
+Use elegant colors (white, sky-blue, gold, forest green)
+
+Rounded corners, drop shadows, gradient buttons
+
+Clean, modern, real-estate friendly fonts and layout
+
+👉 Generate the full website code with HTML structure, Tailwind classes, placeholder images and content. Make the layout attractive and realistic.
+
