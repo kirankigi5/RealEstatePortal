@@ -48,6 +48,18 @@ const translations = {
     // Amenities Section
     'amenities.title': 'Premium',
     'amenities.highlight': 'Amenities',
+    'amenities.clubhouse': 'Club House',
+    'amenities.playground': "Children's Park",
+    'amenities.function': 'Function Hall',
+    'amenities.gym': 'Gym',
+    'amenities.guest': 'Guest Rooms',
+    'amenities.pool': 'Swimming Pool',
+    'amenities.theater': 'Mini Theater',
+    'amenities.yoga': 'Yoga Zone',
+    'amenities.solar': 'Solar Lights',
+    'amenities.water': 'Water Plant',
+    'amenities.security': 'Security',
+    'amenities.power': 'Power Backup',
     
     // Gallery Section
     'gallery.title': 'Project',
@@ -114,6 +126,18 @@ const translations = {
     // Amenities Section
     'amenities.title': 'ప్రీమియం',
     'amenities.highlight': 'సౌకర్యాలు',
+    'amenities.clubhouse': 'క్లబ్ హౌస్',
+    'amenities.playground': 'పిల్లల ఆట స్థలం',
+    'amenities.function': 'ఫంక్షన్ హాల్',
+    'amenities.gym': 'జిమ్',
+    'amenities.guest': 'అతిథి గదులు',
+    'amenities.pool': 'స్విమ్మింగ్ పూల్',
+    'amenities.theater': 'మినీ థియేటర్',
+    'amenities.yoga': 'యోగా జోన్',
+    'amenities.solar': 'సోలార్ లైట్లు',
+    'amenities.water': 'వాటర్ ప్లాంట్',
+    'amenities.security': 'భద్రత',
+    'amenities.power': 'పవర్ బ్యాకప్',
     
     // Gallery Section
     'gallery.title': 'ప్రాజెక్ట్',
@@ -146,12 +170,15 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('te'); // Default to Telugu
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language') as Language;
     if (savedLanguage) {
       setLanguage(savedLanguage);
+    } else {
+      // Set Telugu as default for new users
+      setLanguage('te');
     }
   }, []);
 

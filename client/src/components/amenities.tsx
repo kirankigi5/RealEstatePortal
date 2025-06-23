@@ -16,18 +16,18 @@ import { useTheme } from "../contexts/theme-context";
 import { useLanguage } from "../contexts/language-context";
 
 const amenities = [
-  { icon: Building, name: "Club House", description: "Community center for social gatherings", color: "bg-sky-500" },
-  { icon: Sun, name: "Children's Park", description: "Safe play area for kids", color: "bg-green-600" },
-  { icon: Calendar, name: "Function Hall", description: "Event space for celebrations", color: "bg-amber-500" },
-  { icon: Zap, name: "Gym", description: "Modern fitness equipment", color: "bg-sky-500" },
-  { icon: Bed, name: "Guest Rooms", description: "Accommodation for visitors", color: "bg-green-600" },
-  { icon: Waves, name: "Swimming Pool", description: "Refreshing aquatic recreation", color: "bg-amber-500" },
-  { icon: Video, name: "Mini Theater", description: "Private movie screening", color: "bg-sky-500" },
-  { icon: Heart, name: "Yoga Zone", description: "Peaceful meditation space", color: "bg-green-600" },
-  { icon: Lightbulb, name: "Solar Lights", description: "Eco-friendly illumination", color: "bg-amber-500" },
-  { icon: Droplets, name: "Water Plant", description: "Pure water treatment facility", color: "bg-sky-500" },
-  { icon: Shield, name: "Security", description: "24/7 gated community protection", color: "bg-green-600" },
-  { icon: Battery, name: "Power Backup", description: "Uninterrupted electricity supply", color: "bg-amber-500" }
+  { icon: Building, key: "clubhouse", description: "Community center for social gatherings", color: "bg-sky-500" },
+  { icon: Sun, key: "playground", description: "Safe play area for kids", color: "bg-green-600" },
+  { icon: Calendar, key: "function", description: "Event space for celebrations", color: "bg-amber-500" },
+  { icon: Zap, key: "gym", description: "Modern fitness equipment", color: "bg-sky-500" },
+  { icon: Bed, key: "guest", description: "Accommodation for visitors", color: "bg-green-600" },
+  { icon: Waves, key: "pool", description: "Refreshing aquatic recreation", color: "bg-amber-500" },
+  { icon: Video, key: "theater", description: "Private movie screening", color: "bg-sky-500" },
+  { icon: Heart, key: "yoga", description: "Peaceful meditation space", color: "bg-green-600" },
+  { icon: Lightbulb, key: "solar", description: "Eco-friendly illumination", color: "bg-amber-500" },
+  { icon: Droplets, key: "water", description: "Pure water treatment facility", color: "bg-sky-500" },
+  { icon: Shield, key: "security", description: "24/7 gated community protection", color: "bg-green-600" },
+  { icon: Battery, key: "power", description: "Uninterrupted electricity supply", color: "bg-amber-500" }
 ];
 
 export default function Amenities() {

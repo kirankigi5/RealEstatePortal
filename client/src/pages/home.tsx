@@ -1,6 +1,5 @@
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
-import Experience from "@/components/experience";
 import About from "@/components/about";
 import MasterLayout from "@/components/master-layout";
 import Projects from "@/components/projects";
@@ -9,6 +8,7 @@ import Gallery from "@/components/gallery";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import WhatsAppButton from "@/components/whatsapp-button";
+import LanguageSelector from "@/components/language-selector";
 import { useTheme } from "../contexts/theme-context";
 
 export default function Home() {
@@ -16,9 +16,9 @@ export default function Home() {
   
   return (
     <div className={`min-h-screen ${theme === 'dark' ? 'dark-theme-bg text-white' : 'light-theme-bg bg-white text-gray-900'}`}>
+      <LanguageSelector />
       <Navbar />
       <Hero />
-      <Experience />
       <About />
       <Projects />
       <MasterLayout />
