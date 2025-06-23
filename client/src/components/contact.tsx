@@ -67,7 +67,7 @@ export default function Contact() {
         <p className={`text-center mb-16 max-w-2xl mx-auto ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600 dark:text-gray-300'}`} data-aos="fade-up" data-aos-delay="100">
           {t('contact.description')}
         </p>
-        
+
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
           <div className="space-y-8" data-aos="fade-right">
@@ -85,7 +85,7 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-            
+
             <div className="dark-card-bg rounded-2xl p-6 premium-shadow card-hover">
               <div className="flex items-start space-x-4">
                 <div className="w-14 h-14 gold-gradient rounded-2xl flex items-center justify-center flex-shrink-0 premium-shadow">
@@ -104,7 +104,7 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-            
+
             <div className="dark-card-bg rounded-2xl p-6 premium-shadow card-hover">
               <div className="flex items-start space-x-4">
                 <div className="w-14 h-14 gold-gradient rounded-2xl flex items-center justify-center flex-shrink-0 premium-shadow">
@@ -119,128 +119,32 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-            
-            {/* Google Map */}
-            <div className="mt-8">
+          </div>
+
+          {/* Map on the right */}
+          <div data-aos="fade-left" className="flex flex-col h-full justify-center">
+            <div className="dark-card-bg rounded-3xl p-0 premium-shadow overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3837.8234567890123!2d79.7345678901234!3d15.8234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDQ5JzI0LjQiTiA3OcKwNDQnMDQuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-                width="100%"
-                height="256"
+                src="https://www.google.com/maps?&q=15.8234567890123,79.7345678901234&output=embed&t=k" width="100%"
+                height="400"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-2xl shadow-lg"
+                className="rounded-3xl w-full"
                 title="Sankar Hill County Location"
               />
-              <div className="mt-4 text-center">
-                <a 
-                  href="https://maps.app.goo.gl/DtNpzqRd1sos2Qud7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-sky-500 hover:text-sky-600 font-medium"
-                >
-                  View on Google Maps →
-                </a>
-              </div>
             </div>
-          </div>
-          
-          {/* Contact Form */}
-          <div className="dark-card-bg rounded-3xl p-8 premium-shadow" data-aos="fade-left">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 gold-gradient rounded-2xl flex items-center justify-center">
-                <Mail className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white">Send us a Message</h3>
-            </div>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Full Name
-                  </label>
-                  <Input
-                    id="name"
-                    type="text"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={(e) => handleInputChange('name', e.target.value)}
-                    required
-                    className="w-full"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Phone Number
-                  </label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="+91 Your Number"
-                    value={formData.phone}
-                    onChange={(e) => handleInputChange('phone', e.target.value)}
-                    required
-                    className="w-full"
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email Address
-                </label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="your.email@example.com"
-                  value={formData.email}
-                  onChange={(e) => handleInputChange('email', e.target.value)}
-                  required
-                  className="w-full"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="interest" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Interested In
-                </label>
-                <Select value={formData.interest} onValueChange={(value) => handleInputChange('interest', value)}>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select Project Type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="2bhk">2 BHK Apartments</SelectItem>
-                    <SelectItem value="3bhk">3 BHK Apartments</SelectItem>
-                    <SelectItem value="plots">Open Plots</SelectItem>
-                    <SelectItem value="all">All Projects</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  rows={4}
-                  placeholder="Tell us about your requirements..."
-                  value={formData.message}
-                  onChange={(e) => handleInputChange('message', e.target.value)}
-                  className="w-full"
-                />
-              </div>
-              
-              <Button
-                type="submit"
-                disabled={contactMutation.isPending}
-                className="w-full gold-gradient text-white py-5 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300 premium-shadow border-0 flex items-center justify-center space-x-3"
+            <div className="mt-4 text-center">
+              <a
+                href="https://maps.app.goo.gl/DtNpzqRd1sos2Qud7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-sky-500 hover:text-sky-600 font-medium"
               >
-                <Send className="w-5 h-5" />
-                <span>{contactMutation.isPending ? "Sending..." : "Send Message"}</span>
-              </Button>
-            </form>
+                View on Google Maps →
+              </a>
+            </div>
           </div>
         </div>
       </div>
