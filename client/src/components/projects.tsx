@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { X } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
+import { Eye, Home, Ruler, MapPin, Phone, MessageCircle, Star, Award } from "lucide-react";
 
 import balajiImage from "@assets/balaji_1750707641456.png";
 import anjaniImage from "@assets/anjani_1750707641455.jpg";
@@ -96,35 +96,62 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div 
               key={project.name}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300" 
+              className="bg-white rounded-3xl premium-shadow overflow-hidden card-hover" 
               data-aos="fade-up" 
               data-aos-delay={100 * (index + 1)}
             >
-              <img 
-                src={project.image} 
-                alt={`${project.name} - ${project.type}`} 
-                className="w-full h-48 object-cover"
-              />
+              <div className="relative overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={`${project.name} - ${project.type}`} 
+                  className="w-full h-56 object-cover transition-transform duration-500 hover:scale-110"
+                />
+                <div className="absolute top-4 right-4">
+                  <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                    <div className="flex items-center space-x-1">
+                      <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                      <span className="text-sm font-semibold text-gray-700">Premium</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{project.name}</h3>
-                <p className={`${project.typeColor} font-semibold mb-1`}>{project.type}</p>
-                <p className="text-gray-500 text-sm mb-3">Area: {project.area}</p>
-                <p className="text-gray-600 mb-4">{project.description}</p>
+                <div className="flex items-center space-x-2 mb-3">
+                  <Award className="w-5 h-5 text-blue-600" />
+                  <h3 className="text-xl font-bold text-gray-800">{project.name}</h3>
+                </div>
+                
+                <div className="flex items-center space-x-2 mb-2">
+                  <Home className="w-4 h-4 text-emerald-600" />
+                  <p className={`${project.typeColor} font-semibold`}>{project.type}</p>
+                </div>
+                
+                <div className="flex items-center space-x-2 mb-4">
+                  <Ruler className="w-4 h-4 text-amber-600" />
+                  <p className="text-gray-500 text-sm">Area: {project.area}</p>
+                </div>
+                
+                <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
                 
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button 
-                      className={`w-full bg-gradient-to-r ${project.gradient} text-white py-3 rounded-lg font-semibold hover:scale-105 transition-transform border-0`}
+                      className={`w-full bg-gradient-to-r ${project.gradient} text-white py-4 rounded-xl font-bold hover:scale-105 transition-all duration-300 border-0 premium-shadow flex items-center justify-center space-x-2`}
                       onClick={() => setSelectedProject(project)}
                     >
-                      View Details
+                      <Eye className="w-5 h-5" />
+                      <span>View Details</span>
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                  <DialogContent className="max-w-6xl max-h-[95vh] overflow-y-auto">
                     <DialogHeader>
-                      <DialogTitle className="text-2xl font-bold text-gray-800 mb-4">
-                        {project.name} - {project.type}
+                      <DialogTitle className="text-3xl font-bold premium-text mb-2">
+                        {project.name}
                       </DialogTitle>
+                      <DialogDescription className="text-lg text-gray-600 font-medium">
+                        {project.type} • {project.area} • DTCP Approved
+                      </DialogDescription>
                     </DialogHeader>
                     
                     <div className="space-y-6">
@@ -167,23 +194,28 @@ export default function Projects() {
                       )}
                       
                       {/* Contact Information */}
-                      <div className="bg-gray-50 p-6 rounded-lg">
-                        <h4 className="text-lg font-semibold text-gray-800 mb-2">Interested in this project?</h4>
-                        <p className="text-gray-600 mb-4">Contact our expert team for site visits and detailed information.</p>
-                        <div className="flex flex-col sm:flex-row gap-4">
+                      <div className="premium-gradient p-8 rounded-2xl text-white">
+                        <div className="flex items-center space-x-3 mb-4">
+                          <Award className="w-6 h-6" />
+                          <h4 className="text-xl font-bold">Interested in this project?</h4>
+                        </div>
+                        <p className="text-white/90 mb-6 text-lg">Contact our expert team for site visits, detailed information, and exclusive offers.</p>
+                        <div className="grid sm:grid-cols-2 gap-4">
                           <a 
                             href="tel:+919492684972" 
-                            className="bg-sky-500 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-sky-600 transition-colors"
+                            className="bg-white text-blue-600 px-6 py-4 rounded-xl font-bold text-center hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 premium-shadow"
                           >
-                            Call Now: +91 9492684972
+                            <Phone className="w-5 h-5" />
+                            <span>Call: +91 9492684972</span>
                           </a>
                           <a 
                             href="https://wa.me/919492684972" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-green-600 transition-colors"
+                            className="bg-green-500 text-white px-6 py-4 rounded-xl font-bold text-center hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 premium-shadow"
                           >
-                            WhatsApp
+                            <MessageCircle className="w-5 h-5" />
+                            <span>WhatsApp</span>
                           </a>
                         </div>
                       </div>

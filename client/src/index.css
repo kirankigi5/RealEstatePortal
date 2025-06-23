@@ -24,10 +24,15 @@
   --ring: hsl(20, 14.3%, 4.1%);
   --radius: 0.5rem;
   
-  /* Custom colors for the real estate theme */
-  --sky-custom: hsl(199, 89%, 48%);
+  /* Premium real estate theme colors */
+  --sky-custom: hsl(210, 100%, 56%);
   --forest: hsl(158, 64%, 52%);
-  --gold: hsl(45, 93%, 47%);
+  --gold: hsl(43, 89%, 58%);
+  --platinum: hsl(240, 6%, 90%);
+  --charcoal: hsl(220, 13%, 18%);
+  --emerald: hsl(160, 84%, 39%);
+  --sapphire: hsl(217, 91%, 60%);
+  --bronze: hsl(30, 67%, 45%);
 }
 
 .dark {
@@ -70,43 +75,85 @@
 
 @layer components {
   .hero-gradient {
-    background: linear-gradient(135deg, rgba(14, 165, 233, 0.9), rgba(5, 150, 105, 0.8));
+    background: linear-gradient(135deg, 
+      rgba(59, 130, 246, 0.95), 
+      rgba(16, 185, 129, 0.9), 
+      rgba(245, 158, 11, 0.85)
+    );
+  }
+  
+  .premium-gradient {
+    background: linear-gradient(135deg, #1e40af, #059669, #d97706);
   }
   
   .gold-gradient {
-    background: linear-gradient(135deg, #F59E0B, #FBBF24);
+    background: linear-gradient(135deg, #d97706, #f59e0b, #fbbf24);
+  }
+  
+  .sapphire-gradient {
+    background: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
+  }
+  
+  .emerald-gradient {
+    background: linear-gradient(135deg, #047857, #059669, #10b981);
+  }
+  
+  .platinum-gradient {
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0, #cbd5e1);
   }
   
   .whatsapp-pulse {
     animation: pulse 2s infinite;
   }
   
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+  
   @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(34, 197, 94, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(34, 197, 94, 0.6); }
   }
   
-  .sky-custom {
-    color: hsl(var(--sky-custom));
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
   
-  .bg-sky-custom {
-    background-color: hsl(var(--sky-custom));
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
   }
   
-  .forest {
-    color: hsl(var(--forest));
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
   
-  .bg-forest {
-    background-color: hsl(var(--forest));
+  .card-hover {
+    transition: all 0.3s ease;
   }
   
-  .gold {
-    color: hsl(var(--gold));
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
   
-  .bg-gold {
-    background-color: hsl(var(--gold));
+  .premium-shadow {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .premium-text {
+    background: linear-gradient(135deg, #1e40af, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

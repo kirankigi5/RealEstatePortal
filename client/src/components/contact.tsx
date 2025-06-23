@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Phone, Clock } from "lucide-react";
+import { MapPin, Phone, Clock, Mail, Award, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -67,42 +67,52 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
           <div className="space-y-8" data-aos="fade-right">
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-sky-500 rounded-full flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Visit Us</h3>
-                <p className="text-gray-600">
-                  Ramalingeswara Nagar, Sankar Hill County,<br />
-                  NTR Colony, Vinukonda - 522 647
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
-                <Phone className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Call Us</h3>
-                <p className="text-gray-600">
-                  +91 9492684972<br />
-                  +91 8919894236
-                </p>
+            <div className="bg-white rounded-2xl p-6 premium-shadow card-hover">
+              <div className="flex items-start space-x-4">
+                <div className="w-14 h-14 sapphire-gradient rounded-2xl flex items-center justify-center flex-shrink-0 premium-shadow">
+                  <MapPin className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">Visit Us</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Ramalingeswara Nagar, Sankar Hill County,<br />
+                    NTR Colony, Vinukonda - 522 647
+                  </p>
+                </div>
               </div>
             </div>
             
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
-                <Clock className="w-6 h-6 text-white" />
+            <div className="bg-white rounded-2xl p-6 premium-shadow card-hover">
+              <div className="flex items-start space-x-4">
+                <div className="w-14 h-14 emerald-gradient rounded-2xl flex items-center justify-center flex-shrink-0 premium-shadow">
+                  <Phone className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">Call Us</h3>
+                  <div className="space-y-2">
+                    <a href="tel:+919492684972" className="block text-gray-600 hover:text-emerald-600 font-medium transition-colors">
+                      +91 9492684972
+                    </a>
+                    <a href="tel:+918919894236" className="block text-gray-600 hover:text-emerald-600 font-medium transition-colors">
+                      +91 8919894236
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Office Hours</h3>
-                <p className="text-gray-600">
-                  Monday - Sunday<br />
-                  9:00 AM - 7:00 PM
-                </p>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-6 premium-shadow card-hover">
+              <div className="flex items-start space-x-4">
+                <div className="w-14 h-14 gold-gradient rounded-2xl flex items-center justify-center flex-shrink-0 premium-shadow">
+                  <Clock className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">Office Hours</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Monday - Sunday<br />
+                    <span className="font-semibold text-gray-700">9:00 AM - 7:00 PM</span>
+                  </p>
+                </div>
               </div>
             </div>
             
@@ -133,8 +143,13 @@ export default function Contact() {
           </div>
           
           {/* Contact Form */}
-          <div className="bg-gray-50 rounded-2xl p-8" data-aos="fade-left">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h3>
+          <div className="bg-white rounded-3xl p-8 premium-shadow" data-aos="fade-left">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 premium-gradient rounded-2xl flex items-center justify-center">
+                <Mail className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold premium-text">Send us a Message</h3>
+            </div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -216,9 +231,10 @@ export default function Contact() {
               <Button
                 type="submit"
                 disabled={contactMutation.isPending}
-                className="w-full bg-gradient-to-r from-sky-500 to-green-600 text-white py-4 rounded-lg font-semibold text-lg hover:scale-105 transition-transform duration-300 shadow-xl border-0"
+                className="w-full premium-gradient text-white py-5 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300 premium-shadow border-0 flex items-center justify-center space-x-3"
               >
-                {contactMutation.isPending ? "Sending..." : "Send Message"}
+                <Send className="w-5 h-5" />
+                <span>{contactMutation.isPending ? "Sending..." : "Send Message"}</span>
               </Button>
             </form>
           </div>

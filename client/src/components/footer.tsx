@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram } from "lucide-react";
+import { Facebook, Twitter, Instagram, Home, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {
@@ -14,45 +14,46 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-800 text-white py-12">
-      <div className="container mx-auto px-4">
+    <footer className="bg-gray-900 text-white py-16 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-emerald-900/20"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-sky-500 to-green-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">SH</span>
+              <div className="w-14 h-14 premium-gradient rounded-2xl flex items-center justify-center premium-shadow">
+                <Home className="w-7 h-7 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold">Sankar Hill County</h3>
-                <p className="text-gray-300 text-sm">by Dwaraka Developers</p>
+                <h3 className="text-2xl font-bold premium-text">Sankar Hill County</h3>
+                <p className="text-gray-300 font-medium">by Dwaraka Developers</p>
               </div>
             </div>
-            <p className="text-gray-300 mb-6 max-w-md">
+            <p className="text-gray-300 mb-8 max-w-md leading-relaxed text-lg">
               Creating premium living spaces that blend luxury, comfort, and nature. 
-              Your dream home awaits at Sankar Hill County.
+              Your dream home awaits at Sankar Hill County - where excellence meets elegance.
             </p>
             <div className="flex space-x-4">
               <a 
                 href="#" 
-                className="w-10 h-10 bg-sky-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                className="w-12 h-12 sapphire-gradient rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 premium-shadow"
                 aria-label="Follow us on Twitter"
               >
-                <Twitter className="w-5 h-5" />
+                <Twitter className="w-6 h-6" />
               </a>
               <a 
                 href="#" 
-                className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                className="w-12 h-12 emerald-gradient rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 premium-shadow"
                 aria-label="Follow us on Facebook"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-6 h-6" />
               </a>
               <a 
                 href="#" 
-                className="w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                className="w-12 h-12 gold-gradient rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 premium-shadow"
                 aria-label="Follow us on Instagram"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-6 h-6" />
               </a>
             </div>
           </div>
@@ -98,20 +99,41 @@ export default function Footer() {
           
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li>+91 9492684972</li>
-              <li>+91 8919894236</li>
-              <li>NTR Colony, Vinukonda</li>
-              <li>Andhra Pradesh - 522 647</li>
-            </ul>
+            <h4 className="text-xl font-bold mb-6 flex items-center space-x-2">
+              <Mail className="w-5 h-5 text-blue-400" />
+              <span>Contact Info</span>
+            </h4>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-5 h-5 text-emerald-400 mt-1 flex-shrink-0" />
+                <div className="text-gray-300 leading-relaxed">
+                  NTR Colony, Vinukonda<br />
+                  Andhra Pradesh - 522 647
+                </div>
+              </div>
+              <div className="space-y-2">
+                <a href="tel:+919492684972" className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
+                  <span className="w-5 h-5 text-blue-400">📞</span>
+                  <span>+91 9492684972</span>
+                </a>
+                <a href="tel:+918919894236" className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
+                  <span className="w-5 h-5 text-blue-400">📞</span>
+                  <span>+91 8919894236</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-300">
-            © 2025 Sankar Hill County. All rights reserved. Developed by Dwaraka Developers
-          </p>
+        <div className="border-t border-gray-700/50 mt-12 pt-8 text-center">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-400 text-lg">
+              © 2025 Sankar Hill County. All rights reserved.
+            </p>
+            <p className="text-gray-400">
+              Developed with excellence by <span className="text-blue-400 font-semibold">Dwaraka Developers</span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

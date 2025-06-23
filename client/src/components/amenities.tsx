@@ -45,19 +45,16 @@ export default function Amenities() {
             return (
               <div 
                 key={amenity.name}
-                className={`text-center p-6 bg-gradient-to-br ${
-                  amenity.color === 'bg-sky-500' ? 'from-sky-500/5 to-sky-500/10' :
-                  amenity.color === 'bg-green-600' ? 'from-green-600/5 to-green-600/10' :
-                  'from-amber-500/5 to-amber-500/10'
-                } rounded-2xl hover:scale-105 transition-transform`} 
+                className={`text-center p-8 bg-white rounded-3xl premium-shadow card-hover float-animation`} 
                 data-aos="fade-up" 
                 data-aos-delay={100 * (index + 1)}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className={`w-16 h-16 ${amenity.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                  <IconComponent className="w-8 h-8 text-white" />
+                <div className={`w-20 h-20 ${amenity.color} rounded-2xl flex items-center justify-center mx-auto mb-6 premium-shadow`}>
+                  <IconComponent className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">{amenity.name}</h3>
-                <p className="text-gray-600 text-sm">{amenity.description}</p>
+                <h3 className="text-xl font-bold text-gray-800 mb-3">{amenity.name}</h3>
+                <p className="text-gray-600 leading-relaxed">{amenity.description}</p>
               </div>
             );
           })}
