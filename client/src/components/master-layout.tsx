@@ -12,7 +12,7 @@ export default function MasterLayout() {
           Master <span className="text-amber-500">Layout</span>
         </h2>
         
-        <div className="max-w-2xl mx-auto" data-aos="zoom-in">
+        <div className="max-w-lg mx-auto" data-aos="zoom-in">
           <div 
             className="relative group cursor-pointer"
             onClick={() => setIsModalOpen(true)}
