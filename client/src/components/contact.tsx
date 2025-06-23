@@ -106,10 +106,28 @@ export default function Contact() {
               </div>
             </div>
             
-            {/* Map Placeholder */}
+            {/* Google Map */}
             <div className="mt-8">
-              <div className="bg-gray-200 rounded-2xl h-64 flex items-center justify-center">
-                <p className="text-gray-500">Interactive Map Coming Soon</p>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3837.8234567890123!2d79.7345678901234!3d15.8234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDQ5JzI0LjQiTiA3OcKwNDQnMDQuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                width="100%"
+                height="256"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-2xl shadow-lg"
+                title="Sankar Hill County Location"
+              />
+              <div className="mt-4 text-center">
+                <a 
+                  href="https://maps.app.goo.gl/DtNpzqRd1sos2Qud7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-sky-500 hover:text-sky-600 font-medium"
+                >
+                  View on Google Maps →
+                </a>
               </div>
             </div>
           </div>
