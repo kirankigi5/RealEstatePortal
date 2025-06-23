@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
-import { Eye, Home, Ruler, MapPin, Phone, MessageCircle, Star, Award } from "lucide-react";
+import { Eye, Home, Ruler, MapPin, Phone, MessageCircle, Star, Award, X } from "lucide-react";
 import { useTheme } from "../contexts/theme-context";
 
 import balajiImage from "@assets/balaji_1750707641456.png";

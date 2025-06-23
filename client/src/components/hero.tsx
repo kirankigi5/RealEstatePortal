@@ -18,9 +18,9 @@ export default function Hero() {
   return (
     <section id="home" className={`relative min-h-screen flex items-center justify-center overflow-hidden ${theme === 'dark' ? 'dark-theme-bg' : 'bg-gradient-to-br from-blue-900 via-gray-900 to-gray-800'}`}>
       
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20 md:pt-0" data-aos="fade-up" data-aos-duration="1000">
         <div className="flex justify-center items-center mb-4">
-          <span className="text-white font-semibold text-lg">Premium Luxury Living</span>
+          <span className="text-white font-semibold text-base md:text-lg">Premium Luxury Living</span>
         </div>
         
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-wide">
