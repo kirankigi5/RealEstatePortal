@@ -9,10 +9,13 @@ import Gallery from "@/components/gallery";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import WhatsAppButton from "@/components/whatsapp-button";
+import { useTheme } from "../contexts/theme-context";
 
 export default function Home() {
+  const { theme } = useTheme();
+  
   return (
-    <div className="min-h-screen dark-theme-bg">
+    <div className={`min-h-screen ${theme === 'dark' ? 'dark-theme-bg text-white' : 'light-theme-bg bg-white text-gray-900'}`}>
       <Navbar />
       <Hero />
       <Experience />

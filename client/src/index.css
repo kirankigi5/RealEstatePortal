@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Light and Dark theme variables */
+:root {
+  --dark-bg: #0a0a0a;
+  --dark-card: #111111;
+  --dark-border: #1a1a1a;
+  --gold-primary: #d4af37;
+  --gold-secondary: #b8860b;
+  
+  /* Light theme variables */
+  --light-bg: #ffffff;
+  --light-card: #f8f9fa;
+  --light-border: #e9ecef;
+  --light-text: #333333;
+  --light-text-secondary: #666666;
+}
+
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(20, 14.3%, 4.1%);

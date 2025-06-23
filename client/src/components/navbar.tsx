@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Home, Building2, MapPin, Phone } from "lucide-react";
+import { Menu, X, Home, Building2, MapPin, Phone, Sun, Moon } from "lucide-react";
+import { useTheme } from "../contexts/theme-context";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,13 +80,24 @@ export default function Navbar() {
             </button>
           </div>
           
-          {/* Mobile Menu Button */}
-          <button 
-            className="lg:hidden text-gray-700 hover:text-sky-500"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center gap-4">
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="text-gray-300 hover:text-amber-500 transition-colors duration-300 p-2 rounded-lg hover:bg-white/10"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            
+            {/* Mobile Menu Button */}
+            <button 
+              className="lg:hidden text-gray-300 hover:text-amber-500 transition-colors duration-300"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
