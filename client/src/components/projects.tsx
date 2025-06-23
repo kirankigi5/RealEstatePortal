@@ -45,7 +45,7 @@ const projects = [
     description: "Luxury Plots for Gated Community - Versatile options with 2 & 3BHK configurations by Dwaraka Developers.",
     image: lakshmiImage,
     floorplan: lakshmiFloorplan,
-    area: "1365-1883 Sq.ft",
+    area: "1365 & 1883 Sq.ft",
     gradient: "gold-gradient",
     typeColor: "text-amber-500"
   },
@@ -55,7 +55,7 @@ const projects = [
     description: "Add Luxury to your Life... Beautiful 3BHK apartments with modern amenities by Vasavi Builders.",
     image: gokulamImage,
     floorplan: gokulamFloorplan,
-    area: "2100-2171 Sq.ft",
+    area: "2190 & 2171 Sq.ft", // Updated area
     gradient: "from-sky-500 to-green-600",
     typeColor: "text-sky-500"
   },
@@ -65,7 +65,7 @@ const projects = [
     description: "Add Luxury to your Life... Premium 3BHK flats with high-end specifications by Munukuru Infra.",
     image: sripadaImage,
     floorplan: null, // No floorplan image provided for Sripada
-    area: "Premium Configuration",
+    area: "1820 Sq.ft", // Updated area
     gradient: "from-green-600 to-amber-500",
     typeColor: "text-green-600"
   },
