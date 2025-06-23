@@ -1,51 +1,58 @@
 import { Button } from "@/components/ui/button";
 
+import balajiImage from "@assets/balaji_1750707641456.png";
+import anjaniImage from "@assets/anjani_1750707641455.jpg";
+import lakshmiImage from "@assets/lakshmi_1750707641456.jpg";
+import gokulamImage from "@assets/gokulam_1750707641456.jpg";
+import sripadaImage from "@assets/sripada_1750707641458.jpg";
+import sankarImage from "@assets/sankar_1750707641457.jpg";
+
 const projects = [
   {
     name: "Balaji Residency",
     type: "2 BHK Apartments",
-    description: "Thoughtfully designed 2BHK apartments with modern amenities and excellent ventilation.",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    description: "Brighten your Life in a Prestigious Home... DTCP approved with modern amenities and excellent ventilation.",
+    image: balajiImage,
     gradient: "from-sky-500 to-green-600",
     typeColor: "text-sky-500"
   },
   {
     name: "Anjani Nivas",
     type: "3 BHK Apartments",
-    description: "Spacious 3BHK homes with premium finishes and contemporary design elements.",
-    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    description: "Elevate your Lifestyle... Premium 3BHK apartments with contemporary design by Atharva Infra.",
+    image: anjaniImage,
     gradient: "from-green-600 to-sky-500",
     typeColor: "text-green-600"
   },
   {
     name: "Lakshmi Nilayam",
-    type: "2 & 3 BHK Apartments",
-    description: "Versatile housing options with 2 & 3BHK configurations to suit every family size.",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    type: "2 & 3 BHK Plots",
+    description: "Luxury Plots for Gated Community - Versatile options with 2 & 3BHK configurations by Dwaraka Developers.",
+    image: lakshmiImage,
     gradient: "gold-gradient",
     typeColor: "text-amber-500"
   },
   {
     name: "Gokulam",
-    type: "2 & 3 BHK Apartments",
-    description: "Beautiful apartments surrounded by lush gardens and recreational facilities.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    type: "3 BHK Apartments",
+    description: "Add Luxury to your Life... Beautiful 3BHK apartments with modern amenities by Vasavi Builders.",
+    image: gokulamImage,
     gradient: "from-sky-500 to-green-600",
     typeColor: "text-sky-500"
   },
   {
     name: "Sripada Enclave",
     type: "3 BHK Premium Flats",
-    description: "Premium 3BHK flats with high-end specifications and luxury lifestyle amenities.",
-    image: "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    description: "Add Luxury to your Life... Premium 3BHK flats with high-end specifications by Munukuru Infra.",
+    image: sripadaImage,
     gradient: "from-green-600 to-amber-500",
     typeColor: "text-green-600"
   },
   {
     name: "Sankar Nilayam",
     type: "3 BHK Spacious Flats",
-    description: "Extra spacious 3BHK flats designed for large families with premium comfort.",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    description: "Extra spacious 3BHK flats designed for large families with premium comfort by Ista Homes.",
+    image: sankarImage,
     gradient: "gold-gradient",
     typeColor: "text-amber-500"
   }

@@ -87,7 +87,12 @@ This is a full-stack web application for Sankar Hill County, a premium gated tow
 
 ```
 Changelog:
-- June 23, 2025. Initial setup
+- June 23, 2025. Initial setup of full-stack real estate website
+- June 23, 2025. Integrated authentic project images and floor plans
+  - Added actual architectural renderings for all 6 projects
+  - Updated gallery with real project photos
+  - Included authentic layout plan from developer
+  - Enhanced project descriptions with real taglines
 ```
 
 ## User Preferences

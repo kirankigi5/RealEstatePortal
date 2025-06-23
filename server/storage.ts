@@ -42,6 +42,8 @@ export class MemStorage implements IStorage {
     const id = this.currentContactId++;
     const contact: ContactSubmission = {
       ...insertContact,
+      interest: insertContact.interest || null,
+      message: insertContact.message || null,
       id,
       createdAt: new Date(),
     };

@@ -1,33 +1,40 @@
+import balajiImage from "@assets/balaji_1750707641456.png";
+import anjaniImage from "@assets/anjani_1750707641455.jpg";
+import lakshmiImage from "@assets/lakshmi_1750707641456.jpg";
+import gokulamImage from "@assets/gokulam_1750707641456.jpg";
+import sripadaImage from "@assets/sripada_1750707641458.jpg";
+import sankarImage from "@assets/sankar_1750707641457.jpg";
+
 const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    alt: "Modern apartment exterior with balconies",
+    src: balajiImage,
+    alt: "Balaji Residency - 2 BHK apartments with modern design",
     title: "Balaji Residency"
   },
   {
-    src: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    alt: "Luxury swimming pool area",
-    title: "Swimming Pool"
+    src: anjaniImage,
+    alt: "Anjani Nivas - 3 BHK apartments with contemporary styling",
+    title: "Anjani Nivas"
   },
   {
-    src: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    alt: "Beautiful landscaped garden",
-    title: "Landscaped Gardens"
+    src: lakshmiImage,
+    alt: "Lakshmi Nilayam - Luxury plots for gated community",
+    title: "Lakshmi Nilayam"
   },
   {
-    src: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    alt: "Modern clubhouse interior",
-    title: "Club House"
+    src: gokulamImage,
+    alt: "Gokulam - 3 BHK apartments with modern amenities",
+    title: "Gokulam"
   },
   {
-    src: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    alt: "Children's playground area",
-    title: "Children's Park"
+    src: sripadaImage,
+    alt: "Sripada Enclave - Premium 3 BHK flats with luxury finishes",
+    title: "Sripada Enclave"
   },
   {
-    src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    alt: "Modern fitness center",
-    title: "Fitness Center"
+    src: sankarImage,
+    alt: "Sankar Nilayam - Spacious 3 BHK flats for families",
+    title: "Sankar Nilayam"
   }
 ];
 

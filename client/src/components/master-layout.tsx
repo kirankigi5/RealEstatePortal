@@ -1,4 +1,5 @@
 import { Building, Sun, Shield } from "lucide-react";
+import layoutImage from "@assets/layout-full_1750707641457.png";
 
 export default function MasterLayout() {
   return (
@@ -11,8 +12,8 @@ export default function MasterLayout() {
         <div className="max-w-4xl mx-auto" data-aos="zoom-in">
           <div className="relative group cursor-pointer">
             <img 
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=800" 
-              alt="Aerial view of residential township layout" 
+              src={layoutImage} 
+              alt="Sankar Hill County Layout Plan - Plot distribution and township design" 
               className="w-full rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end justify-center pb-8">
