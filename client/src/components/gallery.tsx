@@ -81,7 +81,7 @@ export default function Gallery() {
         {/* Image Modal */}
         {selectedImage && (
           <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="relative max-w-5xl max-h-[90vh] overflow-auto">
+            <div className="relative max-w-md max-h-[90vh] overflow-auto"> {/* Changed from max-w-5xl to max-w-md */}
               <button
                 onClick={() => setSelectedImage(null)}
                 className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"

@@ -145,7 +145,7 @@ export default function Projects() {
                       <span>{t('projects.viewDetails')}</span>
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-6xl max-h-[95vh] overflow-y-auto">
+                  <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
                     <DialogHeader>
                       <DialogTitle className="text-3xl font-bold premium-text mb-2">
                         {project.name}
