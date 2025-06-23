@@ -6,7 +6,7 @@ export default function WhatsAppButton() {
       href="https://wa.me/919492684972"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 whatsapp-pulse"
+      className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl hover:scale-110 transition-all duration-300"
       aria-label="Contact us on WhatsApp"
     >
       <img 

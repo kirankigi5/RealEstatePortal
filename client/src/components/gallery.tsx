@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { X } from "lucide-react";
 import balajiImage from "@assets/balaji_1750707641456.png";
 import anjaniImage from "@assets/anjani_1750707641455.jpg";
 import lakshmiImage from "@assets/lakshmi_1750707641456.jpg";
@@ -39,35 +41,57 @@ const galleryImages = [
 ];
 
 export default function Gallery() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
-    <section id="gallery" className="py-20 bg-gray-50">
+    <section id="gallery" className="py-20 dark-theme-bg">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800" data-aos="fade-up">
-          Project <span className="text-sky-500">Gallery</span>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white" data-aos="fade-up">
+          Project <span className="text-amber-500">Gallery</span>
         </h2>
-        <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-          Take a visual tour of our beautifully crafted spaces and premium amenities that define luxury living.
+        <p className="text-center text-gray-300 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          Explore our stunning collection of architectural renders and project imagery showcasing the beauty and elegance of Sankar Hill County.
         </p>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryImages.map((image, index) => (
             <div 
               key={index}
-              className="relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-shadow group" 
+              className="relative overflow-hidden rounded-2xl premium-shadow card-hover group cursor-pointer" 
               data-aos="fade-up" 
               data-aos-delay={100 * (index + 1)}
+              onClick={() => setSelectedImage(image.src)}
             >
               <img 
                 src={image.src} 
                 alt={image.alt} 
                 className="w-full h-64 object-cover image-hover-effect"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                <p className="text-white font-semibold">{image.title}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end justify-center pb-6">
+                <p className="text-white font-semibold text-lg">{image.title}</p>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Image Modal */}
+        {selectedImage && (
+          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <div className="relative max-w-5xl max-h-[90vh] overflow-auto">
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              <img 
+                src={selectedImage} 
+                alt="Gallery Image" 
+                className="w-full rounded-2xl shadow-2xl"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
