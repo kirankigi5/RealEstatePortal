@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { X } from "lucide-react";
+import { useTheme } from "../contexts/theme-context";
 import balajiImage from "@assets/balaji_1750707641456.png";
 import anjaniImage from "@assets/anjani_1750707641455.jpg";
 import lakshmiImage from "@assets/lakshmi_1750707641456.jpg";

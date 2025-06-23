@@ -1,6 +1,8 @@
 import { ChevronDown, Star, Award, Shield } from "lucide-react";
+import { useTheme } from "../contexts/theme-context";
 
 export default function Hero() {
+  const { theme } = useTheme();
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -14,7 +16,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden dark-theme-bg">
+    <section id="home" className={`relative min-h-screen flex items-center justify-center overflow-hidden ${theme === 'dark' ? 'dark-theme-bg' : 'bg-gradient-to-br from-blue-900 via-gray-900 to-gray-800'}`}>
       
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
         <div className="flex justify-center items-center mb-4">
