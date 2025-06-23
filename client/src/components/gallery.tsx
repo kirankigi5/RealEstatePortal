@@ -60,7 +60,7 @@ export default function Gallery() {
               <img 
                 src={image.src} 
                 alt={image.alt} 
-                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-64 object-cover image-hover-effect"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                 <p className="text-white font-semibold">{image.title}</p>

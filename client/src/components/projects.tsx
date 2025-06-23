@@ -104,14 +104,11 @@ export default function Projects() {
                 <img 
                   src={project.image} 
                   alt={`${project.name} - ${project.type}`} 
-                  className="w-full h-56 object-cover transition-transform duration-500 hover:scale-110"
+                  className="w-full h-56 object-cover image-hover-effect"
                 />
                 <div className="absolute top-4 right-4">
                   <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                    <div className="flex items-center space-x-1">
-                      <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                      <span className="text-sm font-semibold text-gray-700">Premium</span>
-                    </div>
+                    <span className="text-sm font-semibold text-gray-700">{project.area}</span>
                   </div>
                 </div>
               </div>
@@ -160,7 +157,7 @@ export default function Projects() {
                         <img 
                           src={project.image} 
                           alt={`${project.name} exterior view`}
-                          className="w-full rounded-lg shadow-lg"
+                          className="w-full rounded-lg shadow-lg grayscale-hover"
                         />
                       </div>
                       
@@ -188,7 +185,7 @@ export default function Projects() {
                           <img 
                             src={project.floorplan} 
                             alt={`${project.name} floor plan`}
-                            className="w-full rounded-lg shadow-lg"
+                            className="w-full rounded-lg shadow-lg grayscale-hover"
                           />
                         </div>
                       )}

@@ -105,6 +105,13 @@ Changelog:
   - Integrated floating animations and premium visual effects
   - Upgraded typography and spacing for premium aesthetic
   - Added glass morphism effects and enhanced shadows
+- June 23, 2025. Dark mode transformation and Jayabheri Group inspiration
+  - Converted entire website to premium dark theme with gold/amber accents
+  - Implemented grayscale-to-color hover effects on all images (inspired by Jayabheri Group)
+  - Replaced WhatsApp button with provided custom WhatsApp icon image
+  - Removed premium star buttons for cleaner aesthetic
+  - Enhanced all images with grayscale filter that reveals color on hover
+  - Updated color scheme from blue/green to sophisticated dark/gold palette
 ```
 
 ## User Preferences

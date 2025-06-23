@@ -75,6 +75,26 @@
 }
 
 @layer components {
+  /* Grayscale to color hover effect inspired by Jayabheri Group */
+  .grayscale-hover {
+    filter: grayscale(100%);
+    transition: filter 0.4s ease-in-out;
+  }
+  
+  .grayscale-hover:hover {
+    filter: grayscale(0%);
+  }
+  
+  .image-hover-effect {
+    filter: grayscale(100%) brightness(0.8);
+    transition: all 0.4s ease-in-out;
+    transform: scale(1);
+  }
+  
+  .image-hover-effect:hover {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.05);
+  }
   .hero-gradient {
     background: linear-gradient(135deg, 
       rgba(30, 41, 59, 0.95), 

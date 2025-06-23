@@ -17,10 +17,8 @@ export default function Hero() {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden dark-theme-bg">
       
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
-        <div className="flex justify-center items-center space-x-2 mb-4">
-          <Star className="w-6 h-6 text-yellow-400 fill-current" />
-          <span className="text-white font-semibold">Premium Luxury Living</span>
-          <Star className="w-6 h-6 text-yellow-400 fill-current" />
+        <div className="flex justify-center items-center mb-4">
+          <span className="text-white font-semibold text-lg">Premium Luxury Living</span>
         </div>
         
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-wide">
