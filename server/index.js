@@ -184,12 +184,13 @@ function serveStatic(app2) {
 }
 
 // server/index.ts
+import path3 from "path";
 var app = express2();
 app.use(express2.json());
 app.use(express2.urlencoded({ extended: false }));
 app.use((req, res, next) => {
   const start = Date.now();
-  const path3 = req.path;
+  const path4 = req.path;
   let capturedJsonResponse = void 0;
   const originalResJson = res.json;
   res.json = function(bodyJson, ...args) {
@@ -198,8 +199,8 @@ app.use((req, res, next) => {
   };
   res.on("finish", () => {
     const duration = Date.now() - start;
-    if (path3.startsWith("/api")) {
-      let logLine = `${req.method} ${path3} ${res.statusCode} in ${duration}ms`;
+    if (path4.startsWith("/api")) {
+      let logLine = `${req.method} ${path4} ${res.statusCode} in ${duration}ms`;
       if (capturedJsonResponse) {
         logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
       }
@@ -212,6 +213,12 @@ app.use((req, res, next) => {
   next();
 });
 registerRoutes(app);
+app.get("/favicon.ico", (req, res) => {
+  const faviconPath = path3.resolve(process.cwd(), "dist", "favicon.ico");
+  res.sendFile(faviconPath, (err) => {
+    if (err) res.status(204).end();
+  });
+});
 app.use((err, req, res, next) => {
   const status = err.status || err.statusCode || 500;
   const message = err.message || "Internal Server Error";

@@ -2,6 +2,7 @@ import type { Request, Response, NextFunction } from "express";
 import express from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic, log } from "./vite";
+import path from "path"; // <-- Add this import
 
 const app = express();
 app.use(express.json());
@@ -37,13 +38,20 @@ app.use((req, res, next) => {
 
 registerRoutes(app);
 
+// --- Safe favicon handler ---
+app.get('/favicon.ico', (req, res) => {
+  const faviconPath = path.resolve(process.cwd(), 'dist', 'favicon.ico');
+  res.sendFile(faviconPath, err => {
+    if (err) res.status(204).end(); // No Content if missing
+  });
+});
+// ----------------------------
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   const status = err.status || err.statusCode || 500;
   const message = err.message || "Internal Server Error";
   res.status(status).json({ message });
 });
-
 
 serveStatic(app);
 
