@@ -4,6 +4,7 @@ import { registerRoutes } from "./routes";
 import { serveStatic, log } from "./vite";
 import path from "path"; // <-- Add this import
 
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

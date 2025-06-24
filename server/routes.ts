@@ -1,6 +1,6 @@
 import type { Express } from "express";
 import { storage } from "./storage";
-import { insertContactSchema } from "@shared/schema";
+import { insertContactSchema } from "../shared/schema";
 import { z } from "zod";
 
 export function registerRoutes(app: Express): void {

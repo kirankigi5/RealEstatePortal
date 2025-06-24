@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=development tsx server/index.ts",
-    "build": "vite build && esbuild server/index.ts --platform=node --bundle --format=esm --outfile=server/index.js --external:express --external:zod --external:drizzle-orm --external:drizzle-zod --external:@babel/preset-typescript/package.json --external:../pkg",
-    "start": "NODE_ENV=production node dist/index.js",
+    "build": "vite build && esbuild server/index.ts --platform=node --bundle --format=esm --outfile=dist/server.js --external:express --external:zod --external:drizzle-orm --external:drizzle-zod --external:@babel/preset-typescript/package.json --external:../pkg",
+    "start": "NODE_ENV=production node dist/server.js",
     "check": "tsc",
     "db:push": "drizzle-kit push"
   },
