@@ -3,7 +3,6 @@ import fs from "fs";
 import path, { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 import { createServer as createViteServer, createLogger } from "vite";
-import { type Server } from "http";
 import viteConfig from "../vite.config";
 import { nanoid } from "nanoid";
 
@@ -24,24 +23,13 @@ export function log(message: string, source = "express") {
   console.log(`${formattedTime} [${source}] ${message}`);
 }
 
-export async function setupVite(app: Express, server: Server) {
-  const serverOptions = {
-    middlewareMode: true,
-    hmr: { server },
-    // allowedHosts: true, // Remove or set to undefined if error persists
-  };
-
+// Only used in development, not on Vercel
+export async function setupVite(app: Express) {
   const vite = await createViteServer({
     ...viteConfig,
     configFile: false,
-    customLogger: {
-      ...viteLogger,
-      error: (msg, options) => {
-        viteLogger.error(msg, options);
-        process.exit(1);
-      },
-    },
-    server: serverOptions,
+    customLogger: viteLogger,
+    server: { middlewareMode: true },
     appType: "custom",
   });
 
@@ -52,8 +40,6 @@ export async function setupVite(app: Express, server: Server) {
 
     try {
       const clientTemplate = resolve(__dirname, "..", "client", "index.html");
-
-      // always reload index.html in case it changes
       let template = await fs.promises.readFile(clientTemplate, "utf-8");
       template = template.replace(
         `src="/src/main.tsx"`,
@@ -69,8 +55,10 @@ export async function setupVite(app: Express, server: Server) {
   });
 }
 
+// Used in production (on Vercel)
 export function serveStatic(app: Express) {
-  const distPath = resolve(__dirname, "public");
+  // Make sure this matches your Vite build output directory!
+  const distPath = resolve(__dirname, "..", "dist");
 
   if (!fs.existsSync(distPath)) {
     throw new Error(

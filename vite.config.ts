@@ -11,14 +11,15 @@ export default defineConfig({
   plugins: [
     react(),
     runtimeErrorOverlay(),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
-      ? [
-          await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer(),
-          ),
-        ]
-      : []),
+    // The following is only for Replit, safe to remove/comment for Vercel
+    // ...(process.env.NODE_ENV !== "production" &&
+    // process.env.REPL_ID !== undefined
+    //   ? [
+    //       await import("@replit/vite-plugin-cartographer").then((m) =>
+    //         m.cartographer(),
+    //       ),
+    //     ]
+    //   : []),
   ],
   resolve: {
     alias: {
@@ -29,7 +30,7 @@ export default defineConfig({
   },
   root: resolve(__dirname, "client"),
   build: {
-    outDir: resolve(__dirname, "dist/public"),
+    outDir: resolve(__dirname, "dist"), // CHANGED: from "dist/public" to "dist"
     emptyOutDir: true,
   },
   server: {
