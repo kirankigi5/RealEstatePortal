@@ -8,7 +8,8 @@ interface LanguageContextType {
   t: (key: string) => string;
 }
 
-const translations = {
+// TypeScript fix: Explicitly type the translations object
+const translations: Record<Language, Record<string, string>> = {
   en: {
     // Header/Navigation
     'nav.home': 'Home',
@@ -16,13 +17,11 @@ const translations = {
     'nav.amenities': 'Amenities',
     'nav.gallery': 'Gallery',
     'nav.contact': 'Contact',
-    
     // Hero Section
     'hero.subtitle': 'Premium Luxury Living',
     'hero.title': 'Sankar Hill County',
     'hero.description': 'A Premium Gated Township by Dwaraka Developers',
     'hero.cta': 'Explore Projects',
-    
     // About Section
     'about.title': 'About',
     'about.highlight': 'Sankar Hill County',
@@ -31,7 +30,6 @@ const translations = {
     'about.badge1': 'DTCP Approved',
     'about.badge2': 'Gated Community',
     'about.badge3': 'Premium Amenities',
-    
     // Projects Section
     'projects.title': 'Our',
     'projects.highlight': 'Premium Projects',
@@ -44,7 +42,6 @@ const translations = {
     'projects.projectDetails': 'Project Details',
     'projects.type': 'Type:',
     'projects.area': 'Area:',
-    
     // Amenities Section
     'amenities.title': 'Premium',
     'amenities.highlight': 'Amenities',
@@ -60,11 +57,9 @@ const translations = {
     'amenities.water': 'Water Plant',
     'amenities.security': 'Security',
     'amenities.power': 'Power Backup',
-    
     // Gallery Section
     'gallery.title': 'Project',
     'gallery.highlight': 'Gallery',
-    
     // Contact Section
     'contact.title': 'Get In',
     'contact.highlight': 'Touch',
@@ -91,24 +86,20 @@ const translations = {
     'contact.interestedIn': 'Interested In',
     'contact.selectProject': 'Select Project Type',
     'contact.messagePlaceholder': 'Tell us about your requirements...',
-    
     // Master Layout
     'layout.title': 'Master',
     'layout.highlight': 'Layout',
     'layout.residential': 'Residential Blocks',
     'layout.openSpaces': 'Open Spaces',
     'layout.security': 'Security & Safety',
-    
     // Common
     'common.close': 'Close',
-    
     // Footer
     'footer.quickLinks': 'Quick Links',
     'footer.contactInfo': 'Contact Info',
     'footer.copyright': '© 2025 Sankar Hill County. All rights reserved.',
     'footer.developed': 'Developed with excellence by Dwaraka Developers',
     'footer.description': 'Creating premium living spaces that blend luxury, comfort, and nature. Your dream home awaits at Sankar Hill County - where excellence meets elegance.',
-    
     // Hero Stats
     'hero.yearsExperience': 'Years Experience',
     'hero.happyFamilies': 'Happy Families',
@@ -123,13 +114,11 @@ const translations = {
     'nav.amenities': 'సౌకర్యాలు',
     'nav.gallery': 'గ్యాలరీ',
     'nav.contact': 'సంప్రదింపులు',
-    
     // Hero Section
     'hero.subtitle': 'ప్రీమియం లగ్జరీ లివింగ్',
     'hero.title': 'శంకర్ హిల్ కౌంటీ',
     'hero.description': 'ద్వారకా డెవలపర్స్ చేత ప్రీమియం గేటెడ్ టౌన్‌షిప్',
     'hero.cta': 'ప్రాజెక్టులను అన్వేషించండి',
-    
     // About Section
     'about.title': 'శంకర్ హిల్ కౌంటీ',
     'about.highlight': 'గురించి',
@@ -138,7 +127,6 @@ const translations = {
     'about.badge1': 'DTCP ఆమోదం',
     'about.badge2': 'గేటెడ్ కమ్యూనిటీ',
     'about.badge3': 'ప్రీమియం అమెనిటీలు',
-    
     // Projects Section
     'projects.title': 'మా',
     'projects.highlight': 'ప్రీమియం ప్రాజెక్టులు',
@@ -151,7 +139,6 @@ const translations = {
     'projects.projectDetails': 'ప్రాజెక్ట్ వివరాలు',
     'projects.type': 'రకం:',
     'projects.area': 'వైశాల్యం:',
-    
     // Amenities Section
     'amenities.title': 'ప్రీమియం',
     'amenities.highlight': 'సౌకర్యాలు',
@@ -167,11 +154,9 @@ const translations = {
     'amenities.water': 'వాటర్ ప్లాంట్',
     'amenities.security': 'భద్రత',
     'amenities.power': 'పవర్ బ్యాకప్',
-    
     // Gallery Section
     'gallery.title': 'ప్రాజెక్ట్',
     'gallery.highlight': 'గ్యాలరీ',
-    
     // Contact Section
     'contact.title': 'సంప్రదించండి',
     'contact.highlight': '',
@@ -198,24 +183,20 @@ const translations = {
     'contact.interestedIn': 'ఆసక్తి ఉన్న ప్రాజెక్ట్',
     'contact.selectProject': 'ప్రాజెక్ట్ రకం ఎంచుకోండి',
     'contact.messagePlaceholder': 'మీ అవసరాల గురించి మాకు చెప్పండి...',
-    
     // Master Layout
     'layout.title': 'మాస్టర్',
     'layout.highlight': 'లేఅవుట్',
     'layout.residential': 'రెసిడెన్షియల్ బ్లాక్‌లు',
     'layout.openSpaces': 'ఓపెన్ స్పేసెస్',
     'layout.security': 'భద్రత మరియు సురక్షితత్వం',
-    
     // Common
     'common.close': 'మూసివేయండి',
-    
     // Footer
     'footer.quickLinks': 'త్వరిత లింకులు',
     'footer.contactInfo': 'సంప్రదింపు వివరాలు',
     'footer.copyright': '© 2025 శంకర్ హిల్ కౌంటీ. అన్ని హక్కులు కలిగి ఉంది.',
     'footer.developed': 'ద్వారకా డెవలపర్స్ చేత అద్భుతంగా అభివృద్ధి చేయబడింది',
     'footer.description': 'లగ్జరీ, సౌకర్యం మరియు ప్రకృతిని మిళితం చేసే ప్రీమియం జీవన స్థలాలను సృష్టించడం. మీ కలల ఇల్లు శంకర్ హిల్ కౌంటీలో మిమ్మల్ని వేచి ఉంది - ఇక్కడ శ్రేష్ఠత మరియు మనోహరత కలుస్తాయి.',
-    
     // Hero Stats
     'hero.yearsExperience': 'సంవత్సరాల అనుభవం',
     'hero.happyFamilies': 'సంతోషకరమైన కుటుంబాలు',

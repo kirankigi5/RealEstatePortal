@@ -31,6 +31,8 @@ const amenities = [
 ];
 
 export default function Amenities() {
+  const { t } = useLanguage();
+
   return (
     <section id="amenities" className="py-20 bg-slate-800">
       <div className="container mx-auto px-4">
@@ -46,7 +48,7 @@ export default function Amenities() {
             const IconComponent = amenity.icon;
             return (
               <div 
-                key={amenity.name}
+                key={amenity.key}
                 className="text-center p-8 dark-card-bg rounded-3xl premium-shadow card-hover float-animation" 
                 data-aos="fade-up" 
                 data-aos-delay={100 * (index + 1)}
@@ -55,7 +57,7 @@ export default function Amenities() {
                 <div className="w-20 h-20 gold-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 premium-shadow">
                   <IconComponent className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{amenity.name}</h3>
+                <h3 className="text-xl font-bold text-white mb-3">{t(`amenities.${amenity.key}`)}</h3>
                 <p className="text-gray-300 leading-relaxed">{amenity.description}</p>
               </div>
             );
