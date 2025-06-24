@@ -1,8 +1,8 @@
-import express, { type Request, Response, NextFunction } from "express";
+import type { Request, Response, NextFunction } from "express";
+import express from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic, log } from "./vite";
 
-// Create the Express app
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -35,18 +35,16 @@ app.use((req, res, next) => {
   next();
 });
 
-// Register routes (await if needed)
 registerRoutes(app);
 
-// Error handler
-app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
+
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   const status = err.status || err.statusCode || 500;
   const message = err.message || "Internal Server Error";
   res.status(status).json({ message });
 });
 
-// Serve static files (for production)
+
 serveStatic(app);
 
-// Export the app as the default export for Vercel
 export default app;
