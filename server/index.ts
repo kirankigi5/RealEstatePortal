@@ -57,3 +57,11 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 serveStatic(app);
 
 export default app;
+
+// ✅ ES module-safe check
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const PORT = process.env.PORT || 8080;
+  app.listen(PORT, () => {
+    console.log(`✅ Server running at http://localhost:${PORT}`);
+  });
+}
