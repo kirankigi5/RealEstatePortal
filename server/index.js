@@ -1112,7 +1112,7 @@ is not a problem with esbuild. You need to fix your environment instead.
         let latestResultPromise;
         let provideLatestResult;
         if (isContext)
-          requestCallbacks["on-end"] = (id3, request2) => new Promise((resolve6) => {
+          requestCallbacks["on-end"] = (id3, request2) => new Promise((resolve8) => {
             buildResponseToResult(request2, (err, result, onEndErrors, onEndWarnings) => {
               const response = {
                 errors: onEndErrors,
@@ -1122,7 +1122,7 @@ is not a problem with esbuild. You need to fix your environment instead.
               latestResultPromise = void 0;
               provideLatestResult = void 0;
               sendResponse(id3, response);
-              resolve6();
+              resolve8();
             });
           });
         sendRequest(refs, request, (error, response) => {
@@ -1139,10 +1139,10 @@ is not a problem with esbuild. You need to fix your environment instead.
           let didDispose = false;
           const result = {
             rebuild: () => {
-              if (!latestResultPromise) latestResultPromise = new Promise((resolve6, reject) => {
+              if (!latestResultPromise) latestResultPromise = new Promise((resolve8, reject) => {
                 let settlePromise;
                 provideLatestResult = (err, result2) => {
-                  if (!settlePromise) settlePromise = () => err ? reject(err) : resolve6(result2);
+                  if (!settlePromise) settlePromise = () => err ? reject(err) : resolve8(result2);
                 };
                 const triggerAnotherBuild = () => {
                   const request2 = {
@@ -1163,7 +1163,7 @@ is not a problem with esbuild. You need to fix your environment instead.
               });
               return latestResultPromise;
             },
-            watch: (options22 = {}) => new Promise((resolve6, reject) => {
+            watch: (options22 = {}) => new Promise((resolve8, reject) => {
               if (!streamIn.hasFS) throw new Error(`Cannot use the "watch" API in this environment`);
               const keys = {};
               checkForInvalidFlags(options22, keys, `in watch() call`);
@@ -1173,10 +1173,10 @@ is not a problem with esbuild. You need to fix your environment instead.
               };
               sendRequest(refs, request2, (error2) => {
                 if (error2) reject(new Error(error2));
-                else resolve6(void 0);
+                else resolve8(void 0);
               });
             }),
-            serve: (options22 = {}) => new Promise((resolve6, reject) => {
+            serve: (options22 = {}) => new Promise((resolve8, reject) => {
               if (!streamIn.hasFS) throw new Error(`Cannot use the "serve" API in this environment`);
               const keys = {};
               const port = getFlag(options22, keys, "port", mustBeInteger);
@@ -1206,28 +1206,28 @@ is not a problem with esbuild. You need to fix your environment instead.
                     sendResponse(id3, {});
                   };
                 }
-                resolve6(response2);
+                resolve8(response2);
               });
             }),
-            cancel: () => new Promise((resolve6) => {
-              if (didDispose) return resolve6();
+            cancel: () => new Promise((resolve8) => {
+              if (didDispose) return resolve8();
               const request2 = {
                 command: "cancel",
                 key: buildKey
               };
               sendRequest(refs, request2, () => {
-                resolve6();
+                resolve8();
               });
             }),
-            dispose: () => new Promise((resolve6) => {
-              if (didDispose) return resolve6();
+            dispose: () => new Promise((resolve8) => {
+              if (didDispose) return resolve8();
               didDispose = true;
               const request2 = {
                 command: "dispose",
                 key: buildKey
               };
               sendRequest(refs, request2, () => {
-                resolve6();
+                resolve8();
                 scheduleOnDisposeCallbacks();
                 refs.unref();
               });
@@ -1266,7 +1266,7 @@ is not a problem with esbuild. You need to fix your environment instead.
             onLoad: []
           };
           i++;
-          let resolve6 = (path32, options2 = {}) => {
+          let resolve8 = (path32, options2 = {}) => {
             if (!isSetupDone) throw new Error('Cannot call "resolve" before plugin setup has completed');
             if (typeof path32 !== "string") throw new Error(`The path to resolve must be a string`);
             let keys2 = /* @__PURE__ */ Object.create(null);
@@ -1310,7 +1310,7 @@ is not a problem with esbuild. You need to fix your environment instead.
           };
           let promise2 = setup({
             initialOptions,
-            resolve: resolve6,
+            resolve: resolve8,
             onStart(callback) {
               let registeredText = `This error came from the "onStart" callback registered here:`;
               let registeredNote = extractCallerV8(new Error(registeredText), streamIn, "onStart");
@@ -2176,46 +2176,46 @@ More information: The file containing the code for esbuild's JavaScript API (${_
         }
       };
       longLivedService = {
-        build: (options2) => new Promise((resolve6, reject) => {
+        build: (options2) => new Promise((resolve8, reject) => {
           service.buildOrContext({
             callName: "build",
             refs,
             options: options2,
             isTTY: isTTY(),
             defaultWD,
-            callback: (err, res) => err ? reject(err) : resolve6(res)
+            callback: (err, res) => err ? reject(err) : resolve8(res)
           });
         }),
-        context: (options2) => new Promise((resolve6, reject) => service.buildOrContext({
+        context: (options2) => new Promise((resolve8, reject) => service.buildOrContext({
           callName: "context",
           refs,
           options: options2,
           isTTY: isTTY(),
           defaultWD,
-          callback: (err, res) => err ? reject(err) : resolve6(res)
+          callback: (err, res) => err ? reject(err) : resolve8(res)
         })),
-        transform: (input, options2) => new Promise((resolve6, reject) => service.transform({
+        transform: (input, options2) => new Promise((resolve8, reject) => service.transform({
           callName: "transform",
           refs,
           input,
           options: options2 || {},
           isTTY: isTTY(),
           fs: fsAsync,
-          callback: (err, res) => err ? reject(err) : resolve6(res)
+          callback: (err, res) => err ? reject(err) : resolve8(res)
         })),
-        formatMessages: (messages2, options2) => new Promise((resolve6, reject) => service.formatMessages({
+        formatMessages: (messages2, options2) => new Promise((resolve8, reject) => service.formatMessages({
           callName: "formatMessages",
           refs,
           messages: messages2,
           options: options2,
-          callback: (err, res) => err ? reject(err) : resolve6(res)
+          callback: (err, res) => err ? reject(err) : resolve8(res)
         })),
-        analyzeMetafile: (metafile, options2) => new Promise((resolve6, reject) => service.analyzeMetafile({
+        analyzeMetafile: (metafile, options2) => new Promise((resolve8, reject) => service.analyzeMetafile({
           callName: "analyzeMetafile",
           refs,
           metafile: typeof metafile === "string" ? metafile : JSON.stringify(metafile),
           options: options2,
-          callback: (err, res) => err ? reject(err) : resolve6(res)
+          callback: (err, res) => err ? reject(err) : resolve8(res)
         }))
       };
       return longLivedService;
@@ -2293,13 +2293,13 @@ error: ${text2}`);
         worker.postMessage(msg);
         let status2 = Atomics.wait(sharedBufferView, 0, 0);
         if (status2 !== "ok" && status2 !== "not-equal") throw new Error("Internal error: Atomics.wait() failed: " + status2);
-        let { message: { id: id22, resolve: resolve6, reject, properties } } = worker_threads2.receiveMessageOnPort(mainPort);
+        let { message: { id: id22, resolve: resolve8, reject, properties } } = worker_threads2.receiveMessageOnPort(mainPort);
         if (id3 !== id22) throw new Error(`Internal error: Expected id ${id3} but got id ${id22}`);
         if (reject) {
           applyProperties(reject, properties);
           throw reject;
         }
-        return resolve6;
+        return resolve8;
       };
       worker.unref();
       return {
@@ -3392,7 +3392,7 @@ var init_dep_COdkJwUb = __esm({
         for (var i = 0; i < arguments.length; i++) {
           args[i] = arguments[i];
         }
-        return new P(function(resolve6, reject) {
+        return new P(function(resolve8, reject) {
           args.push(function(err, result) {
             if (err) {
               reject(err);
@@ -3401,9 +3401,9 @@ var init_dep_COdkJwUb = __esm({
               for (var i2 = 1; i2 < arguments.length; i2++) {
                 results[i2 - 1] = arguments[i2];
               }
-              resolve6(results);
+              resolve8(results);
             } else {
-              resolve6(result);
+              resolve8(result);
             }
           });
           fn.apply(that, args);
@@ -4061,7 +4061,7 @@ var require_stringifier = __commonJS({
       constructor(builder) {
         this.builder = builder;
       }
-      atrule(node3, semicolon3) {
+      atrule(node3, semicolon4) {
         let name2 = "@" + node3.name;
         let params = node3.params ? this.rawValue(node3, "params") : "";
         if (typeof node3.raws.afterName !== "undefined") {
@@ -4072,7 +4072,7 @@ var require_stringifier = __commonJS({
         if (node3.nodes) {
           this.block(node3, name2 + params);
         } else {
-          let end = (node3.raws.between || "") + (semicolon3 ? ";" : "");
+          let end = (node3.raws.between || "") + (semicolon4 ? ";" : "");
           this.builder(name2 + params + end, node3);
         }
       }
@@ -4120,12 +4120,12 @@ var require_stringifier = __commonJS({
           if (node3.nodes[last].type !== "comment") break;
           last -= 1;
         }
-        let semicolon3 = this.raw(node3, "semicolon");
+        let semicolon4 = this.raw(node3, "semicolon");
         for (let i = 0; i < node3.nodes.length; i++) {
           let child = node3.nodes[i];
           let before = this.raw(child, "before");
           if (before) this.builder(before);
-          this.stringify(child, last !== i || semicolon3);
+          this.stringify(child, last !== i || semicolon4);
         }
       }
       comment(node3) {
@@ -4133,13 +4133,13 @@ var require_stringifier = __commonJS({
         let right = this.raw(node3, "right", "commentRight");
         this.builder("/*" + left + node3.text + right + "*/", node3);
       }
-      decl(node3, semicolon3) {
+      decl(node3, semicolon4) {
         let between = this.raw(node3, "between", "colon");
         let string4 = node3.prop + between + this.rawValue(node3, "value");
         if (node3.important) {
           string4 += node3.raws.important || " !important";
         }
-        if (semicolon3) string4 += ";";
+        if (semicolon4) string4 += ";";
         this.builder(string4, node3);
       }
       document(node3) {
@@ -4326,13 +4326,13 @@ var require_stringifier = __commonJS({
           this.builder(node3.raws.ownSemicolon, node3, "end");
         }
       }
-      stringify(node3, semicolon3) {
+      stringify(node3, semicolon4) {
         if (!this[node3.type]) {
           throw new Error(
             "Unknown AST node type " + node3.type + ". Maybe you need to change PostCSS stringifier."
           );
         }
-        this[node3.type](node3, semicolon3);
+        this[node3.type](node3, semicolon4);
       }
     };
     module.exports = Stringifier;
@@ -5172,6 +5172,32 @@ var require_document = __commonJS({
     };
     module.exports = Document3;
     Document3.default = Document3;
+  }
+});
+
+// node_modules/nanoid/non-secure/index.cjs
+var require_non_secure = __commonJS({
+  "node_modules/nanoid/non-secure/index.cjs"(exports2, module) {
+    var urlAlphabet = "useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklqvwyzrict";
+    var customAlphabet = (alphabet, defaultSize = 21) => {
+      return (size = defaultSize) => {
+        let id3 = "";
+        let i = size | 0;
+        while (i--) {
+          id3 += alphabet[Math.random() * alphabet.length | 0];
+        }
+        return id3;
+      };
+    };
+    var nanoid = (size = 21) => {
+      let id3 = "";
+      let i = size | 0;
+      while (i--) {
+        id3 += urlAlphabet[Math.random() * 64 | 0];
+      }
+      return id3;
+    };
+    module.exports = { nanoid, customAlphabet };
   }
 });
 
@@ -6161,7 +6187,7 @@ var require_quick_sort = __commonJS({
 var require_source_map_consumer = __commonJS({
   "node_modules/source-map-js/lib/source-map-consumer.js"(exports2) {
     var util3 = require_util();
-    var binarySearch = require_binary_search();
+    var binarySearch2 = require_binary_search();
     var ArraySet = require_array_set().ArraySet;
     var base64VLQ = require_base64_vlq();
     var quickSort = require_quick_sort().quickSort;
@@ -6262,7 +6288,7 @@ var require_source_map_consumer = __commonJS({
         "originalLine",
         "originalColumn",
         util3.compareByOriginalPositions,
-        binarySearch.LEAST_UPPER_BOUND
+        binarySearch2.LEAST_UPPER_BOUND
       );
       if (index4 >= 0) {
         var mapping = this._originalMappings[index4];
@@ -6510,7 +6536,7 @@ var require_source_map_consumer = __commonJS({
       if (aNeedle[aColumnName] < 0) {
         throw new TypeError("Column must be greater than or equal to 0, got " + aNeedle[aColumnName]);
       }
-      return binarySearch.search(aNeedle, aMappings, aComparator, aBias);
+      return binarySearch2.search(aNeedle, aMappings, aComparator, aBias);
     };
     BasicSourceMapConsumer.prototype.computeColumnSpans = function SourceMapConsumer_computeColumnSpans() {
       for (var index4 = 0; index4 < this._generatedMappings.length; ++index4) {
@@ -6698,7 +6724,7 @@ var require_source_map_consumer = __commonJS({
         generatedLine: util3.getArg(aArgs, "line"),
         generatedColumn: util3.getArg(aArgs, "column")
       };
-      var sectionIndex = binarySearch.search(
+      var sectionIndex = binarySearch2.search(
         needle,
         this._sections,
         function(needle2, section2) {
@@ -7202,8 +7228,8 @@ var require_previous_map = __commonJS({
 var require_input = __commonJS({
   "node_modules/postcss/lib/input.js"(exports2, module) {
     "use strict";
-    var { nanoid: nanoid2 } = __require("nanoid/non-secure");
-    var { isAbsolute: isAbsolute2, resolve: resolve6 } = __require("path");
+    var { nanoid } = require_non_secure();
+    var { isAbsolute: isAbsolute2, resolve: resolve8 } = __require("path");
     var { SourceMapConsumer, SourceMapGenerator } = require_source_map();
     var { fileURLToPath: fileURLToPath5, pathToFileURL: pathToFileURL2 } = __require("url");
     var CssSyntaxError2 = require_css_syntax_error();
@@ -7211,7 +7237,7 @@ var require_input = __commonJS({
     var terminalHighlight = require_terminal_highlight();
     var fromOffsetCache = Symbol("fromOffsetCache");
     var sourceMapAvailable = Boolean(SourceMapConsumer && SourceMapGenerator);
-    var pathAvailable = Boolean(resolve6 && isAbsolute2);
+    var pathAvailable = Boolean(resolve8 && isAbsolute2);
     var Input2 = class {
       constructor(css, opts = {}) {
         if (css === null || typeof css === "undefined" || typeof css === "object" && !css.toString) {
@@ -7228,7 +7254,7 @@ var require_input = __commonJS({
           if (!pathAvailable || /^\w+:\/\//.test(opts.from) || isAbsolute2(opts.from)) {
             this.file = opts.from;
           } else {
-            this.file = resolve6(opts.from);
+            this.file = resolve8(opts.from);
           }
         }
         if (pathAvailable && sourceMapAvailable) {
@@ -7240,7 +7266,7 @@ var require_input = __commonJS({
           }
         }
         if (!this.file) {
-          this.id = "<input css " + nanoid2(6) + ">";
+          this.id = "<input css " + nanoid(6) + ">";
         }
         if (this.map) this.map.file = this.from;
       }
@@ -7341,7 +7367,7 @@ var require_input = __commonJS({
         if (/^\w+:\/\//.test(file)) {
           return file;
         }
-        return resolve6(this.map.consumer().sourceRoot || this.map.root || ".", file);
+        return resolve8(this.map.consumer().sourceRoot || this.map.root || ".", file);
       }
       origin(line, column, endLine, endColumn) {
         if (!this.map) return false;
@@ -7603,12 +7629,12 @@ var require_fromJSON = __commonJS({
 var require_map_generator = __commonJS({
   "node_modules/postcss/lib/map-generator.js"(exports2, module) {
     "use strict";
-    var { dirname: dirname4, relative: relative2, resolve: resolve6, sep: sep2 } = __require("path");
+    var { dirname: dirname4, relative: relative2, resolve: resolve8, sep: sep2 } = __require("path");
     var { SourceMapConsumer, SourceMapGenerator } = require_source_map();
     var { pathToFileURL: pathToFileURL2 } = __require("url");
     var Input2 = require_input();
     var sourceMapAvailable = Boolean(SourceMapConsumer && SourceMapGenerator);
-    var pathAvailable = Boolean(dirname4 && resolve6 && relative2 && sep2);
+    var pathAvailable = Boolean(dirname4 && resolve8 && relative2 && sep2);
     var MapGenerator = class {
       constructor(stringify5, root4, opts, cssString) {
         this.stringify = stringify5;
@@ -7829,7 +7855,7 @@ var require_map_generator = __commonJS({
         if (cached) return cached;
         let from = this.opts.to ? dirname4(this.opts.to) : ".";
         if (typeof this.mapOpts.annotation === "string") {
-          from = dirname4(resolve6(from, this.mapOpts.annotation));
+          from = dirname4(resolve8(from, this.mapOpts.annotation));
         }
         let path9 = relative2(from, file);
         this.memoizedPaths.set(file, path9);
@@ -9414,11 +9440,11 @@ function unquote(str2) {
   return str2;
 }
 function saveJSON(cssFile, json) {
-  return new Promise((resolve6, reject) => {
+  return new Promise((resolve8, reject) => {
     const {
       writeFile
     } = (0, _fs$2.getFileSystem)();
-    writeFile(`${cssFile}.json`, JSON.stringify(json), (e) => e ? reject(e) : resolve6(json));
+    writeFile(`${cssFile}.json`, JSON.stringify(json), (e) => e ? reject(e) : resolve8(json));
   });
 }
 function arrayReduce(array2, iteratee, accumulator, initAccum) {
@@ -11203,7 +11229,7 @@ var init_dep_CEGXe0Sr = __esm({
         }
         const tokens = this.tokensByFile[fileRelativePath];
         if (tokens) return tokens;
-        return new Promise((resolve6, reject) => {
+        return new Promise((resolve8, reject) => {
           this.fs.readFile(fileRelativePath, "utf-8", async (err, source) => {
             if (err) reject(err);
             const {
@@ -11213,7 +11239,7 @@ var init_dep_CEGXe0Sr = __esm({
             this.sources[fileRelativePath] = injectableSource;
             this.traces[trace] = fileRelativePath;
             this.tokensByFile[fileRelativePath] = exportTokens;
-            resolve6(exportTokens);
+            resolve8(exportTokens);
           });
         });
       }
@@ -11928,20 +11954,20 @@ var init_dep_CEGXe0Sr = __esm({
           return this;
         };
         _proto._findChildAtPosition = function _findChildAtPosition(line, col) {
-          var found = void 0;
+          var found2 = void 0;
           this.each(function(node3) {
             if (node3.atPosition) {
               var foundChild = node3.atPosition(line, col);
               if (foundChild) {
-                found = foundChild;
+                found2 = foundChild;
                 return false;
               }
             } else if (node3.isAtPosition(line, col)) {
-              found = node3;
+              found2 = node3;
               return false;
             }
           });
-          return found;
+          return found2;
         };
         _proto.atPosition = function atPosition(line, col) {
           if (this.isAtPosition(line, col)) {
@@ -12097,7 +12123,7 @@ var init_dep_CEGXe0Sr = __esm({
         _proto.filter = function filter2(callback) {
           return this.nodes.filter(callback);
         };
-        _proto.sort = function sort(callback) {
+        _proto.sort = function sort2(callback) {
           return this.nodes.sort(callback);
         };
         _proto.toString = function toString2() {
@@ -14086,7 +14112,7 @@ var init_dep_CEGXe0Sr = __esm({
           }
           return this.newNode(node3);
         };
-        _proto.comma = function comma4() {
+        _proto.comma = function comma5() {
           if (this.position === this.tokens.length - 1) {
             this.root.trailingComma = true;
             this.position++;
@@ -14422,18 +14448,18 @@ var init_dep_CEGXe0Sr = __esm({
               this.unexpected();
           }
         };
-        _proto.expected = function expected(description2, index4, found) {
+        _proto.expected = function expected(description2, index4, found2) {
           if (Array.isArray(description2)) {
             var last = description2.pop();
             description2 = description2.join(", ") + " or " + last;
           }
           var an = /^[aeiou]/.test(description2[0]) ? "an" : "a";
-          if (!found) {
+          if (!found2) {
             return this.error("Expected " + an + " " + description2 + ".", {
               index: index4
             });
           }
-          return this.error("Expected " + an + " " + description2 + ', found "' + found + '" instead.', {
+          return this.error("Expected " + an + " " + description2 + ', found "' + found2 + '" instead.', {
             index: index4
           });
         };
@@ -14572,7 +14598,7 @@ var init_dep_CEGXe0Sr = __esm({
           if (options2 === void 0) {
             options2 = {};
           }
-          return new Promise(function(resolve6, reject) {
+          return new Promise(function(resolve8, reject) {
             try {
               var root4 = _this._root(rule2, options2);
               Promise.resolve(_this.func(root4)).then(function(transform3) {
@@ -14586,7 +14612,7 @@ var init_dep_CEGXe0Sr = __esm({
                   root: root4,
                   string: string4
                 };
-              }).then(resolve6, reject);
+              }).then(resolve8, reject);
             } catch (e) {
               reject(e);
               return;
@@ -15366,12 +15392,12 @@ var require_filesystem = __commonJS({
     var fs6 = __require("fs");
     var LDD_PATH = "/usr/bin/ldd";
     var readFileSync4 = (path9) => fs6.readFileSync(path9, "utf-8");
-    var readFile2 = (path9) => new Promise((resolve6, reject) => {
+    var readFile2 = (path9) => new Promise((resolve8, reject) => {
       fs6.readFile(path9, "utf-8", (err, data) => {
         if (err) {
           reject(err);
         } else {
-          resolve6(data);
+          resolve8(data);
         }
       });
     });
@@ -15396,10 +15422,10 @@ var require_detect_libc = __commonJS({
     var commandOut = "";
     var safeCommand = () => {
       if (!commandOut) {
-        return new Promise((resolve6) => {
+        return new Promise((resolve8) => {
           childProcess2.exec(command, (err, out) => {
             commandOut = err ? " " : out;
-            resolve6(commandOut);
+            resolve8(commandOut);
           });
         });
       }
@@ -18222,26 +18248,26 @@ function queueAsPromised(context, worker, _concurrency) {
   queue2.drained = drained;
   return queue2;
   function push2(value2) {
-    var p = new Promise(function(resolve6, reject) {
+    var p = new Promise(function(resolve8, reject) {
       pushCb(value2, function(err, result) {
         if (err) {
           reject(err);
           return;
         }
-        resolve6(result);
+        resolve8(result);
       });
     });
     p.catch(noop$4);
     return p;
   }
   function unshift(value2) {
-    var p = new Promise(function(resolve6, reject) {
+    var p = new Promise(function(resolve8, reject) {
       unshiftCb(value2, function(err, result) {
         if (err) {
           reject(err);
           return;
         }
-        resolve6(result);
+        resolve8(result);
       });
     });
     p.catch(noop$4);
@@ -18249,15 +18275,15 @@ function queueAsPromised(context, worker, _concurrency) {
   }
   function drained() {
     if (queue2.idle()) {
-      return new Promise(function(resolve6) {
-        resolve6();
+      return new Promise(function(resolve8) {
+        resolve8();
       });
     }
     var previousDrain = queue2.drain;
-    var p = new Promise(function(resolve6) {
+    var p = new Promise(function(resolve8) {
       queue2.drain = function() {
         previousDrain();
-        resolve6();
+        resolve8();
       };
     });
     return p;
@@ -19898,8 +19924,8 @@ function resolveProps(tokens, { flow, indicator, next, offset, onError: onError2
   let anchor = null;
   let tag3 = null;
   let newlineAfterProp = null;
-  let comma4 = null;
-  let found = null;
+  let comma5 = null;
+  let found2 = null;
   let start = null;
   for (const token of tokens) {
     if (reqSpace) {
@@ -19972,17 +19998,17 @@ function resolveProps(tokens, { flow, indicator, next, offset, onError: onError2
       case indicator:
         if (anchor || tag3)
           onError2(token, "BAD_PROP_ORDER", `Anchors and tags must be after the ${token.source} indicator`);
-        if (found)
+        if (found2)
           onError2(token, "UNEXPECTED_TOKEN", `Unexpected ${token.source} in ${flow ?? "collection"}`);
-        found = token;
+        found2 = token;
         atNewline = indicator === "seq-item-ind" || indicator === "explicit-key-ind";
         hasSpace = false;
         break;
       case "comma":
         if (flow) {
-          if (comma4)
+          if (comma5)
             onError2(token, "UNEXPECTED_TOKEN", `Unexpected , in ${flow}`);
-          comma4 = token;
+          comma5 = token;
           atNewline = false;
           hasSpace = false;
           break;
@@ -20002,8 +20028,8 @@ function resolveProps(tokens, { flow, indicator, next, offset, onError: onError2
   if (tab2 && (atNewline && tab2.indent <= parentIndent || next?.type === "block-map" || next?.type === "block-seq"))
     onError2(tab2, "TAB_AS_INDENT", "Tabs are not allowed as indentation");
   return {
-    comma: comma4,
-    found,
+    comma: comma5,
+    found: found2,
     spaceBefore,
     comment: comment4,
     hasNewline,
@@ -23246,12 +23272,12 @@ function isexe$1(path9, options2, cb) {
     if (typeof Promise !== "function") {
       throw new TypeError("callback not provided");
     }
-    return new Promise(function(resolve6, reject) {
+    return new Promise(function(resolve8, reject) {
       isexe$1(path9, options2 || {}, function(er, is) {
         if (er) {
           reject(er);
         } else {
-          resolve6(is);
+          resolve8(is);
         }
       });
     });
@@ -24597,9 +24623,9 @@ var init_dep_C6uTJdX2 = __esm({
       /**
        * Create EXTGLOB_CHARS
        */
-      extglobChars(chars3) {
+      extglobChars(chars4) {
         return {
-          "!": { type: "negate", open: "(?:(?!(?:", close: `))${chars3.STAR})` },
+          "!": { type: "negate", open: "(?:(?!(?:", close: `))${chars4.STAR})` },
           "?": { type: "qmark", open: "(?:", close: ")?" },
           "+": { type: "plus", open: "(?:", close: ")+" },
           "*": { type: "star", open: "(?:", close: ")*" },
@@ -25176,7 +25202,7 @@ var init_dep_C6uTJdX2 = __esm({
       };
       if (opts.fastpaths !== false && !/(^[*!]|[/()[\]{}"])/.test(input)) {
         let backslashes = false;
-        let output = input.replace(REGEX_SPECIAL_CHARS_BACKREF, (m, esc, chars3, first2, rest, index4) => {
+        let output = input.replace(REGEX_SPECIAL_CHARS_BACKREF, (m, esc, chars4, first2, rest, index4) => {
           if (first2 === "\\") {
             backslashes = true;
             return m;
@@ -25188,10 +25214,10 @@ var init_dep_C6uTJdX2 = __esm({
             if (index4 === 0) {
               return qmarkNoDot + (rest ? QMARK2.repeat(rest.length) : "");
             }
-            return QMARK2.repeat(chars3.length);
+            return QMARK2.repeat(chars4.length);
           }
           if (first2 === ".") {
-            return DOT_LITERAL2.repeat(chars3.length);
+            return DOT_LITERAL2.repeat(chars4.length);
           }
           if (first2 === "*") {
             if (esc) {
@@ -29347,10 +29373,10 @@ var init_dep_C6uTJdX2 = __esm({
        * Return a void Promise that resolves once the stream ends.
        */
       async promise() {
-        return new Promise((resolve6, reject) => {
+        return new Promise((resolve8, reject) => {
           this.on(DESTROYED, () => reject(new Error("stream destroyed")));
           this.on("error", (er) => reject(er));
-          this.on("end", () => resolve6());
+          this.on("end", () => resolve8());
         });
       }
       /**
@@ -29374,7 +29400,7 @@ var init_dep_C6uTJdX2 = __esm({
             return Promise.resolve({ done: false, value: res });
           if (this[EOF])
             return stop();
-          let resolve6;
+          let resolve8;
           let reject;
           const onerr = (er) => {
             this.off("data", ondata);
@@ -29388,19 +29414,19 @@ var init_dep_C6uTJdX2 = __esm({
             this.off("end", onend);
             this.off(DESTROYED, ondestroy);
             this.pause();
-            resolve6({ value: value2, done: !!this[EOF] });
+            resolve8({ value: value2, done: !!this[EOF] });
           };
           const onend = () => {
             this.off("error", onerr);
             this.off("data", ondata);
             this.off(DESTROYED, ondestroy);
             stop();
-            resolve6({ done: true, value: void 0 });
+            resolve8({ done: true, value: void 0 });
           };
           const ondestroy = () => onerr(new Error("stream destroyed"));
           return new Promise((res2, rej) => {
             reject = rej;
-            resolve6 = res2;
+            resolve8 = res2;
             this.once(DESTROYED, ondestroy);
             this.once("error", onerr);
             this.once("end", onend);
@@ -30366,9 +30392,9 @@ var init_dep_C6uTJdX2 = __esm({
         if (this.#asyncReaddirInFlight) {
           await this.#asyncReaddirInFlight;
         } else {
-          let resolve6 = () => {
+          let resolve8 = () => {
           };
-          this.#asyncReaddirInFlight = new Promise((res) => resolve6 = res);
+          this.#asyncReaddirInFlight = new Promise((res) => resolve8 = res);
           try {
             for (const e of await this.#fs.promises.readdir(fullpath, {
               withFileTypes: true
@@ -30381,7 +30407,7 @@ var init_dep_C6uTJdX2 = __esm({
             children.provisional = 0;
           }
           this.#asyncReaddirInFlight = void 0;
-          resolve6();
+          resolve8();
         }
         return children.slice(0, children.provisional);
       }
@@ -34404,9 +34430,9 @@ var init_dep_C6uTJdX2 = __esm({
         });
       }
       _getStat(filepath) {
-        return new Promise((resolve6, reject) => {
+        return new Promise((resolve8, reject) => {
           this._stat(filepath, this._fsStatSettings, (error, stats) => {
-            return error === null ? resolve6(stats) : reject(error);
+            return error === null ? resolve8(stats) : reject(error);
           });
         });
       }
@@ -34423,10 +34449,10 @@ var init_dep_C6uTJdX2 = __esm({
         this._readerStream = new stream_1$2.default(this._settings);
       }
       dynamic(root4, options2) {
-        return new Promise((resolve6, reject) => {
+        return new Promise((resolve8, reject) => {
           this._walkAsync(root4, options2, (error, entries) => {
             if (error === null) {
-              resolve6(entries);
+              resolve8(entries);
             } else {
               reject(error);
             }
@@ -34436,10 +34462,10 @@ var init_dep_C6uTJdX2 = __esm({
       async static(patterns, options2) {
         const entries = [];
         const stream4 = this._readerStream.static(patterns, options2);
-        return new Promise((resolve6, reject) => {
+        return new Promise((resolve8, reject) => {
           stream4.once("error", reject);
           stream4.on("data", (entry2) => entries.push(entry2));
-          stream4.once("end", () => resolve6(entries));
+          stream4.once("end", () => resolve8(entries));
         });
       }
     };
@@ -35503,16 +35529,16 @@ var init_dep_C6uTJdX2 = __esm({
        * instance of the `source` anchor before this node.
        */
       resolve(doc) {
-        let found = void 0;
+        let found2 = void 0;
         visit$1(doc, {
           Node: (_key, node3) => {
             if (node3 === this)
               return visit$1.BREAK;
             if (node3.anchor === this.source)
-              found = node3;
+              found2 = node3;
           }
         });
-        return found;
+        return found2;
       }
       toJSON(_arg, ctx) {
         if (!ctx)
@@ -39812,9 +39838,9 @@ Error: ${err.message}`
       return new ReaddirpStream(options2);
     };
     readdirpPromise = (root4, options2 = {}) => {
-      return new Promise((resolve6, reject) => {
+      return new Promise((resolve8, reject) => {
         const files = [];
-        readdirp$1(root4, options2).on("data", (entry2) => files.push(entry2)).on("end", () => resolve6(files)).on("error", (error) => reject(error));
+        readdirp$1(root4, options2).on("data", (entry2) => files.push(entry2)).on("end", () => resolve8(files)).on("error", (error) => reject(error));
       });
     };
     readdirp$1.promise = readdirpPromise;
@@ -40569,13 +40595,13 @@ Error: ${err.message}`
           }
         }).on(EV_ERROR$2, this._boundHandleError);
         return new Promise(
-          (resolve6) => stream4.once(STR_END$2, () => {
+          (resolve8) => stream4.once(STR_END$2, () => {
             if (this.fsw.closed) {
               stream4 = void 0;
               return;
             }
             const wasThrottled = throttler ? throttler.clear() : false;
-            resolve6();
+            resolve8();
             previous.getChildren().filter((item) => {
               return item !== directory && !current.has(item) && // in case of intersecting globs;
               // a path may have been filtered out of this readdir, but
@@ -42173,14 +42199,14 @@ Error: ${err.message}`
       }
       const subprocess = childProcess.spawn(command, cliArguments, childProcessOptions);
       if (options2.wait) {
-        return new Promise((resolve6, reject) => {
+        return new Promise((resolve8, reject) => {
           subprocess.once("error", reject);
           subprocess.once("close", (exitCode) => {
             if (!options2.allowNonzeroExitCode && exitCode > 0) {
               reject(new Error(`Exited with code ${exitCode}`));
               return;
             }
-            resolve6(subprocess);
+            resolve8(subprocess);
           });
         });
       }
@@ -42280,28 +42306,28 @@ Error: ${err.message}`
       if (!opt)
         opt = {};
       const { pathEnv, pathExt, pathExtExe } = getPathInfo(cmd, opt);
-      const found = [];
-      const step = (i) => new Promise((resolve6, reject) => {
+      const found2 = [];
+      const step = (i) => new Promise((resolve8, reject) => {
         if (i === pathEnv.length)
-          return opt.all && found.length ? resolve6(found) : reject(getNotFoundError(cmd));
+          return opt.all && found2.length ? resolve8(found2) : reject(getNotFoundError(cmd));
         const ppRaw = pathEnv[i];
         const pathPart = /^".*"$/.test(ppRaw) ? ppRaw.slice(1, -1) : ppRaw;
         const pCmd = path$22.join(pathPart, cmd);
         const p = !pathPart && /^\.[\\\/]/.test(cmd) ? cmd.slice(0, 2) + pCmd : pCmd;
-        resolve6(subStep(p, i, 0));
+        resolve8(subStep(p, i, 0));
       });
-      const subStep = (p, i, ii) => new Promise((resolve6, reject) => {
+      const subStep = (p, i, ii) => new Promise((resolve8, reject) => {
         if (ii === pathExt.length)
-          return resolve6(step(i + 1));
+          return resolve8(step(i + 1));
         const ext2 = pathExt[ii];
         isexe(p + ext2, { pathExt: pathExtExe }, (er, is) => {
           if (!er && is) {
             if (opt.all)
-              found.push(p + ext2);
+              found2.push(p + ext2);
             else
-              return resolve6(p + ext2);
+              return resolve8(p + ext2);
           }
-          return resolve6(subStep(p, i, ii + 1));
+          return resolve8(subStep(p, i, ii + 1));
         });
       });
       return cb ? step(0).then((res) => cb(null, res), cb) : step(0);
@@ -42309,7 +42335,7 @@ Error: ${err.message}`
     whichSync = (cmd, opt) => {
       opt = opt || {};
       const { pathEnv, pathExt, pathExtExe } = getPathInfo(cmd, opt);
-      const found = [];
+      const found2 = [];
       for (let i = 0; i < pathEnv.length; i++) {
         const ppRaw = pathEnv[i];
         const pathPart = /^".*"$/.test(ppRaw) ? ppRaw.slice(1, -1) : ppRaw;
@@ -42321,7 +42347,7 @@ Error: ${err.message}`
             const is = isexe.sync(cur, { pathExt: pathExtExe });
             if (is) {
               if (opt.all)
-                found.push(cur);
+                found2.push(cur);
               else
                 return cur;
             }
@@ -42329,8 +42355,8 @@ Error: ${err.message}`
           }
         }
       }
-      if (opt.all && found.length)
-        return found;
+      if (opt.all && found2.length)
+        return found2;
       if (opt.nothrow)
         return null;
       throw getNotFoundError(cmd);
@@ -81741,22 +81767,22 @@ var require_set_array_umd = __commonJS({
           this.array = [];
         }
       }
-      function cast(set2) {
+      function cast2(set2) {
         return set2;
       }
       function get(setarr, key) {
-        return cast(setarr)._indexes[key];
+        return cast2(setarr)._indexes[key];
       }
       function put(setarr, key) {
         const index4 = get(setarr, key);
         if (index4 !== void 0)
           return index4;
-        const { array: array2, _indexes: indexes } = cast(setarr);
+        const { array: array2, _indexes: indexes } = cast2(setarr);
         const length = array2.push(key);
         return indexes[key] = length - 1;
       }
       function pop(setarr) {
-        const { array: array2, _indexes: indexes } = cast(setarr);
+        const { array: array2, _indexes: indexes } = cast2(setarr);
         if (array2.length === 0)
           return;
         const last = array2.pop();
@@ -81766,7 +81792,7 @@ var require_set_array_umd = __commonJS({
         const index4 = get(setarr, key);
         if (index4 === void 0)
           return;
-        const { array: array2, _indexes: indexes } = cast(setarr);
+        const { array: array2, _indexes: indexes } = cast2(setarr);
         for (let i = index4 + 1; i < array2.length; i++) {
           const k = array2[i];
           array2[i - 1] = k;
@@ -81792,23 +81818,23 @@ var require_sourcemap_codec_umd = __commonJS({
       typeof exports2 === "object" && typeof module !== "undefined" ? factory(exports2) : typeof define === "function" && define.amd ? define(["exports"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, factory(global2.sourcemapCodec = {}));
     })(exports2, function(exports3) {
       "use strict";
-      const comma4 = ",".charCodeAt(0);
-      const semicolon3 = ";".charCodeAt(0);
-      const chars3 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-      const intToChar3 = new Uint8Array(64);
-      const charToInt3 = new Uint8Array(128);
-      for (let i = 0; i < chars3.length; i++) {
-        const c = chars3.charCodeAt(i);
-        intToChar3[i] = c;
-        charToInt3[c] = i;
+      const comma5 = ",".charCodeAt(0);
+      const semicolon4 = ";".charCodeAt(0);
+      const chars4 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+      const intToChar4 = new Uint8Array(64);
+      const charToInt4 = new Uint8Array(128);
+      for (let i = 0; i < chars4.length; i++) {
+        const c = chars4.charCodeAt(i);
+        intToChar4[i] = c;
+        charToInt4[c] = i;
       }
-      function decodeInteger(reader2, relative2) {
+      function decodeInteger2(reader2, relative2) {
         let value2 = 0;
         let shift = 0;
         let integer = 0;
         do {
           const c = reader2.next();
-          integer = charToInt3[c];
+          integer = charToInt4[c];
           value2 |= (integer & 31) << shift;
           shift += 5;
         } while (integer & 32);
@@ -81827,16 +81853,16 @@ var require_sourcemap_codec_umd = __commonJS({
           delta >>>= 5;
           if (delta > 0)
             clamped |= 32;
-          builder.write(intToChar3[clamped]);
+          builder.write(intToChar4[clamped]);
         } while (delta > 0);
         return num;
       }
-      function hasMoreVlq(reader2, max) {
+      function hasMoreVlq2(reader2, max) {
         if (reader2.pos >= max)
           return false;
-        return reader2.peek() !== comma4;
+        return reader2.peek() !== comma5;
       }
-      const bufLength2 = 1024 * 16;
+      const bufLength3 = 1024 * 16;
       const td = typeof TextDecoder !== "undefined" ? /* @__PURE__ */ new TextDecoder() : typeof Buffer !== "undefined" ? {
         decode(buf) {
           const out = Buffer.from(buf.buffer, buf.byteOffset, buf.byteLength);
@@ -81855,12 +81881,12 @@ var require_sourcemap_codec_umd = __commonJS({
         constructor() {
           this.pos = 0;
           this.out = "";
-          this.buffer = new Uint8Array(bufLength2);
+          this.buffer = new Uint8Array(bufLength3);
         }
         write(v) {
           const { buffer } = this;
           buffer[this.pos++] = v;
-          if (this.pos === bufLength2) {
+          if (this.pos === bufLength3) {
             this.out += td.decode(buffer);
             this.pos = 0;
           }
@@ -81870,7 +81896,7 @@ var require_sourcemap_codec_umd = __commonJS({
           return pos > 0 ? out + td.decode(buffer.subarray(0, pos)) : out;
         }
       }
-      class StringReader {
+      class StringReader2 {
         constructor(buffer) {
           this.pos = 0;
           this.buffer = buffer;
@@ -81890,30 +81916,30 @@ var require_sourcemap_codec_umd = __commonJS({
       const EMPTY = [];
       function decodeOriginalScopes(input) {
         const { length } = input;
-        const reader2 = new StringReader(input);
+        const reader2 = new StringReader2(input);
         const scopes = [];
         const stack = [];
         let line = 0;
         for (; reader2.pos < length; reader2.pos++) {
-          line = decodeInteger(reader2, line);
-          const column = decodeInteger(reader2, 0);
-          if (!hasMoreVlq(reader2, length)) {
+          line = decodeInteger2(reader2, line);
+          const column = decodeInteger2(reader2, 0);
+          if (!hasMoreVlq2(reader2, length)) {
             const last = stack.pop();
             last[2] = line;
             last[3] = column;
             continue;
           }
-          const kind = decodeInteger(reader2, 0);
-          const fields = decodeInteger(reader2, 0);
+          const kind = decodeInteger2(reader2, 0);
+          const fields = decodeInteger2(reader2, 0);
           const hasName = fields & 1;
-          const scope = hasName ? [line, column, 0, 0, kind, decodeInteger(reader2, 0)] : [line, column, 0, 0, kind];
+          const scope = hasName ? [line, column, 0, 0, kind, decodeInteger2(reader2, 0)] : [line, column, 0, 0, kind];
           let vars = EMPTY;
-          if (hasMoreVlq(reader2, length)) {
+          if (hasMoreVlq2(reader2, length)) {
             vars = [];
             do {
-              const varsIndex = decodeInteger(reader2, 0);
+              const varsIndex = decodeInteger2(reader2, 0);
               vars.push(varsIndex);
-            } while (hasMoreVlq(reader2, length));
+            } while (hasMoreVlq2(reader2, length));
           }
           scope.vars = vars;
           scopes.push(scope);
@@ -81932,7 +81958,7 @@ var require_sourcemap_codec_umd = __commonJS({
         const scope = scopes[index4];
         const { 0: startLine, 1: startColumn, 2: endLine, 3: endColumn, 4: kind, vars } = scope;
         if (index4 > 0)
-          writer.write(comma4);
+          writer.write(comma5);
         state[0] = encodeInteger(writer, startLine, state[0]);
         encodeInteger(writer, startColumn, 0);
         encodeInteger(writer, kind, 0);
@@ -81951,14 +81977,14 @@ var require_sourcemap_codec_umd = __commonJS({
           }
           index4 = _encodeOriginalScopes(scopes, index4, writer, state);
         }
-        writer.write(comma4);
+        writer.write(comma5);
         state[0] = encodeInteger(writer, endLine, state[0]);
         encodeInteger(writer, endColumn, 0);
         return index4;
       }
       function decodeGeneratedRanges(input) {
         const { length } = input;
-        const reader2 = new StringReader(input);
+        const reader2 = new StringReader2(input);
         const ranges = [];
         const stack = [];
         let genLine = 0;
@@ -81973,14 +81999,14 @@ var require_sourcemap_codec_umd = __commonJS({
           const semi = reader2.indexOf(";");
           let genColumn = 0;
           for (; reader2.pos < semi; reader2.pos++) {
-            genColumn = decodeInteger(reader2, genColumn);
-            if (!hasMoreVlq(reader2, semi)) {
+            genColumn = decodeInteger2(reader2, genColumn);
+            if (!hasMoreVlq2(reader2, semi)) {
               const last = stack.pop();
               last[2] = genLine;
               last[3] = genColumn;
               continue;
             }
-            const fields = decodeInteger(reader2, 0);
+            const fields = decodeInteger2(reader2, 0);
             const hasDefinition = fields & 1;
             const hasCallsite = fields & 2;
             const hasScope = fields & 4;
@@ -81988,8 +82014,8 @@ var require_sourcemap_codec_umd = __commonJS({
             let bindings = EMPTY;
             let range2;
             if (hasDefinition) {
-              const defSourcesIndex = decodeInteger(reader2, definitionSourcesIndex);
-              definitionScopeIndex = decodeInteger(reader2, definitionSourcesIndex === defSourcesIndex ? definitionScopeIndex : 0);
+              const defSourcesIndex = decodeInteger2(reader2, definitionSourcesIndex);
+              definitionScopeIndex = decodeInteger2(reader2, definitionSourcesIndex === defSourcesIndex ? definitionScopeIndex : 0);
               definitionSourcesIndex = defSourcesIndex;
               range2 = [genLine, genColumn, 0, 0, defSourcesIndex, definitionScopeIndex];
             } else {
@@ -81999,34 +82025,34 @@ var require_sourcemap_codec_umd = __commonJS({
             if (hasCallsite) {
               const prevCsi = callsiteSourcesIndex;
               const prevLine = callsiteLine;
-              callsiteSourcesIndex = decodeInteger(reader2, callsiteSourcesIndex);
+              callsiteSourcesIndex = decodeInteger2(reader2, callsiteSourcesIndex);
               const sameSource = prevCsi === callsiteSourcesIndex;
-              callsiteLine = decodeInteger(reader2, sameSource ? callsiteLine : 0);
-              callsiteColumn = decodeInteger(reader2, sameSource && prevLine === callsiteLine ? callsiteColumn : 0);
+              callsiteLine = decodeInteger2(reader2, sameSource ? callsiteLine : 0);
+              callsiteColumn = decodeInteger2(reader2, sameSource && prevLine === callsiteLine ? callsiteColumn : 0);
               callsite = [callsiteSourcesIndex, callsiteLine, callsiteColumn];
             }
             range2.callsite = callsite;
-            if (hasMoreVlq(reader2, semi)) {
+            if (hasMoreVlq2(reader2, semi)) {
               bindings = [];
               do {
                 bindingLine = genLine;
                 bindingColumn = genColumn;
-                const expressionsCount = decodeInteger(reader2, 0);
+                const expressionsCount = decodeInteger2(reader2, 0);
                 let expressionRanges;
                 if (expressionsCount < -1) {
-                  expressionRanges = [[decodeInteger(reader2, 0)]];
+                  expressionRanges = [[decodeInteger2(reader2, 0)]];
                   for (let i = -1; i > expressionsCount; i--) {
                     const prevBl = bindingLine;
-                    bindingLine = decodeInteger(reader2, bindingLine);
-                    bindingColumn = decodeInteger(reader2, bindingLine === prevBl ? bindingColumn : 0);
-                    const expression = decodeInteger(reader2, 0);
+                    bindingLine = decodeInteger2(reader2, bindingLine);
+                    bindingColumn = decodeInteger2(reader2, bindingLine === prevBl ? bindingColumn : 0);
+                    const expression = decodeInteger2(reader2, 0);
                     expressionRanges.push([expression, bindingLine, bindingColumn]);
                   }
                 } else {
                   expressionRanges = [[expressionsCount]];
                 }
                 bindings.push(expressionRanges);
-              } while (hasMoreVlq(reader2, semi));
+              } while (hasMoreVlq2(reader2, semi));
             }
             range2.bindings = bindings;
             ranges.push(range2);
@@ -82054,7 +82080,7 @@ var require_sourcemap_codec_umd = __commonJS({
           state[0] = startLine;
           state[1] = 0;
         } else if (index4 > 0) {
-          writer.write(comma4);
+          writer.write(comma5);
         }
         state[1] = encodeInteger(writer, range2[1], state[1]);
         const fields = (range2.length === 6 ? 1 : 0) | (callsite ? 2 : 0) | (isScope ? 4 : 0);
@@ -82108,19 +82134,19 @@ var require_sourcemap_codec_umd = __commonJS({
           state[0] = endLine;
           state[1] = 0;
         } else {
-          writer.write(comma4);
+          writer.write(comma5);
         }
         state[1] = encodeInteger(writer, endColumn, state[1]);
         return index4;
       }
       function catchupLine(writer, lastLine, line) {
         do {
-          writer.write(semicolon3);
+          writer.write(semicolon4);
         } while (++lastLine < line);
       }
-      function decode(mappings) {
+      function decode2(mappings) {
         const { length } = mappings;
-        const reader2 = new StringReader(mappings);
+        const reader2 = new StringReader2(mappings);
         const decoded = [];
         let genColumn = 0;
         let sourcesIndex = 0;
@@ -82135,16 +82161,16 @@ var require_sourcemap_codec_umd = __commonJS({
           genColumn = 0;
           while (reader2.pos < semi) {
             let seg;
-            genColumn = decodeInteger(reader2, genColumn);
+            genColumn = decodeInteger2(reader2, genColumn);
             if (genColumn < lastCol)
               sorted = false;
             lastCol = genColumn;
-            if (hasMoreVlq(reader2, semi)) {
-              sourcesIndex = decodeInteger(reader2, sourcesIndex);
-              sourceLine = decodeInteger(reader2, sourceLine);
-              sourceColumn = decodeInteger(reader2, sourceColumn);
-              if (hasMoreVlq(reader2, semi)) {
-                namesIndex = decodeInteger(reader2, namesIndex);
+            if (hasMoreVlq2(reader2, semi)) {
+              sourcesIndex = decodeInteger2(reader2, sourcesIndex);
+              sourceLine = decodeInteger2(reader2, sourceLine);
+              sourceColumn = decodeInteger2(reader2, sourceColumn);
+              if (hasMoreVlq2(reader2, semi)) {
+                namesIndex = decodeInteger2(reader2, namesIndex);
                 seg = [genColumn, sourcesIndex, sourceLine, sourceColumn, namesIndex];
               } else {
                 seg = [genColumn, sourcesIndex, sourceLine, sourceColumn];
@@ -82156,19 +82182,19 @@ var require_sourcemap_codec_umd = __commonJS({
             reader2.pos++;
           }
           if (!sorted)
-            sort(line);
+            sort2(line);
           decoded.push(line);
           reader2.pos = semi + 1;
         } while (reader2.pos <= length);
         return decoded;
       }
-      function sort(line) {
-        line.sort(sortComparator);
+      function sort2(line) {
+        line.sort(sortComparator3);
       }
-      function sortComparator(a, b) {
+      function sortComparator3(a, b) {
         return a[0] - b[0];
       }
-      function encode(decoded) {
+      function encode2(decoded) {
         const writer = new StringWriter();
         let sourcesIndex = 0;
         let sourceLine = 0;
@@ -82177,14 +82203,14 @@ var require_sourcemap_codec_umd = __commonJS({
         for (let i = 0; i < decoded.length; i++) {
           const line = decoded[i];
           if (i > 0)
-            writer.write(semicolon3);
+            writer.write(semicolon4);
           if (line.length === 0)
             continue;
           let genColumn = 0;
           for (let j = 0; j < line.length; j++) {
             const segment = line[j];
             if (j > 0)
-              writer.write(comma4);
+              writer.write(comma5);
             genColumn = encodeInteger(writer, segment[0], genColumn);
             if (segment.length === 1)
               continue;
@@ -82198,13 +82224,668 @@ var require_sourcemap_codec_umd = __commonJS({
         }
         return writer.flush();
       }
-      exports3.decode = decode;
+      exports3.decode = decode2;
       exports3.decodeGeneratedRanges = decodeGeneratedRanges;
       exports3.decodeOriginalScopes = decodeOriginalScopes;
-      exports3.encode = encode;
+      exports3.encode = encode2;
       exports3.encodeGeneratedRanges = encodeGeneratedRanges;
       exports3.encodeOriginalScopes = encodeOriginalScopes;
       Object.defineProperty(exports3, "__esModule", { value: true });
+    });
+  }
+});
+
+// node_modules/@jridgewell/resolve-uri/dist/resolve-uri.umd.js
+var require_resolve_uri_umd = __commonJS({
+  "node_modules/@jridgewell/resolve-uri/dist/resolve-uri.umd.js"(exports2, module) {
+    (function(global2, factory) {
+      typeof exports2 === "object" && typeof module !== "undefined" ? module.exports = factory() : typeof define === "function" && define.amd ? define(factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, global2.resolveURI = factory());
+    })(exports2, function() {
+      "use strict";
+      const schemeRegex2 = /^[\w+.-]+:\/\//;
+      const urlRegex2 = /^([\w+.-]+:)\/\/([^@/#?]*@)?([^:/#?]*)(:\d+)?(\/[^#?]*)?(\?[^#]*)?(#.*)?/;
+      const fileRegex2 = /^file:(?:\/\/((?![a-z]:)[^/#?]*)?)?(\/?[^#?]*)(\?[^#]*)?(#.*)?/i;
+      function isAbsoluteUrl2(input) {
+        return schemeRegex2.test(input);
+      }
+      function isSchemeRelativeUrl2(input) {
+        return input.startsWith("//");
+      }
+      function isAbsolutePath2(input) {
+        return input.startsWith("/");
+      }
+      function isFileUrl2(input) {
+        return input.startsWith("file:");
+      }
+      function isRelative2(input) {
+        return /^[.?#]/.test(input);
+      }
+      function parseAbsoluteUrl2(input) {
+        const match2 = urlRegex2.exec(input);
+        return makeUrl2(match2[1], match2[2] || "", match2[3], match2[4] || "", match2[5] || "/", match2[6] || "", match2[7] || "");
+      }
+      function parseFileUrl2(input) {
+        const match2 = fileRegex2.exec(input);
+        const path9 = match2[2];
+        return makeUrl2("file:", "", match2[1] || "", "", isAbsolutePath2(path9) ? path9 : "/" + path9, match2[3] || "", match2[4] || "");
+      }
+      function makeUrl2(scheme, user, host, port, path9, query, hash3) {
+        return {
+          scheme,
+          user,
+          host,
+          port,
+          path: path9,
+          query,
+          hash: hash3,
+          type: 7
+        };
+      }
+      function parseUrl3(input) {
+        if (isSchemeRelativeUrl2(input)) {
+          const url3 = parseAbsoluteUrl2("http:" + input);
+          url3.scheme = "";
+          url3.type = 6;
+          return url3;
+        }
+        if (isAbsolutePath2(input)) {
+          const url3 = parseAbsoluteUrl2("http://foo.com" + input);
+          url3.scheme = "";
+          url3.host = "";
+          url3.type = 5;
+          return url3;
+        }
+        if (isFileUrl2(input))
+          return parseFileUrl2(input);
+        if (isAbsoluteUrl2(input))
+          return parseAbsoluteUrl2(input);
+        const url2 = parseAbsoluteUrl2("http://foo.com/" + input);
+        url2.scheme = "";
+        url2.host = "";
+        url2.type = input ? input.startsWith("?") ? 3 : input.startsWith("#") ? 2 : 4 : 1;
+        return url2;
+      }
+      function stripPathFilename2(path9) {
+        if (path9.endsWith("/.."))
+          return path9;
+        const index4 = path9.lastIndexOf("/");
+        return path9.slice(0, index4 + 1);
+      }
+      function mergePaths2(url2, base) {
+        normalizePath4(base, base.type);
+        if (url2.path === "/") {
+          url2.path = base.path;
+        } else {
+          url2.path = stripPathFilename2(base.path) + url2.path;
+        }
+      }
+      function normalizePath4(url2, type) {
+        const rel = type <= 4;
+        const pieces = url2.path.split("/");
+        let pointer = 1;
+        let positive = 0;
+        let addTrailingSlash = false;
+        for (let i = 1; i < pieces.length; i++) {
+          const piece = pieces[i];
+          if (!piece) {
+            addTrailingSlash = true;
+            continue;
+          }
+          addTrailingSlash = false;
+          if (piece === ".")
+            continue;
+          if (piece === "..") {
+            if (positive) {
+              addTrailingSlash = true;
+              positive--;
+              pointer--;
+            } else if (rel) {
+              pieces[pointer++] = piece;
+            }
+            continue;
+          }
+          pieces[pointer++] = piece;
+          positive++;
+        }
+        let path9 = "";
+        for (let i = 1; i < pointer; i++) {
+          path9 += "/" + pieces[i];
+        }
+        if (!path9 || addTrailingSlash && !path9.endsWith("/..")) {
+          path9 += "/";
+        }
+        url2.path = path9;
+      }
+      function resolve8(input, base) {
+        if (!input && !base)
+          return "";
+        const url2 = parseUrl3(input);
+        let inputType = url2.type;
+        if (base && inputType !== 7) {
+          const baseUrl = parseUrl3(base);
+          const baseType = baseUrl.type;
+          switch (inputType) {
+            case 1:
+              url2.hash = baseUrl.hash;
+            // fall through
+            case 2:
+              url2.query = baseUrl.query;
+            // fall through
+            case 3:
+            case 4:
+              mergePaths2(url2, baseUrl);
+            // fall through
+            case 5:
+              url2.user = baseUrl.user;
+              url2.host = baseUrl.host;
+              url2.port = baseUrl.port;
+            // fall through
+            case 6:
+              url2.scheme = baseUrl.scheme;
+          }
+          if (baseType > inputType)
+            inputType = baseType;
+        }
+        normalizePath4(url2, inputType);
+        const queryHash = url2.query + url2.hash;
+        switch (inputType) {
+          // This is impossible, because of the empty checks at the start of the function.
+          // case UrlType.Empty:
+          case 2:
+          case 3:
+            return queryHash;
+          case 4: {
+            const path9 = url2.path.slice(1);
+            if (!path9)
+              return queryHash || ".";
+            if (isRelative2(base || input) && !isRelative2(path9)) {
+              return "./" + path9 + queryHash;
+            }
+            return path9 + queryHash;
+          }
+          case 5:
+            return url2.path + queryHash;
+          default:
+            return url2.scheme + "//" + url2.user + url2.host + url2.port + url2.path + queryHash;
+        }
+      }
+      return resolve8;
+    });
+  }
+});
+
+// node_modules/@jridgewell/trace-mapping/dist/trace-mapping.umd.js
+var require_trace_mapping_umd = __commonJS({
+  "node_modules/@jridgewell/trace-mapping/dist/trace-mapping.umd.js"(exports2, module) {
+    (function(global2, factory) {
+      typeof exports2 === "object" && typeof module !== "undefined" ? factory(exports2, require_sourcemap_codec_umd(), require_resolve_uri_umd()) : typeof define === "function" && define.amd ? define(["exports", "@jridgewell/sourcemap-codec", "@jridgewell/resolve-uri"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, factory(global2.traceMapping = {}, global2.sourcemapCodec, global2.resolveURI));
+    })(exports2, function(exports3, sourcemapCodec, resolveUri) {
+      "use strict";
+      function resolve8(input, base) {
+        if (base && !base.endsWith("/"))
+          base += "/";
+        return resolveUri(input, base);
+      }
+      function stripFilename2(path9) {
+        if (!path9)
+          return "";
+        const index4 = path9.lastIndexOf("/");
+        return path9.slice(0, index4 + 1);
+      }
+      const COLUMN2 = 0;
+      const SOURCES_INDEX2 = 1;
+      const SOURCE_LINE2 = 2;
+      const SOURCE_COLUMN2 = 3;
+      const NAMES_INDEX2 = 4;
+      const REV_GENERATED_LINE = 1;
+      const REV_GENERATED_COLUMN = 2;
+      function maybeSort2(mappings, owned) {
+        const unsortedIndex = nextUnsortedSegmentLine2(mappings, 0);
+        if (unsortedIndex === mappings.length)
+          return mappings;
+        if (!owned)
+          mappings = mappings.slice();
+        for (let i = unsortedIndex; i < mappings.length; i = nextUnsortedSegmentLine2(mappings, i + 1)) {
+          mappings[i] = sortSegments2(mappings[i], owned);
+        }
+        return mappings;
+      }
+      function nextUnsortedSegmentLine2(mappings, start) {
+        for (let i = start; i < mappings.length; i++) {
+          if (!isSorted2(mappings[i]))
+            return i;
+        }
+        return mappings.length;
+      }
+      function isSorted2(line) {
+        for (let j = 1; j < line.length; j++) {
+          if (line[j][COLUMN2] < line[j - 1][COLUMN2]) {
+            return false;
+          }
+        }
+        return true;
+      }
+      function sortSegments2(line, owned) {
+        if (!owned)
+          line = line.slice();
+        return line.sort(sortComparator3);
+      }
+      function sortComparator3(a, b) {
+        return a[COLUMN2] - b[COLUMN2];
+      }
+      let found2 = false;
+      function binarySearch2(haystack, needle, low, high) {
+        while (low <= high) {
+          const mid = low + (high - low >> 1);
+          const cmp = haystack[mid][COLUMN2] - needle;
+          if (cmp === 0) {
+            found2 = true;
+            return mid;
+          }
+          if (cmp < 0) {
+            low = mid + 1;
+          } else {
+            high = mid - 1;
+          }
+        }
+        found2 = false;
+        return low - 1;
+      }
+      function upperBound2(haystack, needle, index4) {
+        for (let i = index4 + 1; i < haystack.length; index4 = i++) {
+          if (haystack[i][COLUMN2] !== needle)
+            break;
+        }
+        return index4;
+      }
+      function lowerBound2(haystack, needle, index4) {
+        for (let i = index4 - 1; i >= 0; index4 = i--) {
+          if (haystack[i][COLUMN2] !== needle)
+            break;
+        }
+        return index4;
+      }
+      function memoizedState2() {
+        return {
+          lastKey: -1,
+          lastNeedle: -1,
+          lastIndex: -1
+        };
+      }
+      function memoizedBinarySearch2(haystack, needle, state, key) {
+        const { lastKey, lastNeedle, lastIndex } = state;
+        let low = 0;
+        let high = haystack.length - 1;
+        if (key === lastKey) {
+          if (needle === lastNeedle) {
+            found2 = lastIndex !== -1 && haystack[lastIndex][COLUMN2] === needle;
+            return lastIndex;
+          }
+          if (needle >= lastNeedle) {
+            low = lastIndex === -1 ? 0 : lastIndex;
+          } else {
+            high = lastIndex;
+          }
+        }
+        state.lastKey = key;
+        state.lastNeedle = needle;
+        return state.lastIndex = binarySearch2(haystack, needle, low, high);
+      }
+      function buildBySources(decoded, memos) {
+        const sources = memos.map(buildNullArray);
+        for (let i = 0; i < decoded.length; i++) {
+          const line = decoded[i];
+          for (let j = 0; j < line.length; j++) {
+            const seg = line[j];
+            if (seg.length === 1)
+              continue;
+            const sourceIndex2 = seg[SOURCES_INDEX2];
+            const sourceLine = seg[SOURCE_LINE2];
+            const sourceColumn = seg[SOURCE_COLUMN2];
+            const originalSource = sources[sourceIndex2];
+            const originalLine = originalSource[sourceLine] || (originalSource[sourceLine] = []);
+            const memo = memos[sourceIndex2];
+            let index4 = upperBound2(originalLine, sourceColumn, memoizedBinarySearch2(originalLine, sourceColumn, memo, sourceLine));
+            memo.lastIndex = ++index4;
+            insert(originalLine, index4, [sourceColumn, i, seg[COLUMN2]]);
+          }
+        }
+        return sources;
+      }
+      function insert(array2, index4, value2) {
+        for (let i = array2.length; i > index4; i--) {
+          array2[i] = array2[i - 1];
+        }
+        array2[index4] = value2;
+      }
+      function buildNullArray() {
+        return { __proto__: null };
+      }
+      const AnyMap = function(map, mapUrl) {
+        const parsed = parse6(map);
+        if (!("sections" in parsed)) {
+          return new TraceMap2(parsed, mapUrl);
+        }
+        const mappings = [];
+        const sources = [];
+        const sourcesContent = [];
+        const names = [];
+        const ignoreList = [];
+        recurse(parsed, mapUrl, mappings, sources, sourcesContent, names, ignoreList, 0, 0, Infinity, Infinity);
+        const joined = {
+          version: 3,
+          file: parsed.file,
+          names,
+          sources,
+          sourcesContent,
+          mappings,
+          ignoreList
+        };
+        return presortedDecodedMap(joined);
+      };
+      function parse6(map) {
+        return typeof map === "string" ? JSON.parse(map) : map;
+      }
+      function recurse(input, mapUrl, mappings, sources, sourcesContent, names, ignoreList, lineOffset, columnOffset, stopLine, stopColumn) {
+        const { sections } = input;
+        for (let i = 0; i < sections.length; i++) {
+          const { map, offset } = sections[i];
+          let sl = stopLine;
+          let sc = stopColumn;
+          if (i + 1 < sections.length) {
+            const nextOffset = sections[i + 1].offset;
+            sl = Math.min(stopLine, lineOffset + nextOffset.line);
+            if (sl === stopLine) {
+              sc = Math.min(stopColumn, columnOffset + nextOffset.column);
+            } else if (sl < stopLine) {
+              sc = columnOffset + nextOffset.column;
+            }
+          }
+          addSection(map, mapUrl, mappings, sources, sourcesContent, names, ignoreList, lineOffset + offset.line, columnOffset + offset.column, sl, sc);
+        }
+      }
+      function addSection(input, mapUrl, mappings, sources, sourcesContent, names, ignoreList, lineOffset, columnOffset, stopLine, stopColumn) {
+        const parsed = parse6(input);
+        if ("sections" in parsed)
+          return recurse(...arguments);
+        const map = new TraceMap2(parsed, mapUrl);
+        const sourcesOffset = sources.length;
+        const namesOffset = names.length;
+        const decoded = decodedMappings2(map);
+        const { resolvedSources, sourcesContent: contents2, ignoreList: ignores } = map;
+        append2(sources, resolvedSources);
+        append2(names, map.names);
+        if (contents2)
+          append2(sourcesContent, contents2);
+        else
+          for (let i = 0; i < resolvedSources.length; i++)
+            sourcesContent.push(null);
+        if (ignores)
+          for (let i = 0; i < ignores.length; i++)
+            ignoreList.push(ignores[i] + sourcesOffset);
+        for (let i = 0; i < decoded.length; i++) {
+          const lineI = lineOffset + i;
+          if (lineI > stopLine)
+            return;
+          const out = getLine(mappings, lineI);
+          const cOffset = i === 0 ? columnOffset : 0;
+          const line = decoded[i];
+          for (let j = 0; j < line.length; j++) {
+            const seg = line[j];
+            const column = cOffset + seg[COLUMN2];
+            if (lineI === stopLine && column >= stopColumn)
+              return;
+            if (seg.length === 1) {
+              out.push([column]);
+              continue;
+            }
+            const sourcesIndex = sourcesOffset + seg[SOURCES_INDEX2];
+            const sourceLine = seg[SOURCE_LINE2];
+            const sourceColumn = seg[SOURCE_COLUMN2];
+            out.push(seg.length === 4 ? [column, sourcesIndex, sourceLine, sourceColumn] : [column, sourcesIndex, sourceLine, sourceColumn, namesOffset + seg[NAMES_INDEX2]]);
+          }
+        }
+      }
+      function append2(arr, other) {
+        for (let i = 0; i < other.length; i++)
+          arr.push(other[i]);
+      }
+      function getLine(arr, index4) {
+        for (let i = arr.length; i <= index4; i++)
+          arr[i] = [];
+        return arr[index4];
+      }
+      const LINE_GTR_ZERO2 = "`line` must be greater than 0 (lines start at line 1)";
+      const COL_GTR_EQ_ZERO2 = "`column` must be greater than or equal to 0 (columns start at column 0)";
+      const LEAST_UPPER_BOUND2 = -1;
+      const GREATEST_LOWER_BOUND2 = 1;
+      class TraceMap2 {
+        constructor(map, mapUrl) {
+          const isString3 = typeof map === "string";
+          if (!isString3 && map._decodedMemo)
+            return map;
+          const parsed = isString3 ? JSON.parse(map) : map;
+          const { version: version4, file, names, sourceRoot, sources, sourcesContent } = parsed;
+          this.version = version4;
+          this.file = file;
+          this.names = names || [];
+          this.sourceRoot = sourceRoot;
+          this.sources = sources;
+          this.sourcesContent = sourcesContent;
+          this.ignoreList = parsed.ignoreList || parsed.x_google_ignoreList || void 0;
+          const from = resolve8(sourceRoot || "", stripFilename2(mapUrl));
+          this.resolvedSources = sources.map((s) => resolve8(s || "", from));
+          const { mappings } = parsed;
+          if (typeof mappings === "string") {
+            this._encoded = mappings;
+            this._decoded = void 0;
+          } else {
+            this._encoded = void 0;
+            this._decoded = maybeSort2(mappings, isString3);
+          }
+          this._decodedMemo = memoizedState2();
+          this._bySources = void 0;
+          this._bySourceMemos = void 0;
+        }
+      }
+      function cast2(map) {
+        return map;
+      }
+      function encodedMappings(map) {
+        var _a;
+        var _b;
+        return (_a = (_b = cast2(map))._encoded) !== null && _a !== void 0 ? _a : _b._encoded = sourcemapCodec.encode(cast2(map)._decoded);
+      }
+      function decodedMappings2(map) {
+        var _a;
+        return (_a = cast2(map))._decoded || (_a._decoded = sourcemapCodec.decode(cast2(map)._encoded));
+      }
+      function traceSegment(map, line, column) {
+        const decoded = decodedMappings2(map);
+        if (line >= decoded.length)
+          return null;
+        const segments = decoded[line];
+        const index4 = traceSegmentInternal2(segments, cast2(map)._decodedMemo, line, column, GREATEST_LOWER_BOUND2);
+        return index4 === -1 ? null : segments[index4];
+      }
+      function originalPositionFor2(map, needle) {
+        let { line, column, bias } = needle;
+        line--;
+        if (line < 0)
+          throw new Error(LINE_GTR_ZERO2);
+        if (column < 0)
+          throw new Error(COL_GTR_EQ_ZERO2);
+        const decoded = decodedMappings2(map);
+        if (line >= decoded.length)
+          return OMapping2(null, null, null, null);
+        const segments = decoded[line];
+        const index4 = traceSegmentInternal2(segments, cast2(map)._decodedMemo, line, column, bias || GREATEST_LOWER_BOUND2);
+        if (index4 === -1)
+          return OMapping2(null, null, null, null);
+        const segment = segments[index4];
+        if (segment.length === 1)
+          return OMapping2(null, null, null, null);
+        const { names, resolvedSources } = map;
+        return OMapping2(resolvedSources[segment[SOURCES_INDEX2]], segment[SOURCE_LINE2] + 1, segment[SOURCE_COLUMN2], segment.length === 5 ? names[segment[NAMES_INDEX2]] : null);
+      }
+      function generatedPositionFor(map, needle) {
+        const { source, line, column, bias } = needle;
+        return generatedPosition(map, source, line, column, bias || GREATEST_LOWER_BOUND2, false);
+      }
+      function allGeneratedPositionsFor(map, needle) {
+        const { source, line, column, bias } = needle;
+        return generatedPosition(map, source, line, column, bias || LEAST_UPPER_BOUND2, true);
+      }
+      function eachMapping(map, cb) {
+        const decoded = decodedMappings2(map);
+        const { names, resolvedSources } = map;
+        for (let i = 0; i < decoded.length; i++) {
+          const line = decoded[i];
+          for (let j = 0; j < line.length; j++) {
+            const seg = line[j];
+            const generatedLine = i + 1;
+            const generatedColumn = seg[0];
+            let source = null;
+            let originalLine = null;
+            let originalColumn = null;
+            let name2 = null;
+            if (seg.length !== 1) {
+              source = resolvedSources[seg[1]];
+              originalLine = seg[2] + 1;
+              originalColumn = seg[3];
+            }
+            if (seg.length === 5)
+              name2 = names[seg[4]];
+            cb({
+              generatedLine,
+              generatedColumn,
+              source,
+              originalLine,
+              originalColumn,
+              name: name2
+            });
+          }
+        }
+      }
+      function sourceIndex(map, source) {
+        const { sources, resolvedSources } = map;
+        let index4 = sources.indexOf(source);
+        if (index4 === -1)
+          index4 = resolvedSources.indexOf(source);
+        return index4;
+      }
+      function sourceContentFor(map, source) {
+        const { sourcesContent } = map;
+        if (sourcesContent == null)
+          return null;
+        const index4 = sourceIndex(map, source);
+        return index4 === -1 ? null : sourcesContent[index4];
+      }
+      function isIgnored(map, source) {
+        const { ignoreList } = map;
+        if (ignoreList == null)
+          return false;
+        const index4 = sourceIndex(map, source);
+        return index4 === -1 ? false : ignoreList.includes(index4);
+      }
+      function presortedDecodedMap(map, mapUrl) {
+        const tracer = new TraceMap2(clone(map, []), mapUrl);
+        cast2(tracer)._decoded = map.mappings;
+        return tracer;
+      }
+      function decodedMap(map) {
+        return clone(map, decodedMappings2(map));
+      }
+      function encodedMap(map) {
+        return clone(map, encodedMappings(map));
+      }
+      function clone(map, mappings) {
+        return {
+          version: map.version,
+          file: map.file,
+          names: map.names,
+          sourceRoot: map.sourceRoot,
+          sources: map.sources,
+          sourcesContent: map.sourcesContent,
+          mappings,
+          ignoreList: map.ignoreList || map.x_google_ignoreList
+        };
+      }
+      function OMapping2(source, line, column, name2) {
+        return { source, line, column, name: name2 };
+      }
+      function GMapping(line, column) {
+        return { line, column };
+      }
+      function traceSegmentInternal2(segments, memo, line, column, bias) {
+        let index4 = memoizedBinarySearch2(segments, column, memo, line);
+        if (found2) {
+          index4 = (bias === LEAST_UPPER_BOUND2 ? upperBound2 : lowerBound2)(segments, column, index4);
+        } else if (bias === LEAST_UPPER_BOUND2)
+          index4++;
+        if (index4 === -1 || index4 === segments.length)
+          return -1;
+        return index4;
+      }
+      function sliceGeneratedPositions(segments, memo, line, column, bias) {
+        let min2 = traceSegmentInternal2(segments, memo, line, column, GREATEST_LOWER_BOUND2);
+        if (!found2 && bias === LEAST_UPPER_BOUND2)
+          min2++;
+        if (min2 === -1 || min2 === segments.length)
+          return [];
+        const matchedColumn = found2 ? column : segments[min2][COLUMN2];
+        if (!found2)
+          min2 = lowerBound2(segments, matchedColumn, min2);
+        const max = upperBound2(segments, matchedColumn, min2);
+        const result = [];
+        for (; min2 <= max; min2++) {
+          const segment = segments[min2];
+          result.push(GMapping(segment[REV_GENERATED_LINE] + 1, segment[REV_GENERATED_COLUMN]));
+        }
+        return result;
+      }
+      function generatedPosition(map, source, line, column, bias, all) {
+        var _a;
+        line--;
+        if (line < 0)
+          throw new Error(LINE_GTR_ZERO2);
+        if (column < 0)
+          throw new Error(COL_GTR_EQ_ZERO2);
+        const { sources, resolvedSources } = map;
+        let sourceIndex2 = sources.indexOf(source);
+        if (sourceIndex2 === -1)
+          sourceIndex2 = resolvedSources.indexOf(source);
+        if (sourceIndex2 === -1)
+          return all ? [] : GMapping(null, null);
+        const generated = (_a = cast2(map))._bySources || (_a._bySources = buildBySources(decodedMappings2(map), cast2(map)._bySourceMemos = sources.map(memoizedState2)));
+        const segments = generated[sourceIndex2][line];
+        if (segments == null)
+          return all ? [] : GMapping(null, null);
+        const memo = cast2(map)._bySourceMemos[sourceIndex2];
+        if (all)
+          return sliceGeneratedPositions(segments, memo, line, column, bias);
+        const index4 = traceSegmentInternal2(segments, memo, line, column, bias);
+        if (index4 === -1)
+          return GMapping(null, null);
+        const segment = segments[index4];
+        return GMapping(segment[REV_GENERATED_LINE] + 1, segment[REV_GENERATED_COLUMN]);
+      }
+      exports3.AnyMap = AnyMap;
+      exports3.GREATEST_LOWER_BOUND = GREATEST_LOWER_BOUND2;
+      exports3.LEAST_UPPER_BOUND = LEAST_UPPER_BOUND2;
+      exports3.TraceMap = TraceMap2;
+      exports3.allGeneratedPositionsFor = allGeneratedPositionsFor;
+      exports3.decodedMap = decodedMap;
+      exports3.decodedMappings = decodedMappings2;
+      exports3.eachMapping = eachMapping;
+      exports3.encodedMap = encodedMap;
+      exports3.encodedMappings = encodedMappings;
+      exports3.generatedPositionFor = generatedPositionFor;
+      exports3.isIgnored = isIgnored;
+      exports3.originalPositionFor = originalPositionFor2;
+      exports3.presortedDecodedMap = presortedDecodedMap;
+      exports3.sourceContentFor = sourceContentFor;
+      exports3.traceSegment = traceSegment;
     });
   }
 });
@@ -82213,14 +82894,14 @@ var require_sourcemap_codec_umd = __commonJS({
 var require_gen_mapping_umd = __commonJS({
   "node_modules/@jridgewell/gen-mapping/dist/gen-mapping.umd.js"(exports2, module) {
     (function(global2, factory) {
-      typeof exports2 === "object" && typeof module !== "undefined" ? factory(exports2, require_set_array_umd(), require_sourcemap_codec_umd(), __require("@jridgewell/trace-mapping")) : typeof define === "function" && define.amd ? define(["exports", "@jridgewell/set-array", "@jridgewell/sourcemap-codec", "@jridgewell/trace-mapping"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, factory(global2.genMapping = {}, global2.setArray, global2.sourcemapCodec, global2.traceMapping));
+      typeof exports2 === "object" && typeof module !== "undefined" ? factory(exports2, require_set_array_umd(), require_sourcemap_codec_umd(), require_trace_mapping_umd()) : typeof define === "function" && define.amd ? define(["exports", "@jridgewell/set-array", "@jridgewell/sourcemap-codec", "@jridgewell/trace-mapping"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, factory(global2.genMapping = {}, global2.setArray, global2.sourcemapCodec, global2.traceMapping));
     })(exports2, function(exports3, setArray, sourcemapCodec, traceMapping) {
       "use strict";
-      const COLUMN = 0;
-      const SOURCES_INDEX = 1;
-      const SOURCE_LINE = 2;
-      const SOURCE_COLUMN = 3;
-      const NAMES_INDEX = 4;
+      const COLUMN2 = 0;
+      const SOURCES_INDEX2 = 1;
+      const SOURCE_LINE2 = 2;
+      const SOURCE_COLUMN2 = 3;
+      const NAMES_INDEX2 = 4;
       const NO_NAME = -1;
       class GenMapping {
         constructor({ file, sourceRoot } = {}) {
@@ -82233,7 +82914,7 @@ var require_gen_mapping_umd = __commonJS({
           this._ignoreList = new setArray.SetArray();
         }
       }
-      function cast(map) {
+      function cast2(map) {
         return map;
       }
       function addSegment(map, genLine, genColumn, source, sourceLine, sourceColumn, name2, content) {
@@ -82249,12 +82930,12 @@ var require_gen_mapping_umd = __commonJS({
         return addMappingInternal(true, map, mapping);
       };
       function setSourceContent(map, source, content) {
-        const { _sources: sources, _sourcesContent: sourcesContent } = cast(map);
+        const { _sources: sources, _sourcesContent: sourcesContent } = cast2(map);
         const index4 = setArray.put(sources, source);
         sourcesContent[index4] = content;
       }
       function setIgnore(map, source, ignore = true) {
-        const { _sources: sources, _sourcesContent: sourcesContent, _ignoreList: ignoreList } = cast(map);
+        const { _sources: sources, _sourcesContent: sourcesContent, _ignoreList: ignoreList } = cast2(map);
         const index4 = setArray.put(sources, source);
         if (index4 === sourcesContent.length)
           sourcesContent[index4] = null;
@@ -82264,7 +82945,7 @@ var require_gen_mapping_umd = __commonJS({
           setArray.remove(ignoreList, index4);
       }
       function toDecodedMap(map) {
-        const { _mappings: mappings, _sources: sources, _sourcesContent: sourcesContent, _names: names, _ignoreList: ignoreList } = cast(map);
+        const { _mappings: mappings, _sources: sources, _sourcesContent: sourcesContent, _names: names, _ignoreList: ignoreList } = cast2(map);
         removeEmptyFinalLines(mappings);
         return {
           version: 3,
@@ -82284,30 +82965,30 @@ var require_gen_mapping_umd = __commonJS({
       function fromMap(input) {
         const map = new traceMapping.TraceMap(input);
         const gen = new GenMapping({ file: map.file, sourceRoot: map.sourceRoot });
-        putAll(cast(gen)._names, map.names);
-        putAll(cast(gen)._sources, map.sources);
-        cast(gen)._sourcesContent = map.sourcesContent || map.sources.map(() => null);
-        cast(gen)._mappings = traceMapping.decodedMappings(map);
+        putAll(cast2(gen)._names, map.names);
+        putAll(cast2(gen)._sources, map.sources);
+        cast2(gen)._sourcesContent = map.sourcesContent || map.sources.map(() => null);
+        cast2(gen)._mappings = traceMapping.decodedMappings(map);
         if (map.ignoreList)
-          putAll(cast(gen)._ignoreList, map.ignoreList);
+          putAll(cast2(gen)._ignoreList, map.ignoreList);
         return gen;
       }
       function allMappings(map) {
         const out = [];
-        const { _mappings: mappings, _sources: sources, _names: names } = cast(map);
+        const { _mappings: mappings, _sources: sources, _names: names } = cast2(map);
         for (let i = 0; i < mappings.length; i++) {
           const line = mappings[i];
           for (let j = 0; j < line.length; j++) {
             const seg = line[j];
-            const generated = { line: i + 1, column: seg[COLUMN] };
+            const generated = { line: i + 1, column: seg[COLUMN2] };
             let source = void 0;
             let original = void 0;
             let name2 = void 0;
             if (seg.length !== 1) {
-              source = sources.array[seg[SOURCES_INDEX]];
-              original = { line: seg[SOURCE_LINE] + 1, column: seg[SOURCE_COLUMN] };
+              source = sources.array[seg[SOURCES_INDEX2]];
+              original = { line: seg[SOURCE_LINE2] + 1, column: seg[SOURCE_COLUMN2] };
               if (seg.length === 5)
-                name2 = names.array[seg[NAMES_INDEX]];
+                name2 = names.array[seg[NAMES_INDEX2]];
             }
             out.push({ generated, source, original, name: name2 });
           }
@@ -82315,7 +82996,7 @@ var require_gen_mapping_umd = __commonJS({
         return out;
       }
       function addSegmentInternal(skipable, map, genLine, genColumn, source, sourceLine, sourceColumn, name2, content) {
-        const { _mappings: mappings, _sources: sources, _sourcesContent: sourcesContent, _names: names } = cast(map);
+        const { _mappings: mappings, _sources: sources, _sourcesContent: sourcesContent, _names: names } = cast2(map);
         const line = getLine(mappings, genLine);
         const index4 = getColumnIndex(line, genColumn);
         if (!source) {
@@ -82342,7 +83023,7 @@ var require_gen_mapping_umd = __commonJS({
         let index4 = line.length;
         for (let i = index4 - 1; i >= 0; index4 = i--) {
           const current = line[i];
-          if (genColumn >= current[COLUMN])
+          if (genColumn >= current[COLUMN2])
             break;
         }
         return index4;
@@ -82379,7 +83060,7 @@ var require_gen_mapping_umd = __commonJS({
         const prev = line[index4 - 1];
         if (prev.length === 1)
           return false;
-        return sourcesIndex === prev[SOURCES_INDEX] && sourceLine === prev[SOURCE_LINE] && sourceColumn === prev[SOURCE_COLUMN] && namesIndex === (prev.length === 5 ? prev[NAMES_INDEX] : NO_NAME);
+        return sourcesIndex === prev[SOURCES_INDEX2] && sourceLine === prev[SOURCE_LINE2] && sourceColumn === prev[SOURCE_COLUMN2] && namesIndex === (prev.length === 5 ? prev[NAMES_INDEX2] : NO_NAME);
       }
       function addMappingInternal(skipable, map, mapping) {
         const { generated, source, original, name: name2, content } = mapping;
@@ -82413,7 +83094,7 @@ var require_source_map2 = __commonJS({
     });
     exports2.default = void 0;
     var _genMapping = require_gen_mapping_umd();
-    var _traceMapping = __require("@jridgewell/trace-mapping");
+    var _traceMapping = require_trace_mapping_umd();
     var SourceMap = class {
       constructor(opts, code) {
         var _opts$sourceFileName;
@@ -90502,7 +91183,7 @@ var require_introspection = __commonJS({
     exports2.isStatic = isStatic;
     exports2.matchesPattern = matchesPattern;
     exports2.referencesImport = referencesImport;
-    exports2.resolve = resolve6;
+    exports2.resolve = resolve8;
     exports2.willIMaybeExecuteBefore = willIMaybeExecuteBefore;
     var _t = require_lib3();
     var {
@@ -90764,7 +91445,7 @@ var require_introspection = __commonJS({
       nodeMap.set(target.node, result);
       return result;
     }
-    function resolve6(dangerous, resolved) {
+    function resolve8(dangerous, resolved) {
       return _resolve.call(this, dangerous, resolved) || this;
     }
     function _resolve(dangerous, resolved) {
@@ -92570,8 +93251,8 @@ var require_semver = __commonJS({
     function rcompare(a, b, loose) {
       return compare2(b, a, loose);
     }
-    exports2.sort = sort;
-    function sort(list2, loose) {
+    exports2.sort = sort2;
+    function sort2(list2, loose) {
       return list2.sort(function(a, b) {
         return exports2.compareBuild(a, b, loose);
       });
@@ -95450,10 +96131,10 @@ var require_gensync = __commonJS({
             const items = Array.from(args[0]);
             return items.map((item) => evaluateSync(item));
           },
-          async: function(args, resolve6, reject) {
+          async: function(args, resolve8, reject) {
             const items = Array.from(args[0]);
             if (items.length === 0) {
-              Promise.resolve().then(() => resolve6([]));
+              Promise.resolve().then(() => resolve8([]));
               return;
             }
             let count = 0;
@@ -95464,7 +96145,7 @@ var require_gensync = __commonJS({
                 (val) => {
                   results[i] = val;
                   count += 1;
-                  if (count === results.length) resolve6(results);
+                  if (count === results.length) resolve8(results);
                 },
                 reject
               );
@@ -95481,13 +96162,13 @@ var require_gensync = __commonJS({
             }
             return evaluateSync(items[0]);
           },
-          async: function(args, resolve6, reject) {
+          async: function(args, resolve8, reject) {
             const items = Array.from(args[0]);
             if (items.length === 0) {
               throw makeError("Must race at least 1 item", GENSYNC_RACE_NONEMPTY);
             }
             for (const item of items) {
-              evaluateAsync(item, resolve6, reject);
+              evaluateAsync(item, resolve8, reject);
             }
           }
         })
@@ -95499,8 +96180,8 @@ var require_gensync = __commonJS({
           return evaluateSync(genFn.apply(this, args));
         },
         async: function(...args) {
-          return new Promise((resolve6, reject) => {
-            evaluateAsync(genFn.apply(this, args), resolve6, reject);
+          return new Promise((resolve8, reject) => {
+            evaluateAsync(genFn.apply(this, args), resolve8, reject);
           });
         },
         errback: function(...args) {
@@ -95598,16 +96279,16 @@ var require_gensync = __commonJS({
         sync: function(args) {
           return sync2.apply(this, args);
         },
-        async: function(args, resolve6, reject) {
+        async: function(args, resolve8, reject) {
           if (async2) {
-            async2.apply(this, args).then(resolve6, reject);
+            async2.apply(this, args).then(resolve8, reject);
           } else if (errback) {
             errback.call(this, ...args, (err, value2) => {
-              if (err == null) resolve6(value2);
+              if (err == null) resolve8(value2);
               else reject(err);
             });
           } else {
-            resolve6(sync2.apply(this, args));
+            resolve8(sync2.apply(this, args));
           }
         }
       });
@@ -95658,7 +96339,7 @@ var require_gensync = __commonJS({
       }
       return value2;
     }
-    function evaluateAsync(gen, resolve6, reject) {
+    function evaluateAsync(gen, resolve8, reject) {
       (function step() {
         try {
           let value2;
@@ -95679,7 +96360,7 @@ var require_gensync = __commonJS({
               return;
             }
           }
-          return resolve6(value2);
+          return resolve8(value2);
         } catch (err) {
           return reject(err);
         }
@@ -96143,8 +96824,8 @@ var require_caching = __commonJS({
         this.released = false;
         this.promise = void 0;
         this._resolve = void 0;
-        this.promise = new Promise((resolve6) => {
-          this._resolve = resolve6;
+        this.promise = new Promise((resolve8) => {
+          this._resolve = resolve8;
         });
       }
       release(value2) {
@@ -97702,9 +98383,9 @@ var require_functional = __commonJS({
               };
             }
           } else {
-            let resolve6, reject;
+            let resolve8, reject;
             resultP = new Promise((res, rej) => {
-              resolve6 = res;
+              resolve8 = res;
               reject = rej;
             });
             try {
@@ -97713,7 +98394,7 @@ var require_functional = __commonJS({
                 value: yield* fn()
               };
               resultP = null;
-              if (promiseReferenced) resolve6(result.value);
+              if (promiseReferenced) resolve8(result.value);
             } catch (error) {
               result = {
                 ok: false,
@@ -98868,7 +99549,7 @@ var require_browserslist = __commonJS({
     function isSupported(flags, withPartial) {
       return typeof flags === "string" && (flags.indexOf("y") >= 0 || withPartial && flags.indexOf("a") >= 0);
     }
-    function resolve6(queries, context) {
+    function resolve8(queries, context) {
       return parse6(QUERIES, queries).reduce(function(result, node3, index4) {
         if (node3.not && index4 === 0) {
           throw new BrowserslistError(
@@ -98955,7 +99636,7 @@ var require_browserslist = __commonJS({
       }
       var cacheKey = JSON.stringify([queries, context]);
       if (cache2[cacheKey]) return cache2[cacheKey];
-      var result = uniq(resolve6(queries, context)).sort(function(name1, name2) {
+      var result = uniq(resolve8(queries, context)).sort(function(name1, name2) {
         name1 = name1.split(" ");
         name2 = name2.split(" ");
         if (name1[0] === name2[0]) {
@@ -99552,7 +100233,7 @@ var require_browserslist = __commonJS({
         matches: [],
         regexp: /^current\s+node$/i,
         select: function(context) {
-          return [env2.currentNode(resolve6, context)];
+          return [env2.currentNode(resolve8, context)];
         }
       },
       maintained_node: {
@@ -99565,7 +100246,7 @@ var require_browserslist = __commonJS({
           }).map(function(key) {
             return "node " + key.slice(1);
           });
-          return resolve6(queries, context);
+          return resolve8(queries, context);
         }
       },
       phantomjs_1_9: {
@@ -99623,14 +100304,14 @@ var require_browserslist = __commonJS({
         matches: ["config"],
         regexp: /^extends (.+)$/i,
         select: function(context, node3) {
-          return resolve6(env2.loadQueries(context, node3.config), context);
+          return resolve8(env2.loadQueries(context, node3.config), context);
         }
       },
       defaults: {
         matches: [],
         regexp: /^defaults$/i,
         select: function(context) {
-          return resolve6(browserslist.defaults, context);
+          return resolve8(browserslist.defaults, context);
         }
       },
       dead: {
@@ -99645,7 +100326,7 @@ var require_browserslist = __commonJS({
             "op_mob <= 12.1",
             "samsung 4"
           ];
-          return resolve6(dead, context);
+          return resolve8(dead, context);
         }
       },
       unknown: {
@@ -104977,7 +105658,7 @@ var require_normalize_file = __commonJS({
 var require_remapping_umd = __commonJS({
   "node_modules/@ampproject/remapping/dist/remapping.umd.js"(exports2, module) {
     (function(global2, factory) {
-      typeof exports2 === "object" && typeof module !== "undefined" ? module.exports = factory(__require("@jridgewell/trace-mapping"), require_gen_mapping_umd()) : typeof define === "function" && define.amd ? define(["@jridgewell/trace-mapping", "@jridgewell/gen-mapping"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, global2.remapping = factory(global2.traceMapping, global2.genMapping));
+      typeof exports2 === "object" && typeof module !== "undefined" ? module.exports = factory(require_trace_mapping_umd(), require_gen_mapping_umd()) : typeof define === "function" && define.amd ? define(["@jridgewell/trace-mapping", "@jridgewell/gen-mapping"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, global2.remapping = factory(global2.traceMapping, global2.genMapping));
     })(exports2, function(traceMapping, genMapping) {
       "use strict";
       const SOURCELESS_MAPPING = /* @__PURE__ */ SegmentObject("", -1, -1, "", null, false);
@@ -105124,10 +105805,10 @@ var require_merge_map = __commonJS({
     }
     function mergeSourceMap(inputMap, map, sourceFileName) {
       const source = sourceFileName.replace(/\\/g, "/");
-      let found = false;
+      let found2 = false;
       const result = _remapping()(rootless(map), (s, ctx) => {
-        if (s === source && !found) {
-          found = true;
+        if (s === source && !found2) {
+          found2 = true;
           ctx.source = "";
           return rootless(inputMap);
         }
@@ -105896,7 +106577,7 @@ var require_import_meta_resolve = __commonJS({
       value: true
     });
     exports2.moduleResolve = moduleResolve;
-    exports2.resolve = resolve6;
+    exports2.resolve = resolve8;
     function _assert() {
       const data = __require("assert");
       _assert = function() {
@@ -106939,7 +107620,7 @@ Default "index" lookups for the main are deprecated for ES modules.`, "Deprecati
         })
       };
     }
-    function resolve6(specifier, parent) {
+    function resolve8(specifier, parent) {
       if (!parent) {
         throw new Error("Please pass `parent`: `import-meta-resolve` cannot ponyfill that");
       }
@@ -107772,7 +108453,7 @@ function registerRoutes(app2) {
 // server/vite.ts
 import express from "express";
 import fs5 from "fs";
-import { dirname as dirname3, resolve as resolve5 } from "path";
+import { dirname as dirname3, resolve as resolve7 } from "path";
 import { fileURLToPath as fileURLToPath4 } from "url";
 
 // node_modules/vite/dist/node/index.js
@@ -108143,11 +108824,466 @@ function getReactCompilerRuntimeModule(plugin3) {
 }
 
 // vite.config.ts
-import { dirname as dirname2, resolve as resolve4 } from "path";
+import { dirname as dirname2, resolve as resolve6 } from "path";
 
 // node_modules/@replit/vite-plugin-runtime-error-modal/dist/index.mjs
 import { readFileSync as readFileSync3 } from "node:fs";
-import { originalPositionFor, TraceMap } from "@jridgewell/trace-mapping";
+
+// node_modules/@jridgewell/sourcemap-codec/dist/sourcemap-codec.mjs
+var comma4 = ",".charCodeAt(0);
+var semicolon3 = ";".charCodeAt(0);
+var chars3 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+var intToChar3 = new Uint8Array(64);
+var charToInt3 = new Uint8Array(128);
+for (let i = 0; i < chars3.length; i++) {
+  const c = chars3.charCodeAt(i);
+  intToChar3[i] = c;
+  charToInt3[c] = i;
+}
+function decodeInteger(reader2, relative2) {
+  let value2 = 0;
+  let shift = 0;
+  let integer = 0;
+  do {
+    const c = reader2.next();
+    integer = charToInt3[c];
+    value2 |= (integer & 31) << shift;
+    shift += 5;
+  } while (integer & 32);
+  const shouldNegate = value2 & 1;
+  value2 >>>= 1;
+  if (shouldNegate) {
+    value2 = -2147483648 | -value2;
+  }
+  return relative2 + value2;
+}
+function hasMoreVlq(reader2, max) {
+  if (reader2.pos >= max)
+    return false;
+  return reader2.peek() !== comma4;
+}
+var bufLength2 = 1024 * 16;
+var StringReader = class {
+  constructor(buffer) {
+    this.pos = 0;
+    this.buffer = buffer;
+  }
+  next() {
+    return this.buffer.charCodeAt(this.pos++);
+  }
+  peek() {
+    return this.buffer.charCodeAt(this.pos);
+  }
+  indexOf(char) {
+    const { buffer, pos } = this;
+    const idx = buffer.indexOf(char, pos);
+    return idx === -1 ? buffer.length : idx;
+  }
+};
+function decode(mappings) {
+  const { length } = mappings;
+  const reader2 = new StringReader(mappings);
+  const decoded = [];
+  let genColumn = 0;
+  let sourcesIndex = 0;
+  let sourceLine = 0;
+  let sourceColumn = 0;
+  let namesIndex = 0;
+  do {
+    const semi = reader2.indexOf(";");
+    const line = [];
+    let sorted = true;
+    let lastCol = 0;
+    genColumn = 0;
+    while (reader2.pos < semi) {
+      let seg;
+      genColumn = decodeInteger(reader2, genColumn);
+      if (genColumn < lastCol)
+        sorted = false;
+      lastCol = genColumn;
+      if (hasMoreVlq(reader2, semi)) {
+        sourcesIndex = decodeInteger(reader2, sourcesIndex);
+        sourceLine = decodeInteger(reader2, sourceLine);
+        sourceColumn = decodeInteger(reader2, sourceColumn);
+        if (hasMoreVlq(reader2, semi)) {
+          namesIndex = decodeInteger(reader2, namesIndex);
+          seg = [genColumn, sourcesIndex, sourceLine, sourceColumn, namesIndex];
+        } else {
+          seg = [genColumn, sourcesIndex, sourceLine, sourceColumn];
+        }
+      } else {
+        seg = [genColumn];
+      }
+      line.push(seg);
+      reader2.pos++;
+    }
+    if (!sorted)
+      sort(line);
+    decoded.push(line);
+    reader2.pos = semi + 1;
+  } while (reader2.pos <= length);
+  return decoded;
+}
+function sort(line) {
+  line.sort(sortComparator);
+}
+function sortComparator(a, b) {
+  return a[0] - b[0];
+}
+
+// node_modules/@jridgewell/resolve-uri/dist/resolve-uri.mjs
+var schemeRegex = /^[\w+.-]+:\/\//;
+var urlRegex = /^([\w+.-]+:)\/\/([^@/#?]*@)?([^:/#?]*)(:\d+)?(\/[^#?]*)?(\?[^#]*)?(#.*)?/;
+var fileRegex = /^file:(?:\/\/((?![a-z]:)[^/#?]*)?)?(\/?[^#?]*)(\?[^#]*)?(#.*)?/i;
+function isAbsoluteUrl(input) {
+  return schemeRegex.test(input);
+}
+function isSchemeRelativeUrl(input) {
+  return input.startsWith("//");
+}
+function isAbsolutePath(input) {
+  return input.startsWith("/");
+}
+function isFileUrl(input) {
+  return input.startsWith("file:");
+}
+function isRelative(input) {
+  return /^[.?#]/.test(input);
+}
+function parseAbsoluteUrl(input) {
+  const match2 = urlRegex.exec(input);
+  return makeUrl(match2[1], match2[2] || "", match2[3], match2[4] || "", match2[5] || "/", match2[6] || "", match2[7] || "");
+}
+function parseFileUrl(input) {
+  const match2 = fileRegex.exec(input);
+  const path9 = match2[2];
+  return makeUrl("file:", "", match2[1] || "", "", isAbsolutePath(path9) ? path9 : "/" + path9, match2[3] || "", match2[4] || "");
+}
+function makeUrl(scheme, user, host, port, path9, query, hash3) {
+  return {
+    scheme,
+    user,
+    host,
+    port,
+    path: path9,
+    query,
+    hash: hash3,
+    type: 7
+  };
+}
+function parseUrl2(input) {
+  if (isSchemeRelativeUrl(input)) {
+    const url3 = parseAbsoluteUrl("http:" + input);
+    url3.scheme = "";
+    url3.type = 6;
+    return url3;
+  }
+  if (isAbsolutePath(input)) {
+    const url3 = parseAbsoluteUrl("http://foo.com" + input);
+    url3.scheme = "";
+    url3.host = "";
+    url3.type = 5;
+    return url3;
+  }
+  if (isFileUrl(input))
+    return parseFileUrl(input);
+  if (isAbsoluteUrl(input))
+    return parseAbsoluteUrl(input);
+  const url2 = parseAbsoluteUrl("http://foo.com/" + input);
+  url2.scheme = "";
+  url2.host = "";
+  url2.type = input ? input.startsWith("?") ? 3 : input.startsWith("#") ? 2 : 4 : 1;
+  return url2;
+}
+function stripPathFilename(path9) {
+  if (path9.endsWith("/.."))
+    return path9;
+  const index4 = path9.lastIndexOf("/");
+  return path9.slice(0, index4 + 1);
+}
+function mergePaths(url2, base) {
+  normalizePath3(base, base.type);
+  if (url2.path === "/") {
+    url2.path = base.path;
+  } else {
+    url2.path = stripPathFilename(base.path) + url2.path;
+  }
+}
+function normalizePath3(url2, type) {
+  const rel = type <= 4;
+  const pieces = url2.path.split("/");
+  let pointer = 1;
+  let positive = 0;
+  let addTrailingSlash = false;
+  for (let i = 1; i < pieces.length; i++) {
+    const piece = pieces[i];
+    if (!piece) {
+      addTrailingSlash = true;
+      continue;
+    }
+    addTrailingSlash = false;
+    if (piece === ".")
+      continue;
+    if (piece === "..") {
+      if (positive) {
+        addTrailingSlash = true;
+        positive--;
+        pointer--;
+      } else if (rel) {
+        pieces[pointer++] = piece;
+      }
+      continue;
+    }
+    pieces[pointer++] = piece;
+    positive++;
+  }
+  let path9 = "";
+  for (let i = 1; i < pointer; i++) {
+    path9 += "/" + pieces[i];
+  }
+  if (!path9 || addTrailingSlash && !path9.endsWith("/..")) {
+    path9 += "/";
+  }
+  url2.path = path9;
+}
+function resolve4(input, base) {
+  if (!input && !base)
+    return "";
+  const url2 = parseUrl2(input);
+  let inputType = url2.type;
+  if (base && inputType !== 7) {
+    const baseUrl = parseUrl2(base);
+    const baseType = baseUrl.type;
+    switch (inputType) {
+      case 1:
+        url2.hash = baseUrl.hash;
+      // fall through
+      case 2:
+        url2.query = baseUrl.query;
+      // fall through
+      case 3:
+      case 4:
+        mergePaths(url2, baseUrl);
+      // fall through
+      case 5:
+        url2.user = baseUrl.user;
+        url2.host = baseUrl.host;
+        url2.port = baseUrl.port;
+      // fall through
+      case 6:
+        url2.scheme = baseUrl.scheme;
+    }
+    if (baseType > inputType)
+      inputType = baseType;
+  }
+  normalizePath3(url2, inputType);
+  const queryHash = url2.query + url2.hash;
+  switch (inputType) {
+    // This is impossible, because of the empty checks at the start of the function.
+    // case UrlType.Empty:
+    case 2:
+    case 3:
+      return queryHash;
+    case 4: {
+      const path9 = url2.path.slice(1);
+      if (!path9)
+        return queryHash || ".";
+      if (isRelative(base || input) && !isRelative(path9)) {
+        return "./" + path9 + queryHash;
+      }
+      return path9 + queryHash;
+    }
+    case 5:
+      return url2.path + queryHash;
+    default:
+      return url2.scheme + "//" + url2.user + url2.host + url2.port + url2.path + queryHash;
+  }
+}
+
+// node_modules/@jridgewell/trace-mapping/dist/trace-mapping.mjs
+function resolve5(input, base) {
+  if (base && !base.endsWith("/"))
+    base += "/";
+  return resolve4(input, base);
+}
+function stripFilename(path9) {
+  if (!path9)
+    return "";
+  const index4 = path9.lastIndexOf("/");
+  return path9.slice(0, index4 + 1);
+}
+var COLUMN = 0;
+var SOURCES_INDEX = 1;
+var SOURCE_LINE = 2;
+var SOURCE_COLUMN = 3;
+var NAMES_INDEX = 4;
+function maybeSort(mappings, owned) {
+  const unsortedIndex = nextUnsortedSegmentLine(mappings, 0);
+  if (unsortedIndex === mappings.length)
+    return mappings;
+  if (!owned)
+    mappings = mappings.slice();
+  for (let i = unsortedIndex; i < mappings.length; i = nextUnsortedSegmentLine(mappings, i + 1)) {
+    mappings[i] = sortSegments(mappings[i], owned);
+  }
+  return mappings;
+}
+function nextUnsortedSegmentLine(mappings, start) {
+  for (let i = start; i < mappings.length; i++) {
+    if (!isSorted(mappings[i]))
+      return i;
+  }
+  return mappings.length;
+}
+function isSorted(line) {
+  for (let j = 1; j < line.length; j++) {
+    if (line[j][COLUMN] < line[j - 1][COLUMN]) {
+      return false;
+    }
+  }
+  return true;
+}
+function sortSegments(line, owned) {
+  if (!owned)
+    line = line.slice();
+  return line.sort(sortComparator2);
+}
+function sortComparator2(a, b) {
+  return a[COLUMN] - b[COLUMN];
+}
+var found = false;
+function binarySearch(haystack, needle, low, high) {
+  while (low <= high) {
+    const mid = low + (high - low >> 1);
+    const cmp = haystack[mid][COLUMN] - needle;
+    if (cmp === 0) {
+      found = true;
+      return mid;
+    }
+    if (cmp < 0) {
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+  found = false;
+  return low - 1;
+}
+function upperBound(haystack, needle, index4) {
+  for (let i = index4 + 1; i < haystack.length; index4 = i++) {
+    if (haystack[i][COLUMN] !== needle)
+      break;
+  }
+  return index4;
+}
+function lowerBound(haystack, needle, index4) {
+  for (let i = index4 - 1; i >= 0; index4 = i--) {
+    if (haystack[i][COLUMN] !== needle)
+      break;
+  }
+  return index4;
+}
+function memoizedState() {
+  return {
+    lastKey: -1,
+    lastNeedle: -1,
+    lastIndex: -1
+  };
+}
+function memoizedBinarySearch(haystack, needle, state, key) {
+  const { lastKey, lastNeedle, lastIndex } = state;
+  let low = 0;
+  let high = haystack.length - 1;
+  if (key === lastKey) {
+    if (needle === lastNeedle) {
+      found = lastIndex !== -1 && haystack[lastIndex][COLUMN] === needle;
+      return lastIndex;
+    }
+    if (needle >= lastNeedle) {
+      low = lastIndex === -1 ? 0 : lastIndex;
+    } else {
+      high = lastIndex;
+    }
+  }
+  state.lastKey = key;
+  state.lastNeedle = needle;
+  return state.lastIndex = binarySearch(haystack, needle, low, high);
+}
+var LINE_GTR_ZERO = "`line` must be greater than 0 (lines start at line 1)";
+var COL_GTR_EQ_ZERO = "`column` must be greater than or equal to 0 (columns start at column 0)";
+var LEAST_UPPER_BOUND = -1;
+var GREATEST_LOWER_BOUND = 1;
+var TraceMap = class {
+  constructor(map, mapUrl) {
+    const isString3 = typeof map === "string";
+    if (!isString3 && map._decodedMemo)
+      return map;
+    const parsed = isString3 ? JSON.parse(map) : map;
+    const { version: version4, file, names, sourceRoot, sources, sourcesContent } = parsed;
+    this.version = version4;
+    this.file = file;
+    this.names = names || [];
+    this.sourceRoot = sourceRoot;
+    this.sources = sources;
+    this.sourcesContent = sourcesContent;
+    this.ignoreList = parsed.ignoreList || parsed.x_google_ignoreList || void 0;
+    const from = resolve5(sourceRoot || "", stripFilename(mapUrl));
+    this.resolvedSources = sources.map((s) => resolve5(s || "", from));
+    const { mappings } = parsed;
+    if (typeof mappings === "string") {
+      this._encoded = mappings;
+      this._decoded = void 0;
+    } else {
+      this._encoded = void 0;
+      this._decoded = maybeSort(mappings, isString3);
+    }
+    this._decodedMemo = memoizedState();
+    this._bySources = void 0;
+    this._bySourceMemos = void 0;
+  }
+};
+function cast(map) {
+  return map;
+}
+function decodedMappings(map) {
+  var _a;
+  return (_a = cast(map))._decoded || (_a._decoded = decode(cast(map)._encoded));
+}
+function originalPositionFor(map, needle) {
+  let { line, column, bias } = needle;
+  line--;
+  if (line < 0)
+    throw new Error(LINE_GTR_ZERO);
+  if (column < 0)
+    throw new Error(COL_GTR_EQ_ZERO);
+  const decoded = decodedMappings(map);
+  if (line >= decoded.length)
+    return OMapping(null, null, null, null);
+  const segments = decoded[line];
+  const index4 = traceSegmentInternal(segments, cast(map)._decodedMemo, line, column, bias || GREATEST_LOWER_BOUND);
+  if (index4 === -1)
+    return OMapping(null, null, null, null);
+  const segment = segments[index4];
+  if (segment.length === 1)
+    return OMapping(null, null, null, null);
+  const { names, resolvedSources } = map;
+  return OMapping(resolvedSources[segment[SOURCES_INDEX]], segment[SOURCE_LINE] + 1, segment[SOURCE_COLUMN], segment.length === 5 ? names[segment[NAMES_INDEX]] : null);
+}
+function OMapping(source, line, column, name2) {
+  return { source, line, column, name: name2 };
+}
+function traceSegmentInternal(segments, memo, line, column, bias) {
+  let index4 = memoizedBinarySearch(segments, column, memo, line);
+  if (found) {
+    index4 = (bias === LEAST_UPPER_BOUND ? upperBound : lowerBound)(segments, column, index4);
+  } else if (bias === LEAST_UPPER_BOUND)
+    index4++;
+  if (index4 === -1 || index4 === segments.length)
+    return -1;
+  return index4;
+}
+
+// node_modules/@replit/vite-plugin-runtime-error-modal/dist/index.mjs
 var packageName = "runtime-error-plugin";
 function viteRuntimeErrorOverlayPlugin(options2) {
   return {
@@ -108353,14 +109489,14 @@ var vite_config_default = defineConfig({
   ],
   resolve: {
     alias: {
-      "@": resolve4(__dirname6, "client", "src"),
-      "@shared": resolve4(__dirname6, "shared"),
-      "@assets": resolve4(__dirname6, "attached_assets")
+      "@": resolve6(__dirname6, "client", "src"),
+      "@shared": resolve6(__dirname6, "shared"),
+      "@assets": resolve6(__dirname6, "attached_assets")
     }
   },
-  root: resolve4(__dirname6, "client"),
+  root: resolve6(__dirname6, "client"),
   build: {
-    outDir: resolve4(__dirname6, "dist"),
+    outDir: resolve6(__dirname6, "dist"),
     // CHANGED: from "dist/public" to "dist"
     emptyOutDir: true
   },
@@ -108373,7 +109509,6 @@ var vite_config_default = defineConfig({
 });
 
 // server/vite.ts
-import { nanoid } from "nanoid";
 var __filename7 = fileURLToPath4(import.meta.url);
 var __dirname7 = dirname3(__filename7);
 var viteLogger = createLogger();
@@ -108387,7 +109522,7 @@ function log(message, source = "express") {
   console.log(`${formattedTime} [${source}] ${message}`);
 }
 function serveStatic(app2) {
-  const distPath = resolve5(__dirname7, "..", "dist");
+  const distPath = resolve7(__dirname7, "..", "dist");
   if (!fs5.existsSync(distPath)) {
     throw new Error(
       `Could not find the build directory: ${distPath}, make sure to build the client first`
@@ -108395,7 +109530,7 @@ function serveStatic(app2) {
   }
   app2.use(express.static(distPath));
   app2.use("*", (_req, res) => {
-    res.sendFile(resolve5(distPath, "index.html"));
+    res.sendFile(resolve7(distPath, "index.html"));
   });
 }
 

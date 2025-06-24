@@ -4,13 +4,12 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-  "dev": "NODE_ENV=development tsx server/index.ts",
-  "build": "vite build && esbuild server/index.ts --platform=node --bundle --format=esm --outfile=server/index.js --external:express --external:zod --external:drizzle-orm --external:drizzle-zod --external:nanoid --external:react --external:react-dom --external:ws --external:passport --external:passport-local --external:connect-pg-simple --external:memorystore --external:@hookform/resolvers --external:@jridgewell/trace-mapping --external:@neondatabase/serverless --external:@radix-ui/react-accordion --external:@radix-ui/react-alert-dialog --external:@radix-ui/react-aspect-ratio --external:@radix-ui/react-avatar --external:@radix-ui/react-checkbox --external:@radix-ui/react-collapsible --external:@radix-ui/react-context-menu --external:@radix-ui/react-dialog --external:@radix-ui/react-dropdown-menu --external:@radix-ui/react-hover-card --external:@radix-ui/react-label --external:@radix-ui/react-menubar --external:@radix-ui/react-navigation-menu --external:@radix-ui/react-popover --external:@radix-ui/react-progress --external:@radix-ui/react-radio-group --external:@radix-ui/react-scroll-area --external:@radix-ui/react-select --external:@radix-ui/react-separator --external:@radix-ui/react-slider --external:@radix-ui/react-slot --external:@radix-ui/react-switch --external:@radix-ui/react-tabs --external:@radix-ui/react-toast --external:@radix-ui/react-toggle --external:@radix-ui/react-toggle-group --external:@radix-ui/react-tooltip --external:@tanstack/react-query --external:@vercel/node --external:@babel/preset-typescript/package.json --external:../pkg",
-  "start": "NODE_ENV=production node dist/index.js",
-  "check": "tsc",
-  "db:push": "drizzle-kit push"
-},
-
+    "dev": "NODE_ENV=development tsx server/index.ts",
+    "build": "vite build && esbuild server/index.ts --platform=node --bundle --format=esm --outfile=server/index.js --external:express --external:zod --external:drizzle-orm --external:drizzle-zod --external:@babel/preset-typescript/package.json --external:../pkg",
+    "start": "NODE_ENV=production node dist/index.js",
+    "check": "tsc",
+    "db:push": "drizzle-kit push"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@jridgewell/trace-mapping": "^0.3.25",
