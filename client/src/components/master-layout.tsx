@@ -1,10 +1,8 @@
-import { useState } from "react";
-import { Building, Sun, Shield, X } from "lucide-react";
+import { Building, Sun, Shield } from "lucide-react";
 import { useLanguage } from "../contexts/language-context";
 import layoutImage from "@assets/layout-full_1750707641457.png";
 
 export default function MasterLayout() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const { t } = useLanguage();
 
   return (
@@ -14,39 +12,15 @@ export default function MasterLayout() {
           {t('layout.title')} <span className="text-amber-500">{t('layout.highlight')}</span>
         </h2>
         
-        <div className="max-w-lg mx-auto" data-aos="zoom-in">
-          <div 
-            className="relative cursor-pointer"
-            onClick={() => setIsModalOpen(true)}
-          >
-            <img 
-              src={layoutImage} 
-              alt="Sankar Hill County Layout Plan - Plot distribution and township design" 
-              className="w-full rounded-2xl shadow-2xl -rotate-90"
-            />
-          </div>
-          
-          {/* Modal for expanded layout view */}
-          {isModalOpen && (
-            <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-              <div className="relative max-w-6xl max-h-[90vh] overflow-auto">
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-                <img 
-                  src={layoutImage} 
-                  alt="Sankar Hill County Layout Plan - Detailed View" 
-                  className="w-full rounded-2xl shadow-2xl -rotate-90"
-                />
-              </div>
-            </div>
-          )}
+        <div className="max-w-lg mx-auto mb-16" data-aos="zoom-in">
+          <img 
+            src={layoutImage} 
+            alt="Sankar Hill County Layout Plan - Plot distribution and township design" 
+            className="w-full rounded-2xl shadow-2xl"
+          />
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 mt-16 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="text-center p-6 dark-card-bg rounded-2xl premium-shadow" data-aos="fade-up" data-aos-delay="200">
             <div className="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-4">
               <Building className="w-8 h-8 text-white" />
