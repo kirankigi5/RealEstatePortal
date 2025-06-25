@@ -24,7 +24,14 @@ export default function Contact() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
-      const response = await apiRequest("POST", "/api/contact", data);
+      // Use latest deployed Google Apps Script Web App URL (GET method)
+      const url = new URL("https://script.google.com/macros/s/AKfycbwX5DmMZ7Hxq7zBR_f8ffYPhVxVIPRQtEIE9jw-j5W8uhxSza0vpeALnVHUvTnLiaRH/exec");
+      Object.entries(data).forEach(([key, value]) => {
+        url.searchParams.append(key, value);
+      });
+      const response = await fetch(url.toString(), {
+        method: "GET",
+      });
       return response.json();
     },
     onSuccess: (data) => {
@@ -41,6 +48,7 @@ export default function Contact() {
       });
     },
     onError: (error: any) => {
+      console.error("Contact form error:", error);
       toast({
         title: "Error",
         description: error.message || "Failed to send message. Please try again.",
