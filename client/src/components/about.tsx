@@ -14,17 +14,12 @@ export default function About() {
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div data-aos="fade-right">
-              <img 
-                src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-                alt="Modern gated community with landscaped gardens" 
-                className="rounded-2xl shadow-2xl w-full"
-              />
-            </div>
+            {/* Removed the image column */}
             
-            <div data-aos="fade-left">
+            <div className="md:col-span-2" data-aos="fade-left">
               <p className={`text-lg leading-relaxed mb-6 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700 dark:text-gray-300'}`}>
-                {t('about.description1')}
+                {/* Updated description: removed "open plots" */}
+                Sankar Hill County is a prestigious DTCP-approved gated community located in Ramalingeswara Nagar, NTR Colony, Vinukonda. Developed by Dwaraka Developers, the township features luxury apartments, landscaped parks, and a wide range of premium lifestyle amenities.
               </p>
               
               <p className={`text-lg leading-relaxed mb-8 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700 dark:text-gray-300'}`}>
