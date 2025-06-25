@@ -18,26 +18,41 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className={`relative min-h-screen flex items-center justify-center overflow-hidden ${theme === 'dark' ? 'dark-theme-bg' : 'bg-gradient-to-br from-blue-900 via-gray-900 to-gray-800'}`}>
-      
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20 md:pt-0" data-aos="fade-up" data-aos-duration="1000">
+    <section className="relative w-full h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="/drone_morning.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Overlay (optional, for better text readability) */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-10" />
+
+      {/* Hero Content */}
+      <div className="relative z-20 flex flex-col items-center justify-center text-center text-white px-4">
         <div className="flex justify-center items-center mb-4">
-          <span className="text-white font-semibold text-base md:text-lg">{t('hero.subtitle')}</span>
+          {/* <span className="text-white font-semibold text-base md:text-lg">{t('hero.subtitle')}</span> */}
         </div>
         
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-wide">
-          {t('hero.title')}
-        </h1>
-        
-        <div className="flex items-center justify-center space-x-4 mb-6">
-          <div className="h-px bg-white/50 w-16"></div>
-          <p className="text-xl md:text-3xl text-white font-light italic">
-            {t('hero.description')}
-          </p>
-          <div className="h-px bg-white/50 w-16"></div>
-        </div>
-        
-        <p className="text-lg md:text-xl text-white/95 mb-8 max-w-3xl mx-auto font-light leading-relaxed">
+        {/* <h1 className="text-4xl md:text-6xl font-bold mb-4">
+          Premium Luxury Living
+        </h1> */}
+        <h2 className="text-4xl md:text-6xl font-extrabold mb-2 text-amber drop-shadow-lg" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          Sankar Hill County
+        </h2>
+        <p className="text-lg md:text-2xl mb-2">
+          A Premium Gated Township
+        </p>
+        <p className="text-2xl md:text-3xl font-bold mb-6 text-amber-400">
+          by Dwaraka Developers
+        </p>
+        <p className="max-w-2xl mb-8">
           Experience luxury living in Vinukonda's most prestigious DTCP-approved gated community with world-class amenities and architectural excellence
         </p>
         

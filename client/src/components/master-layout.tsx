@@ -16,17 +16,14 @@ export default function MasterLayout() {
         
         <div className="max-w-lg mx-auto" data-aos="zoom-in">
           <div 
-            className="relative group cursor-pointer"
+            className="relative cursor-pointer"
             onClick={() => setIsModalOpen(true)}
           >
             <img 
               src={layoutImage} 
               alt="Sankar Hill County Layout Plan - Plot distribution and township design" 
-              className="w-full rounded-2xl shadow-2xl image-hover-effect"
+              className="w-full rounded-2xl shadow-2xl -rotate-90"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end justify-center pb-8">
-              <p className="text-white text-xl font-semibold">Click to view detailed layout plan</p>
-            </div>
           </div>
           
           {/* Modal for expanded layout view */}
@@ -42,7 +39,7 @@ export default function MasterLayout() {
                 <img 
                   src={layoutImage} 
                   alt="Sankar Hill County Layout Plan - Detailed View" 
-                  className="w-full rounded-2xl shadow-2xl"
+                  className="w-full rounded-2xl shadow-2xl -rotate-90"
                 />
               </div>
             </div>

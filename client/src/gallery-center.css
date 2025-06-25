@@ -1,0 +1,7 @@
+.gallery-slide-img {
+  filter: grayscale(1);
+  transition: filter 0.5s;
+}
+.slick-center .gallery-slide-img {
+  filter: grayscale(0);
+}

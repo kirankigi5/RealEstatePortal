@@ -21,9 +21,9 @@ export default function Home() {
       <Hero />
       <About />
       <Projects />
-      <MasterLayout />
       <Amenities />
       <Gallery />
+      <MasterLayout />
       <Contact />
       <Footer />
       <WhatsAppButton />

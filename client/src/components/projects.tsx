@@ -17,6 +17,7 @@ import anjaniFloorplan from "@assets/anjani-floorplan_1750707641455.png";
 import lakshmiFloorplan from "@assets/lakshmi-floorplan_1750707641457.png";
 import gokulamFloorplan from "@assets/gokulam-floorplan_1750707641456.png";
 import sankarFloorplan from "@assets/sankar-floorplan_1750707641457.png";
+import sripadaFloorplan from "@assets/sripada-floorplan.png";
 
 const projects = [
   {
@@ -64,8 +65,8 @@ const projects = [
     type: "3 BHK Premium Flats",
     description: "Add Luxury to your Life... Premium 3BHK flats with high-end specifications by Munukuru Infra.",
     image: sripadaImage,
-    floorplan: null, // No floorplan image provided for Sripada
-    area: "1820 Sq.ft", // Updated area
+    floorplan: sripadaFloorplan, // Added this line
+    area: "1820 Sq.ft",
     gradient: "from-green-600 to-amber-500",
     typeColor: "text-green-600"
   },
@@ -108,7 +109,7 @@ export default function Projects() {
                 <img 
                   src={project.image} 
                   alt={`${project.name} - ${project.type}`} 
-                  className="w-full h-56 object-cover image-hover-effect"
+                  className="w-full h-56 object-contain transition duration-500"
                 />
                 <div className="absolute top-4 right-4">
                   <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
@@ -161,7 +162,7 @@ export default function Projects() {
                         <img 
                           src={project.image} 
                           alt={`${project.name} exterior view`}
-                          className="w-full rounded-lg shadow-lg grayscale-hover"
+                          className="w-full rounded-lg shadow-lg object-contain"
                         />
                       </div>
                       
@@ -189,7 +190,7 @@ export default function Projects() {
                           <img 
                             src={project.floorplan} 
                             alt={`${project.name} floor plan`}
-                            className="w-full rounded-lg shadow-lg grayscale-hover"
+                            className="w-full rounded-lg shadow-lg object-contain"
                           />
                         </div>
                       )}
