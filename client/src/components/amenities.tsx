@@ -34,8 +34,22 @@ export default function Amenities() {
   const { t } = useLanguage();
 
   return (
-    <section id="amenities" className="py-20 bg-slate-800">
-      <div className="container mx-auto px-4">
+    <section id="amenities" className="py-20 bg-slate-800 relative overflow-hidden">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="/drone_park.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      {/* Optional overlay for readability */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-0" />
+
+      <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white" data-aos="fade-up">
           World-Class <span className="text-amber-500">Amenities</span>
         </h2>

@@ -5,3 +5,10 @@
 .slick-center .gallery-slide-img {
   filter: grayscale(0);
 }
+
+/* Only on mobile: make the active slide color */
+@media (max-width: 640px) {
+  .slick-slide.slick-active .gallery-slide-img {
+    filter: grayscale(0);
+  }
+}
