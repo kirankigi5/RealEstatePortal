@@ -88,7 +88,7 @@ export default function Gallery() {
                     data-aos="fade-up"
                 >
                     {t("gallery.title")}{" "}
-                    <span className="text-amber-500">
+                    <span className="text-blue-500">
                         {t("gallery.highlight")}
                     </span>
                 </h2>

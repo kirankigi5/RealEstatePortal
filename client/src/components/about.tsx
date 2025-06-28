@@ -10,7 +10,7 @@ export default function About() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className={`text-4xl md:text-5xl font-bold text-center mb-12 ${theme === 'dark' ? 'text-white' : 'text-gray-800 dark:text-white'}`} data-aos="fade-up">
-            {t('about.title')} <span className="text-amber-500">{t('about.highlight')}</span>
+            {t('about.title')} <span className="text-blue-500">{t('about.highlight')}</span>
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">

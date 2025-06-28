@@ -43,14 +43,15 @@ export default function Hero() {
         {/* <h1 className="text-4xl md:text-6xl font-bold mb-4">
           Premium Luxury Living
         </h1> */}
-        <h2 className="text-4xl md:text-6xl font-extrabold mb-2 text-amber drop-shadow-lg" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <h2 className="text-4xl md:text-6xl font-extrabold mb-2 text-white drop-shadow-lg" style={{ fontFamily: 'Montserrat, sans-serif' }}>
           Sankar Hill County
         </h2>
-        <p className="text-lg md:text-2xl mb-2">
+        <p className="text-lg md:text-2xl mb-2 text-white">
           A Premium Gated Township
         </p>
-        <p className="text-2xl md:text-3xl font-bold mb-6 text-amber-400">
-          by Dwaraka Developers
+        <p className="mb-6">
+          <span className="text-sm md:text-base text-gray-400">by</span> 
+          <span className="text-4xl md:text-5xl font-bold text-blue-400 bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent ml-2">Dwaraka Developers</span>
         </p>
         <p className="max-w-2xl mb-8">
           Experience luxury living in Vinukonda's most prestigious DTCP-approved gated community with world-class amenities and architectural excellence
@@ -59,7 +60,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
           <button 
             onClick={() => scrollToSection('contact')}
-            className="gold-gradient text-white px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all duration-300 premium-shadow flex items-center space-x-2"
+            className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all duration-300 premium-shadow flex items-center space-x-2"
           >
             <Award className="w-5 h-5" />
             <span>Get in Touch</span>

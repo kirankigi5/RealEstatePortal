@@ -23,7 +23,7 @@ export default function MasterLayout() {
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white" data-aos="fade-up">
-          {t('layout.title')} <span className="text-amber-500">{t('layout.highlight')}</span>
+          {t('layout.title')} <span className="text-blue-500">{t('layout.highlight')}</span>
         </h2>
         
         <div className="max-w-lg mx-auto mb-16" data-aos="zoom-in">
@@ -36,7 +36,7 @@ export default function MasterLayout() {
         
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="text-center p-6 dark-card-bg rounded-2xl premium-shadow" data-aos="fade-up" data-aos-delay="200">
-            <div className="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <Building className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold text-white mb-3">{t('layout.residential')}</h3>
@@ -46,7 +46,7 @@ export default function MasterLayout() {
           </div>
           
           <div className="text-center p-6 dark-card-bg rounded-2xl premium-shadow" data-aos="fade-up" data-aos-delay="300">
-            <div className="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <Sun className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold text-white mb-3">{t('layout.openSpaces')}</h3>
@@ -56,7 +56,7 @@ export default function MasterLayout() {
           </div>
           
           <div className="text-center p-6 dark-card-bg rounded-2xl premium-shadow" data-aos="fade-up" data-aos-delay="400">
-            <div className="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <Shield className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold text-white mb-3">{t('layout.security')}</h3>

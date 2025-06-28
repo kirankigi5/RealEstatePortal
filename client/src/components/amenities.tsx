@@ -51,7 +51,7 @@ export default function Amenities() {
 
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white" data-aos="fade-up">
-          World-Class <span className="text-amber-500">Amenities</span>
+          World-Class <span className="text-blue-500">Amenities</span>
         </h2>
         <p className="text-center text-gray-300 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
           Experience a lifestyle that combines comfort, convenience, and luxury with our comprehensive range of world-class amenities.
@@ -68,7 +68,7 @@ export default function Amenities() {
                 data-aos-delay={100 * (index + 1)}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-20 h-20 gold-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 premium-shadow">
+                <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 premium-shadow">
                   <IconComponent className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{t(`amenities.${amenity.key}`)}</h3>

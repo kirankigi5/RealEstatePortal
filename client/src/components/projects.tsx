@@ -47,8 +47,8 @@ const projects = [
     image: lakshmiImage,
     floorplan: lakshmiFloorplan,
     area: "1365 & 1883 Sq.ft",
-    gradient: "gold-gradient",
-    typeColor: "text-amber-500"
+    gradient: "bg-gradient-to-r from-blue-500 to-blue-600",
+    typeColor: "text-blue-500"
   },
   {
     name: "Gokulam",
@@ -67,7 +67,7 @@ const projects = [
     image: sripadaImage,
     floorplan: sripadaFloorplan, // Added this line
     area: "1820 Sq.ft",
-    gradient: "from-green-600 to-amber-500",
+    gradient: "from-green-600 to-blue-500",
     typeColor: "text-green-600"
   },
   {
@@ -77,8 +77,8 @@ const projects = [
     image: sankarImage,
     floorplan: sankarFloorplan,
     area: "2030 Sq.ft",
-    gradient: "gold-gradient",
-    typeColor: "text-amber-500"
+    gradient: "bg-gradient-to-r from-blue-500 to-blue-600",
+    typeColor: "text-blue-500"
   }
 ];
 
@@ -91,7 +91,7 @@ export default function Projects() {
     <section id="projects" className={`py-20 ${theme === 'dark' ? 'dark-theme-bg' : 'bg-gray-100 dark:bg-gray-900'}`}>
       <div className="container mx-auto px-4">
         <h2 className={`text-4xl md:text-5xl font-bold text-center mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-800 dark:text-white'}`} data-aos="fade-up">
-          {t('projects.title')} <span className="text-amber-500">{t('projects.highlight')}</span>
+          {t('projects.title')} <span className="text-blue-500">{t('projects.highlight')}</span>
         </h2>
         <p className="text-center text-gray-300 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
           Discover our range of thoughtfully designed residential spaces, each crafted to provide the perfect blend of comfort and luxury.
@@ -120,17 +120,17 @@ export default function Projects() {
               
               <div className="p-6">
                 <div className="flex items-center space-x-2 mb-3">
-                  <Award className="w-5 h-5 text-amber-500" />
+                  <Award className="w-5 h-5 text-blue-500" />
                   <h3 className="text-xl font-bold text-white">{project.name}</h3>
                 </div>
                 
                 <div className="flex items-center space-x-2 mb-2">
-                  <Home className="w-4 h-4 text-amber-400" />
-                  <p className="text-amber-400 font-semibold">{project.type}</p>
+                  <Home className="w-4 h-4 text-blue-400" />
+                  <p className="text-blue-400 font-semibold">{project.type}</p>
                 </div>
                 
                 <div className="flex items-center space-x-2 mb-4">
-                  <Ruler className="w-4 h-4 text-amber-300" />
+                  <Ruler className="w-4 h-4 text-blue-300" />
                   <p className="text-gray-400 text-sm">Area: {project.area}</p>
                 </div>
                 
@@ -139,7 +139,7 @@ export default function Projects() {
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button 
-                      className="w-full gold-gradient text-white py-4 rounded-xl font-bold hover:scale-105 transition-all duration-300 border-0 premium-shadow flex items-center justify-center space-x-2"
+                      className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 rounded-xl font-bold hover:scale-105 transition-all duration-300 border-0 premium-shadow flex items-center justify-center space-x-2"
                       onClick={() => setSelectedProject(project)}
                     >
                       <Eye className="w-5 h-5" />
@@ -196,7 +196,7 @@ export default function Projects() {
                       )}
                       
                       {/* Contact Information */}
-                      <div className="gold-gradient p-8 rounded-2xl text-white">
+                      <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-8 rounded-2xl text-white">
                         <div className="flex items-center space-x-3 mb-4">
                           <Award className="w-6 h-6" />
                           <h4 className="text-xl font-bold">Interested in this project?</h4>
@@ -205,7 +205,7 @@ export default function Projects() {
                         <div className="grid sm:grid-cols-2 gap-4">
                           <a 
                             href="tel:+919492684972" 
-                            className="bg-white text-amber-600 px-6 py-4 rounded-xl font-bold text-center hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 premium-shadow"
+                            className="bg-white text-blue-600 px-6 py-4 rounded-xl font-bold text-center hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 premium-shadow"
                           >
                             <Phone className="w-5 h-5" />
                             <span>Call: +91 9492684972</span>
