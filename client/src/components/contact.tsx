@@ -67,26 +67,26 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className={`py-20 ${theme === 'dark' ? 'dark-theme-bg' : 'bg-white dark:bg-gray-900'}`}>
+    <section id="contact" className="py-20 bg-slate-50 dark:bg-slate-900">
       <div className="container mx-auto px-4">
-        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-800 dark:text-white'}`} data-aos="fade-up">
-          {t('contact.title')} <span className="text-blue-500">{t('contact.highlight')}</span>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-slate-800 dark:text-white" data-aos="fade-up">
+          {t('contact.title')} <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">{t('contact.highlight')}</span>
         </h2>
-        <p className={`text-center mb-16 max-w-2xl mx-auto ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600 dark:text-gray-300'}`} data-aos="fade-up" data-aos-delay="100">
+        <p className="text-center mb-16 max-w-2xl mx-auto text-slate-600 dark:text-gray-300" data-aos="fade-up" data-aos-delay="100">
           {t('contact.description')}
         </p>
         
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
           <div className="space-y-8" data-aos="fade-right">
-            <div className="dark-card-bg rounded-2xl p-6 premium-shadow card-hover">
+            <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 premium-shadow card-hover">
               <div className="flex items-start space-x-4">
-                <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 premium-shadow">
+                <div className="w-14 h-14 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center flex-shrink-0 premium-shadow">
                   <MapPin className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2">Visit Us</h3>
-                  <p className="text-gray-300 leading-relaxed">
+                  <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">Visit Us</h3>
+                  <p className="leading-relaxed text-slate-600 dark:text-gray-300">
                     Ramalingeswara Nagar, Sankar Hill County,<br />
                     NTR Colony, Vinukonda - 522 647
                   </p>
@@ -94,18 +94,18 @@ export default function Contact() {
               </div>
             </div>
             
-            <div className="dark-card-bg rounded-2xl p-6 premium-shadow card-hover">
+            <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 premium-shadow card-hover">
               <div className="flex items-start space-x-4">
-                <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 premium-shadow">
+                <div className="w-14 h-14 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center flex-shrink-0 premium-shadow">
                   <Phone className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2">Call Us</h3>
+                  <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">Call Us</h3>
                   <div className="space-y-2">
-                    <a href="tel:+919492684972" className="block text-gray-300 hover:text-blue-400 font-medium transition-colors">
+                    <a href="tel:+919492684972" className="block font-medium transition-colors text-slate-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400">
                       +91 9492684972
                     </a>
-                    <a href="tel:+918919894236" className="block text-gray-300 hover:text-blue-400 font-medium transition-colors">
+                    <a href="tel:+918919894236" className="block font-medium transition-colors text-slate-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400">
                       +91 8919894236
                     </a>
                   </div>
@@ -113,30 +113,30 @@ export default function Contact() {
               </div>
             </div>
             
-            <div className="dark-card-bg rounded-2xl p-6 premium-shadow card-hover">
+            <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 premium-shadow card-hover">
               <div className="flex items-start space-x-4">
-                <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 premium-shadow">
+                <div className="w-14 h-14 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center flex-shrink-0 premium-shadow">
                   <Mail className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2">Email Us</h3>
-                  <a href="mailto:dwarakadevelopers6@gmail.com" className="text-gray-300 hover:text-blue-400 font-medium transition-colors">
+                  <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">Email Us</h3>
+                  <a href="mailto:dwarakadevelopers6@gmail.com" className="font-medium transition-colors text-slate-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400">
                     dwarakadevelopers6@gmail.com
                   </a>
                 </div>
               </div>
             </div>
             
-            <div className="dark-card-bg rounded-2xl p-6 premium-shadow card-hover">
+            <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 premium-shadow card-hover">
               <div className="flex items-start space-x-4">
-                <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 premium-shadow">
+                <div className="w-14 h-14 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center flex-shrink-0 premium-shadow">
                   <Clock className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2">Office Hours</h3>
-                  <p className="text-gray-300 leading-relaxed">
+                  <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">Office Hours</h3>
+                  <p className="leading-relaxed text-slate-600 dark:text-gray-300">
                     Monday - Sunday<br />
-                    <span className="font-semibold text-blue-400">9:00 AM - 7:00 PM</span>
+                    <span className="font-semibold text-amber-500">9:00 AM - 7:00 PM</span>
                   </p>
                 </div>
               </div>
@@ -160,7 +160,7 @@ export default function Contact() {
                   href="https://maps.app.goo.gl/DtNpzqRd1sos2Qud7"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-sky-500 hover:text-sky-600 font-medium"
+                  className="inline-flex items-center text-amber-600 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300 font-medium"
                 >
                   View on Google Maps →
                 </a>
@@ -169,17 +169,17 @@ export default function Contact() {
           </div>
           
           {/* Contact Form */}
-          <div className="dark-card-bg rounded-3xl p-8 premium-shadow" data-aos="fade-left">
+          <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 premium-shadow" data-aos="fade-left">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center">
                 <Mail className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-white">Send us a Message</h3>
+              <h3 className="text-2xl font-bold text-slate-800 dark:text-white">Send us a Message</h3>
             </div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-semibold mb-2 text-slate-700 dark:text-gray-300">
                     Full Name
                   </label>
                   <Input
@@ -193,7 +193,7 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-semibold mb-2 text-slate-700 dark:text-gray-300">
                     Phone Number
                   </label>
                   <Input
@@ -209,7 +209,7 @@ export default function Contact() {
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold mb-2 text-slate-700 dark:text-gray-300">
                   Email Address
                 </label>
                 <Input
@@ -224,7 +224,7 @@ export default function Contact() {
               </div>
               
               <div>
-                <label htmlFor="interest" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="interest" className="block text-sm font-semibold mb-2 text-slate-700 dark:text-gray-300">
                   Interested In
                 </label>
                 <Select value={formData.interest} onValueChange={(value) => handleInputChange('interest', value)}>
@@ -241,7 +241,7 @@ export default function Contact() {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold mb-2 text-slate-700 dark:text-gray-300">
                   Message
                 </label>
                 <Textarea
@@ -257,7 +257,7 @@ export default function Contact() {
               <Button
                 type="submit"
                 disabled={contactMutation.isPending}
-                className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-5 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300 premium-shadow border-0 flex items-center justify-center space-x-3"
+                className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white py-5 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300 premium-shadow border-0 flex items-center justify-center space-x-3"
               >
                 <Send className="w-5 h-5" />
                 <span>{contactMutation.isPending ? "Sending..." : "Send Message"}</span>

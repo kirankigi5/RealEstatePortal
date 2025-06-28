@@ -14,19 +14,19 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-16 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-emerald-900/20"></div>
+    <footer className="bg-slate-900 text-white py-16 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-800/50 to-amber-900/20"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center premium-shadow">
+              <div className="w-14 h-14 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center premium-shadow">
                 <img src="/favicon.ico" alt="Sankar Hill County" className="w-7 h-7" />
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-white">Sankar Hill County</h3>
-                <p className="text-gray-300 font-medium"><span className="text-xs text-gray-400">by</span> <span className="text-blue-400 font-bold text-lg">Dwaraka Developers</span></p>
+                <p className="text-gray-300 font-medium"><span className="text-xs text-gray-400">by</span> <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent font-bold text-lg">Dwaraka Developers</span></p>
               </div>
             </div>
             <p className="text-gray-300 mb-8 max-w-md leading-relaxed text-lg">
@@ -36,21 +36,21 @@ export default function Footer() {
             <div className="flex space-x-4">
               <a 
                 href="#" 
-                className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 premium-shadow"
+                className="w-12 h-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 premium-shadow"
                 aria-label="Follow us on Twitter"
               >
                 <Twitter className="w-6 h-6" />
               </a>
               <a 
                 href="#" 
-                className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 premium-shadow"
+                className="w-12 h-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 premium-shadow"
                 aria-label="Follow us on Facebook"
               >
                 <Facebook className="w-6 h-6" />
               </a>
               <a 
                 href="#" 
-                className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 premium-shadow"
+                className="w-12 h-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 premium-shadow"
                 aria-label="Follow us on Instagram"
               >
                 <Instagram className="w-6 h-6" />
@@ -65,7 +65,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => scrollToSection('projects')} 
-                  className="text-gray-300 hover:text-white transition-colors text-left"
+                  className="text-gray-300 hover:text-amber-400 transition-colors text-left"
                 >
                   Projects
                 </button>
@@ -73,7 +73,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => scrollToSection('amenities')} 
-                  className="text-gray-300 hover:text-white transition-colors text-left"
+                  className="text-gray-300 hover:text-amber-400 transition-colors text-left"
                 >
                   Amenities
                 </button>
@@ -81,7 +81,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => scrollToSection('gallery')} 
-                  className="text-gray-300 hover:text-white transition-colors text-left"
+                  className="text-gray-300 hover:text-amber-400 transition-colors text-left"
                 >
                   Gallery
                 </button>
@@ -89,7 +89,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => scrollToSection('contact')} 
-                  className="text-gray-300 hover:text-white transition-colors text-left"
+                  className="text-gray-300 hover:text-amber-400 transition-colors text-left"
                 >
                   Contact
                 </button>
@@ -100,28 +100,28 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h4 className="text-xl font-bold mb-6 flex items-center space-x-2">
-              <Mail className="w-5 h-5 text-blue-400" />
+              <Mail className="w-5 h-5 text-amber-400" />
               <span className="text-white">Contact Info</span>
             </h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
+                <MapPin className="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" />
                 <div className="text-gray-300 leading-relaxed">
                   NTR Colony, Vinukonda<br />
                   Andhra Pradesh - 522 647
                 </div>
               </div>
               <div className="space-y-2">
-                <a href="tel:+919492684972" className="flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-colors">
-                  <span className="w-5 h-5 text-blue-400">📞</span>
+                <a href="tel:+919492684972" className="flex items-center space-x-3 text-gray-300 hover:text-amber-400 transition-colors">
+                  <span className="w-5 h-5 text-amber-400">📞</span>
                   <span>+91 9492684972</span>
                 </a>
-                <a href="tel:+918919894236" className="flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-colors">
-                  <span className="w-5 h-5 text-blue-400">📞</span>
+                <a href="tel:+918919894236" className="flex items-center space-x-3 text-gray-300 hover:text-amber-400 transition-colors">
+                  <span className="w-5 h-5 text-amber-400">📞</span>
                   <span>+91 8919894236</span>
                 </a>
-                <a href="mailto:dwarakadevelopers6@gmail.com" className="flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-colors">
-                  <span className="w-5 h-5 text-blue-400">✉️</span>
+                <a href="mailto:dwarakadevelopers6@gmail.com" className="flex items-center space-x-3 text-gray-300 hover:text-amber-400 transition-colors">
+                  <span className="w-5 h-5 text-amber-400">✉️</span>
                   <span>dwarakadevelopers6@gmail.com</span>
                 </a>
               </div>
@@ -135,7 +135,7 @@ export default function Footer() {
               © 2025 Sankar Hill County. All rights reserved.
             </p>
             <p className="text-gray-400">
-              Developed with excellence by <span className="text-blue-400 font-bold text-lg bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">Dwaraka Developers</span>
+              Developed with excellence by <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent font-bold text-lg">Dwaraka Developers</span>
             </p>
           </div>
         </div>

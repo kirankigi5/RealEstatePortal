@@ -23,7 +23,7 @@ export default function MasterLayout() {
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white" data-aos="fade-up">
-          {t('layout.title')} <span className="text-blue-500">{t('layout.highlight')}</span>
+          {t('layout.title')} <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">{t('layout.highlight')}</span>
         </h2>
         
         <div className="max-w-lg mx-auto mb-16" data-aos="zoom-in">

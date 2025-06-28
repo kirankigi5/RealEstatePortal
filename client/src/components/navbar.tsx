@@ -34,19 +34,25 @@ export default function Navbar() {
   return (
     <nav 
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'dark-card-bg shadow-2xl' : 'dark-theme-bg shadow-xl'
+        isScrolled 
+          ? theme === 'dark' 
+            ? 'bg-slate-900/95 backdrop-blur-md shadow-2xl border-b border-slate-700' 
+            : 'bg-slate-800/95 backdrop-blur-md shadow-2xl border-b border-slate-600'
+          : theme === 'dark'
+            ? 'bg-slate-900/80 backdrop-blur-sm shadow-xl'
+            : 'bg-slate-800/80 backdrop-blur-sm shadow-xl'
       }`} 
       data-aos="fade-down"
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center premium-shadow">
+            <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full flex items-center justify-center premium-shadow">
               <img src="/favicon.ico" alt="Sankar Hill County" className="w-6 h-6" />
             </div>
             <div>
               <h1 className="text-xl font-bold text-white">Sankar Hill County</h1>
-              <p className="text-lg"><span className="text-xs text-gray-400">by</span> <span className="text-blue-400 font-bold bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">Dwaraka Developers</span></p>
+              <p className="text-lg"><span className="text-xs text-gray-400">by</span> <span className="text-amber-400 font-bold bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text text-transparent">Dwaraka Developers</span></p>
             </div>
           </div>
           
@@ -54,28 +60,28 @@ export default function Navbar() {
           <div className="hidden lg:flex space-x-8">
             <button 
               onClick={() => scrollToSection('projects')} 
-              className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 transition-all duration-300 font-semibold hover:scale-105"
+              className="flex items-center space-x-2 text-gray-300 hover:text-amber-400 transition-all duration-300 font-semibold hover:scale-105"
             >
               <Building2 className="w-4 h-4" />
               <span>{t('nav.projects')}</span>
             </button>
             <button 
               onClick={() => scrollToSection('amenities')} 
-              className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 transition-all duration-300 font-semibold hover:scale-105"
+              className="flex items-center space-x-2 text-gray-300 hover:text-amber-400 transition-all duration-300 font-semibold hover:scale-105"
             >
               <Home className="w-4 h-4" />
               <span>{t('nav.amenities')}</span>
             </button>
             <button 
               onClick={() => scrollToSection('gallery')} 
-              className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 transition-all duration-300 font-semibold hover:scale-105"
+              className="flex items-center space-x-2 text-gray-300 hover:text-amber-400 transition-all duration-300 font-semibold hover:scale-105"
             >
               <MapPin className="w-4 h-4" />
               <span>{t('nav.gallery')}</span>
             </button>
             <button 
               onClick={() => scrollToSection('contact')} 
-              className="flex items-center space-x-2 text-gray-300 hover:text-blue-400 transition-all duration-300 font-semibold hover:scale-105"
+              className="flex items-center space-x-2 text-gray-300 hover:text-amber-400 transition-all duration-300 font-semibold hover:scale-105"
             >
               <Phone className="w-4 h-4" />
               <span>{t('nav.contact')}</span>
@@ -86,7 +92,7 @@ export default function Navbar() {
             {/* Language Toggle Button */}
             <button
               onClick={toggleLanguage}
-              className="text-gray-300 hover:text-blue-400 transition-colors duration-300 p-2 rounded-lg hover:bg-white/10 flex items-center space-x-1"
+              className="text-gray-300 hover:text-amber-400 transition-colors duration-300 p-2 rounded-lg hover:bg-white/10 flex items-center space-x-1"
               aria-label="Toggle language"
             >
               <Languages size={18} className="md:hidden" />
@@ -97,7 +103,7 @@ export default function Navbar() {
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="text-gray-300 hover:text-blue-400 transition-colors duration-300 p-2 rounded-lg hover:bg-white/10"
+              className="text-gray-300 hover:text-amber-400 transition-colors duration-300 p-2 rounded-lg hover:bg-white/10"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? <Sun size={18} className="md:hidden" /> : <Moon size={18} className="md:hidden" />}
@@ -106,7 +112,7 @@ export default function Navbar() {
             
             {/* Mobile Menu Button */}
             <button 
-              className="lg:hidden text-gray-300 hover:text-blue-400 transition-colors duration-300"
+              className="lg:hidden text-gray-300 hover:text-amber-400 transition-colors duration-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

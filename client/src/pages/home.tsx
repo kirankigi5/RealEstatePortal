@@ -15,7 +15,7 @@ export default function Home() {
   const { theme } = useTheme();
   
   return (
-    <div className={`min-h-screen ${theme === 'dark' ? 'dark-theme-bg text-white' : 'light-theme-bg bg-white text-gray-900'}`}>
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
       <LanguageSelector />
       <Navbar />
       <Hero />

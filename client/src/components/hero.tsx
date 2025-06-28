@@ -51,7 +51,7 @@ export default function Hero() {
         </p>
         <p className="mb-6">
           <span className="text-sm md:text-base text-gray-400">by</span> 
-          <span className="text-4xl md:text-5xl font-bold text-blue-400 bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent ml-2">Dwaraka Developers</span>
+          <span className="text-4xl md:text-5xl font-bold text-amber-400 bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text text-transparent ml-2">Dwaraka Developers</span>
         </p>
         <p className="max-w-2xl mb-8">
           Experience luxury living in Vinukonda's most prestigious DTCP-approved gated community with world-class amenities and architectural excellence
@@ -60,7 +60,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
           <button 
             onClick={() => scrollToSection('contact')}
-            className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all duration-300 premium-shadow flex items-center space-x-2"
+            className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all duration-300 premium-shadow flex items-center space-x-2"
           >
             <Award className="w-5 h-5" />
             <span>Get in Touch</span>

@@ -72,28 +72,20 @@ export default function Gallery() {
     return (
         <section
             id="gallery"
-            className={`py-20 ${
-                theme === "dark"
-                    ? "dark-theme-bg"
-                    : "bg-gray-50 dark:bg-gray-900"
-            }`}
+            className="py-20 bg-gray-50 dark:bg-gray-900"
         >
             <div className="container mx-auto px-4">
                 <h2
-                    className={`text-4xl md:text-5xl font-bold text-center mb-4 ${
-                        theme === "dark"
-                            ? "text-white"
-                            : "text-gray-800 dark:text-white"
-                    }`}
+                    className="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800 dark:text-white"
                     data-aos="fade-up"
                 >
                     {t("gallery.title")}{" "}
-                    <span className="text-blue-500">
+                    <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
                         {t("gallery.highlight")}
                     </span>
                 </h2>
                 <p
-                    className="text-center text-gray-300 mb-16 max-w-2xl mx-auto"
+                    className="text-center text-gray-600 dark:text-gray-300 mb-16 max-w-2xl mx-auto"
                     data-aos="fade-up"
                     data-aos-delay="100"
                 >
